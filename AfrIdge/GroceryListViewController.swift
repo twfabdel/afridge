@@ -20,15 +20,14 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     //Change which list is being displayed
     @IBAction func changeListFilter(_ sender: UISegmentedControl) {
         index = ticker.selectedSegmentIndex
-        print(index)
         list.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(index == 0) {
-            return(checked.count)
+            return(unchecked.count)
         }
-        return(unchecked.count)
+        return(checked.count)
     }
  
     
@@ -36,9 +35,9 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
         
         if(index == 0) {
-            cell.textLabel?.text = checked[indexPath.row]
-        } else {
             cell.textLabel?.text = unchecked[indexPath.row]
+        } else {
+            cell.textLabel?.text = checked[indexPath.row]
         }
         return(cell)
     }
