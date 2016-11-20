@@ -13,6 +13,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
 
     @IBOutlet weak var list: UITableView!
     @IBOutlet weak var ticker: UISegmentedControl!
+    
     var unchecked: [String] = ["milk", "eggs", "yogurt", "cheese"]
     var checked: [String] = ["chicken", "lettuce", "tomatoes"]
     var index = 0
@@ -32,12 +33,16 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
  
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+        
+//        let cellIdentifier = "ListItemTableViewCell"
+//        let cell: ListItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ListItemTableViewCell
+   
+        let cell = Bundle.main.loadNibNamed("ListItemTableViewCell", owner: self, options: nil)?.first as! ListItemTableViewCell
         
         if(index == 0) {
-            cell.textLabel?.text = unchecked[indexPath.row]
+            cell.ListItemLabel.text = self.unchecked[indexPath.row]
         } else {
-            cell.textLabel?.text = checked[indexPath.row]
+            cell.ListItemLabel.text = self.checked[indexPath.row]
         }
         return(cell)
     }
