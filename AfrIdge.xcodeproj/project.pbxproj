@@ -66,10 +66,10 @@
 		B8A0B1C41DDF8C6E0054796E /* AfrIdge */ = {
 			isa = PBXGroup;
 			children = (
-				B8E8308C1DE134A200A56B30 /* ListItemTableViewCell.swift */,
-				B8E830901DE13C9500A56B30 /* GroceryListItem.swift */,
-				B8E8308D1DE134A200A56B30 /* ListItemTableViewCell.xib */,
 				B8A0B1C51DDF8C6E0054796E /* AppDelegate.swift */,
+				B8E8308C1DE134A200A56B30 /* ListItemTableViewCell.swift */,
+				B8E8308D1DE134A200A56B30 /* ListItemTableViewCell.xib */,
+				B8E830901DE13C9500A56B30 /* GroceryListItem.swift */,
 				B8A0B1C71DDF8C6E0054796E /* InventoryViewController.swift */,
 				B8A0B1C91DDF8C6E0054796E /* GroceryListViewController.swift */,
 				B8E830801DDFAF8700A56B30 /* RecipesViewController.swift */,
