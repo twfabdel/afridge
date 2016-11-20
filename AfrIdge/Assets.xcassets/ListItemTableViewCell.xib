@@ -15,22 +15,27 @@
             <rect key="frame" x="0.0" y="0.0" width="429" height="119"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="429" height="118.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="429" height="119"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXW-Xm-YfR">
-                        <rect key="frame" x="97" y="49" width="234" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXW-Xm-YfR">
+                        <rect key="frame" x="51" y="48" width="193" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYd-sP-JpK">
+                        <rect key="frame" x="252" y="48" width="100" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="lXW-Xm-YfR" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="fyP-HY-9CY"/>
-                    <constraint firstItem="lXW-Xm-YfR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="kTw-8D-ULS"/>
-                </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="ListItemAmount" destination="xYd-sP-JpK" id="Xms-zz-0U5"/>
                 <outlet property="ListItemLabel" destination="lXW-Xm-YfR" id="M4Z-yU-r8A"/>
             </connections>
             <point key="canvasLocation" x="189.5" y="131.5"/>

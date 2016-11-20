@@ -14,8 +14,8 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var list: UITableView!
     @IBOutlet weak var ticker: UISegmentedControl!
     
-    var unchecked: [String] = ["milk", "eggs", "yogurt", "cheese"]
-    var checked: [String] = ["chicken", "lettuce", "tomatoes"]
+    var unchecked = [GroceryListItem]()
+    var checked = [GroceryListItem]()
     var index = 0
     
     //Change which list is being displayed
@@ -33,26 +33,32 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
  
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-//        let cellIdentifier = "ListItemTableViewCell"
-//        let cell: ListItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ListItemTableViewCell
    
         let cell = Bundle.main.loadNibNamed("ListItemTableViewCell", owner: self, options: nil)?.first as! ListItemTableViewCell
         
-        if(index == 0) {
-            cell.ListItemLabel.text = self.unchecked[indexPath.row]
-        } else {
-            cell.ListItemLabel.text = self.checked[indexPath.row]
+        var tempList = self.unchecked
+        if(index == 1) {
+            tempList = self.checked
         }
+        cell.ListItemLabel.text = tempList[indexPath.row].food
+        cell.ListItemAmount.text = tempList[indexPath.row].amount
+
         return(cell)
     }
     
-    
+    func loadInitialCells() {
+        unchecked.append(GroceryListItem(food: "milk", amount: "1 gal", state: false)!)
+        unchecked.append(GroceryListItem(food: "eggs", amount: "12", state: false)!)
+        unchecked.append(GroceryListItem(food: "cheese", amount: "0.5 lbs", state: false)!)
+        unchecked.append(GroceryListItem(food: "yogurt", amount: "0.25 gal", state: false)!)
+        unchecked.append(GroceryListItem(food: "chicken", amount: "2.5 lbs", state: false)!)
+        checked.append(GroceryListItem(food: "tomatoes", amount: "5", state: true)!)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        loadInitialCells()
     }
 
     override func didReceiveMemoryWarning() {

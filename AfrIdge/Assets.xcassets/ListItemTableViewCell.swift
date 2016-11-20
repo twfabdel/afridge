@@ -10,4 +10,5 @@ import UIKit
 
 class ListItemTableViewCell: UITableViewCell {
     @IBOutlet weak var ListItemLabel: UILabel!
+    @IBOutlet weak var ListItemAmount: UILabel!
 }
