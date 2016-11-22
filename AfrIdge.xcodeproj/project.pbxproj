@@ -18,6 +18,9 @@
 		B8E8308E1DE134A200A56B30 /* ListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E8308C1DE134A200A56B30 /* ListItemTableViewCell.swift */; };
 		B8E8308F1DE134A200A56B30 /* ListItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E8308D1DE134A200A56B30 /* ListItemTableViewCell.xib */; };
 		B8E830911DE13C9500A56B30 /* GroceryListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E830901DE13C9500A56B30 /* GroceryListItem.swift */; };
+		B8E8309A1DE39A5D00A56B30 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E830981DE39A5D00A56B30 /* RecipeTableViewCell.swift */; };
+		B8E8309B1DE39A5D00A56B30 /* RecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E830991DE39A5D00A56B30 /* RecipeTableViewCell.xib */; };
+		B8E8309D1DE39D0300A56B30 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E8309C1DE39D0300A56B30 /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		B8E8308C1DE134A200A56B30 /* ListItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListItemTableViewCell.swift; path = Assets.xcassets/ListItemTableViewCell.swift; sourceTree = "<group>"; };
 		B8E8308D1DE134A200A56B30 /* ListItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListItemTableViewCell.xib; path = Assets.xcassets/ListItemTableViewCell.xib; sourceTree = "<group>"; };
 		B8E830901DE13C9500A56B30 /* GroceryListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListItem.swift; sourceTree = "<group>"; };
+		B8E830981DE39A5D00A56B30 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		B8E830991DE39A5D00A56B30 /* RecipeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeTableViewCell.xib; sourceTree = "<group>"; };
+		B8E8309C1DE39D0300A56B30 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,12 +73,15 @@
 			isa = PBXGroup;
 			children = (
 				B8A0B1C51DDF8C6E0054796E /* AppDelegate.swift */,
+				B8A0B1C71DDF8C6E0054796E /* InventoryViewController.swift */,
+				B8A0B1C91DDF8C6E0054796E /* GroceryListViewController.swift */,
 				B8E8308C1DE134A200A56B30 /* ListItemTableViewCell.swift */,
 				B8E8308D1DE134A200A56B30 /* ListItemTableViewCell.xib */,
 				B8E830901DE13C9500A56B30 /* GroceryListItem.swift */,
-				B8A0B1C71DDF8C6E0054796E /* InventoryViewController.swift */,
-				B8A0B1C91DDF8C6E0054796E /* GroceryListViewController.swift */,
 				B8E830801DDFAF8700A56B30 /* RecipesViewController.swift */,
+				B8E830981DE39A5D00A56B30 /* RecipeTableViewCell.swift */,
+				B8E830991DE39A5D00A56B30 /* RecipeTableViewCell.xib */,
+				B8E8309C1DE39D0300A56B30 /* Recipe.swift */,
 				B8E830821DDFF39E00A56B30 /* ProgressViewController.swift */,
 				B8A0B1CB1DDF8C6F0054796E /* Main.storyboard */,
 				B8A0B1CE1DDF8C6F0054796E /* Assets.xcassets */,
@@ -144,6 +153,7 @@
 				B8E8308F1DE134A200A56B30 /* ListItemTableViewCell.xib in Resources */,
 				B8A0B1D21DDF8C6F0054796E /* LaunchScreen.storyboard in Resources */,
 				B8A0B1CF1DDF8C6F0054796E /* Assets.xcassets in Resources */,
+				B8E8309B1DE39A5D00A56B30 /* RecipeTableViewCell.xib in Resources */,
 				B8A0B1CD1DDF8C6F0054796E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,7 +171,9 @@
 				B8A0B1CA1DDF8C6E0054796E /* GroceryListViewController.swift in Sources */,
 				B8E830911DE13C9500A56B30 /* GroceryListItem.swift in Sources */,
 				B8A0B1C61DDF8C6E0054796E /* AppDelegate.swift in Sources */,
+				B8E8309D1DE39D0300A56B30 /* Recipe.swift in Sources */,
 				B8A0B1C81DDF8C6E0054796E /* InventoryViewController.swift in Sources */,
+				B8E8309A1DE39A5D00A56B30 /* RecipeTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
