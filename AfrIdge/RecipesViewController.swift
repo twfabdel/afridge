@@ -13,7 +13,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var recipeList: UITableView!
     
-    var recipes = [String]();
+    var recipes = [Recipe]();
     var favorites = [String]();
     
     override func viewDidLoad() {
@@ -23,11 +23,11 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func initializeLists() {
-        recipes.append("Chicken Marsala")
-        recipes.append("Chicken Parm")
-        recipes.append("Southwestern Scramble")
-        recipes.append("Roasted Brussel Sprouts")
-        recipes.append("Tofu Sautee")
+        recipes.append(Recipe(name:"Chicken Marsala", rating: 4.5, favorite: false)!)
+        recipes.append(Recipe(name:"Chicken Parm", rating: 2.5, favorite: false)!)
+        recipes.append(Recipe(name:"Southwestern Scramble", rating: 3.0, favorite: false)!)
+        recipes.append(Recipe(name:"Roasted Brussel Sprouts", rating: 4.0, favorite: false)!)
+        recipes.append(Recipe(name:"Tofu Sautee", rating: 3.5, favorite: false)!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +49,8 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let recipeCell = Bundle.main.loadNibNamed("RecipeTableViewCell", owner: self, options: nil)?.first as! RecipeTableViewCell
         
-        recipeCell.recipeName.text = recipes[indexPath.row]
+        recipeCell.recipeName.text = recipes[indexPath.row].name
+        recipeCell.rating.text = String(recipes[indexPath.row].rating)
         
         return(recipeCell)
     }

@@ -11,6 +11,8 @@ import UIKit
 class RecipeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var recipeName: UILabel!
+    @IBOutlet weak var rating: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
