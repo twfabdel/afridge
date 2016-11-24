@@ -40,10 +40,13 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         
         var tempList = self.unchecked
         cell.isChecked = false
+        
         if(index == 1) {
             tempList = self.checked
             cell.isChecked = true
+            cell.checkbox.setImage(UIImage(named: "checkbox_t") as UIImage?, for: .normal)
         }
+        
         cell.ListItemLabel.text = tempList[indexPath.row].food
         cell.ListItemAmount.text = tempList[indexPath.row].amount
         
@@ -60,14 +63,12 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             print("was Checked")
             let listItem = checked[index]
             checked.remove(at: index)
-//            listItem.isChecked = !listItem.isChecked
             unchecked.append(listItem)
             
         } else {
             print("wasn't checked")
             let listItem = unchecked[index]
             unchecked.remove(at: index)
-//            listItem.isChecked = !listItem.isChecked
             checked.append(listItem)
         }
         list.reloadData()
