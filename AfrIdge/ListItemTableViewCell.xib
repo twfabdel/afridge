@@ -6,49 +6,54 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="119" id="KGk-i7-Jjw" customClass="ListItemTableViewCell" customModule="AfrIdge" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="429" height="119"/>
+            <rect key="frame" x="0.0" y="0.0" width="590" height="119"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="429" height="118"/>
+                <rect key="frame" x="0.0" y="0.0" width="590" height="118"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="7Jx-3K-1Xe">
-                        <rect key="frame" x="157" y="49" width="114" height="21"/>
+                        <rect key="frame" x="238" y="49.5" width="114" height="20.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXW-Xm-YfR">
-                                <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                                <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYd-sP-JpK">
-                                <rect key="frame" x="72" y="0.0" width="42" height="21"/>
+                                <rect key="frame" x="72" y="0.0" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tyg-Bs-iU6">
-                        <rect key="frame" x="8" y="44" width="46" height="30"/>
-                        <state key="normal" title="Button"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tyg-Bs-iU6">
+                        <rect key="frame" x="20" y="10" width="98.5" height="98.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Tyg-Bs-iU6" secondAttribute="height" multiplier="1:1" id="pnE-jA-0UH"/>
+                        </constraints>
+                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <state key="normal" title="Button" image="checkbox_f"/>
                         <connections>
                             <action selector="checkClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pdA-BM-VLe"/>
                         </connections>
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Tyg-Bs-iU6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="0Xy-ci-HOb"/>
                     <constraint firstItem="7Jx-3K-1Xe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="AEm-YG-wQA"/>
-                    <constraint firstAttribute="leadingMargin" secondItem="Tyg-Bs-iU6" secondAttribute="leading" id="Dot-nr-jaB"/>
                     <constraint firstItem="7Jx-3K-1Xe" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="LaB-sz-V9j"/>
-                    <constraint firstItem="Tyg-Bs-iU6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="aVr-Pq-f6v"/>
+                    <constraint firstItem="Tyg-Bs-iU6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="r1g-xQ-vV2"/>
+                    <constraint firstAttribute="bottom" secondItem="Tyg-Bs-iU6" secondAttribute="bottom" constant="10" id="xY8-w8-EG0"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -56,7 +61,10 @@
                 <outlet property="ListItemLabel" destination="lXW-Xm-YfR" id="M4Z-yU-r8A"/>
                 <outlet property="checkbox" destination="Tyg-Bs-iU6" id="vTP-jL-NHN"/>
             </connections>
-            <point key="canvasLocation" x="189.5" y="131.5"/>
+            <point key="canvasLocation" x="270" y="131.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="checkbox_f" width="150" height="150"/>
+    </resources>
 </document>

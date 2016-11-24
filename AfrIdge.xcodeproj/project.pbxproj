@@ -34,8 +34,8 @@
 		B8A0B1D31DDF8C6F0054796E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8E830801DDFAF8700A56B30 /* RecipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		B8E830821DDFF39E00A56B30 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
-		B8E8308C1DE134A200A56B30 /* ListItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListItemTableViewCell.swift; path = Assets.xcassets/ListItemTableViewCell.swift; sourceTree = "<group>"; };
-		B8E8308D1DE134A200A56B30 /* ListItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListItemTableViewCell.xib; path = Assets.xcassets/ListItemTableViewCell.xib; sourceTree = "<group>"; };
+		B8E8308C1DE134A200A56B30 /* ListItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListItemTableViewCell.swift; path = AfrIdge/ListItemTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		B8E8308D1DE134A200A56B30 /* ListItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListItemTableViewCell.xib; path = AfrIdge/ListItemTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		B8E830901DE13C9500A56B30 /* GroceryListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListItem.swift; sourceTree = "<group>"; };
 		B8E830981DE39A5D00A56B30 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		B8E830991DE39A5D00A56B30 /* RecipeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeTableViewCell.xib; sourceTree = "<group>"; };
