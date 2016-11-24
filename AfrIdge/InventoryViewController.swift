@@ -34,8 +34,11 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "inventoryCell", for: indexPath) as! InventoryCollectionViewCell
     
+        cell.itemImageView.image = UIImage(named: "spaghetti-pie")
+        cell.itemImageView.layer.cornerRadius = cell.itemImageView.frame.size.width / 2
+        cell.itemImageView.layer.masksToBounds = true
     
         return cell
     }

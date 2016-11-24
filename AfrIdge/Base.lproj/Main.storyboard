@@ -41,23 +41,32 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="OAt-i7-gzf">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="inventoryCell" id="OAt-i7-gzf" customClass="InventoryCollectionViewCell" customModule="AfrIdge" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eol-Rt-uGn">
-                                                            <rect key="frame" x="24" y="35" width="42" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ynL-zM-BMM">
+                                                            <rect key="frame" x="10" y="10" width="70" height="70"/>
+                                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </imageView>
                                                     </subviews>
                                                 </view>
-                                                <color key="backgroundColor" red="0.085386164489999999" green="0.48004096750000003" blue="0.9989228845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.13116450915382344" green="0.88963494059953052" blue="0.12723679090198109" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="ynL-zM-BMM" firstAttribute="centerX" secondItem="OAt-i7-gzf" secondAttribute="centerX" id="HGU-gr-tnV"/>
+                                                    <constraint firstItem="ynL-zM-BMM" firstAttribute="centerY" secondItem="OAt-i7-gzf" secondAttribute="centerY" id="Hmn-Ax-Wte"/>
+                                                    <constraint firstItem="ynL-zM-BMM" firstAttribute="leading" secondItem="OAt-i7-gzf" secondAttribute="leading" constant="10" id="euf-zb-eVo"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ynL-zM-BMM" secondAttribute="bottom" constant="10" id="sv7-pK-UDx"/>
+                                                    <constraint firstItem="ynL-zM-BMM" firstAttribute="top" secondItem="OAt-i7-gzf" secondAttribute="top" constant="10" id="tdV-tA-CLT"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ynL-zM-BMM" secondAttribute="trailing" constant="10" id="xvB-tD-Fjh"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="itemImageView" destination="ynL-zM-BMM" id="KGK-Pn-jUP"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
