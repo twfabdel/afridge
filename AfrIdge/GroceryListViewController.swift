@@ -46,6 +46,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             cell.isChecked = true
             cell.checkbox.setImage(UIImage(named: "checkbox_t") as UIImage?, for: .normal)
         }
+        
         cell.ListItemLabel.text = tempList[indexPath.row].food
         cell.ListItemAmount.text = tempList[indexPath.row].amount
         
