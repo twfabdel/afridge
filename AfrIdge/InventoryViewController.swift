@@ -65,7 +65,10 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
             //Empty searchbar, show everything
             self.filteredItems = self.items
         } else {
-            self.filteredItems = ["filtered", "filtered"]
+            //$0.lowercaseString.rangeOfString(str.lowercaseString) != nil
+            
+            self.filteredItems = self.items.filter({$0.lowercased().range(of: str!.lowercased()) != nil})
+            
         }
         collectionView.reloadData()
     }
