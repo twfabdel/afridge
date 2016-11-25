@@ -42,9 +42,13 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         cell.itemImageView.layer.masksToBounds = true
         
         cell.itemImageView.layer.borderWidth = cell.itemImageView.frame.size.width / 15
-        cell.itemImageView.layer.borderColor = UIColor.red.cgColor
+        cell.itemImageView.layer.borderColor = getBorderColor()
 
         return cell
+    }
+    
+    func getBorderColor() -> CGColor {
+        return UIColor.red.cgColor
     }
 
 
