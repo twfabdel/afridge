@@ -99,8 +99,15 @@
                                     <constraint firstItem="lGb-V1-iqW" firstAttribute="top" secondItem="On2-fA-3ZB" secondAttribute="bottom" constant="10" id="l0L-b7-urR"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMv-vc-mV6">
+                                <rect key="frame" x="0.0" y="-10" width="320" height="578"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="closePopup:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WuU-VO-qwx"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8w-ME-5qn">
-                                <rect key="frame" x="41" y="649" width="238" height="270"/>
+                                <rect key="frame" x="41" y="-451" width="238" height="270"/>
                                 <color key="backgroundColor" red="0.1311645092" green="0.88963494060000003" blue="0.12723679090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="270" id="AIy-zf-aLb"/>
@@ -112,8 +119,12 @@
                             <constraint firstItem="abg-1h-WCx" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="20" id="24w-VR-2OA"/>
                             <constraint firstItem="R8w-ME-5qn" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="25" id="4O0-aL-KgS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="R8w-ME-5qn" secondAttribute="trailing" constant="25" id="DYS-7h-TOt"/>
+                            <constraint firstItem="jMv-vc-mV6" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-16" id="PCt-3E-mDF"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="abg-1h-WCx" secondAttribute="bottom" id="Uo0-Lg-bTa"/>
-                            <constraint firstItem="R8w-ME-5qn" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" constant="500" id="eXW-6W-sKC"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="jMv-vc-mV6" secondAttribute="bottom" constant="-49" id="UxC-zd-X4w"/>
+                            <constraint firstItem="jMv-vc-mV6" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="-30" id="Yxg-he-Lf1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jMv-vc-mV6" secondAttribute="trailing" constant="-16" id="a8V-At-mOr"/>
+                            <constraint firstItem="R8w-ME-5qn" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" constant="-600" id="eXW-6W-sKC"/>
                             <constraint firstItem="R8w-ME-5qn" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="kat-pO-vZ7"/>
                             <constraint firstItem="abg-1h-WCx" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="10" id="nxk-pE-Y0K"/>
                             <constraint firstAttribute="trailingMargin" secondItem="abg-1h-WCx" secondAttribute="trailing" constant="10" id="uF2-3E-VBL"/>
@@ -121,6 +132,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Inventory" image="first" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="backgroundButton" destination="jMv-vc-mV6" id="PmG-yy-HJc"/>
                         <outlet property="collectionView" destination="lGb-V1-iqW" id="4bK-ok-s9N"/>
                         <outlet property="popUp" destination="R8w-ME-5qn" id="oyk-ba-vLD"/>
                         <outlet property="popUpPosition" destination="eXW-6W-sKC" id="5yy-4r-Nb4"/>
@@ -129,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="742.5" y="-880.9859154929577"/>
+            <point key="canvasLocation" x="744.375" y="-404.57746478873241"/>
         </scene>
         <!--Grocery List-->
         <scene sceneID="wg7-f3-ORb">

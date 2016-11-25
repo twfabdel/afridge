@@ -15,8 +15,10 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UITextField!
+    
     @IBOutlet weak var popUp: UIView!
     @IBOutlet weak var popUpPosition: NSLayoutConstraint!
+    @IBOutlet weak var backgroundButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,8 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         self.collectionView.dataSource = self
         items.sort()
         self.filteredItems = self.items
+        
+        self.popUp.layer.cornerRadius = 20
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,7 +84,12 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     func showPopup(cell: InventoryCollectionViewCell) {
         print(cell.name.text!)
         self.popUpPosition.constant = 0
+        self.backgroundButton.alpha = 0.5
     }
 
+    @IBAction func closePopup(_ sender: Any) {
+        self.popUpPosition.constant = -500
+        self.backgroundButton.alpha = 0
+    }
 }
 
