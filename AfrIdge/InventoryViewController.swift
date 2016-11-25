@@ -9,14 +9,20 @@
 import UIKit
 
 class InventoryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+    
+    var items = ["Cheese", "Yogurt", "Milk", "Chicken", "Apples", "Oranges", "Ketchup", "Mustard"]
+    var filteredItems: [String] = []
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        items.sort()
+        self.filteredItems = self.items
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +35,7 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return filteredItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -44,7 +50,7 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         cell.itemImageView.layer.borderWidth = cell.itemImageView.frame.size.width / 15
         cell.itemImageView.layer.borderColor = getBorderColor()
         
-        cell.name.text = String(indexPath.row)
+        cell.name.text = filteredItems[indexPath.row]
 
         return cell
     }
@@ -53,6 +59,16 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         return UIColor.red.cgColor
     }
 
+    @IBAction func filter(_ sender: Any) {
+        let str = self.searchBar.text
+        if (str?.characters.count ?? 0) == 0{
+            //Empty searchbar, show everything
+            self.filteredItems = self.items
+        } else {
+            self.filteredItems = ["filtered", "filtered"]
+        }
+        collectionView.reloadData()
+    }
 
 }
 
