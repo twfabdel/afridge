@@ -12,7 +12,9 @@ class InventoryCollectionViewCell: UICollectionViewCell {
 
     
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var itemImageView: UIImageView!
+    //@IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var itemImageButton: UIButton!
+    var delegate: InventoryViewController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +25,7 @@ class InventoryCollectionViewCell: UICollectionViewCell {
         super.draw(rect)
     }
 
+    @IBAction func foodClicked(_ sender: UIButton) {
+        self.delegate?.showPopup(cell: self)
+    }
 }

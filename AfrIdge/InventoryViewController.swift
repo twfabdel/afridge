@@ -15,6 +15,8 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UITextField!
+    @IBOutlet weak var popUp: UIView!
+    @IBOutlet weak var popUpPosition: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,14 +43,16 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "inventoryCell", for: indexPath) as! InventoryCollectionViewCell
-    
-        cell.itemImageView.image = UIImage(named: "spaghetti-pie")
-        cell.itemImageView.layer.cornerRadius = cell.itemImageView.frame.size.width / 2
-
-        cell.itemImageView.layer.masksToBounds = true
         
-        cell.itemImageView.layer.borderWidth = cell.itemImageView.frame.size.width / 15
-        cell.itemImageView.layer.borderColor = getBorderColor()
+        cell.delegate = self
+    
+        cell.itemImageButton.setImage(UIImage(named: "spaghetti-pie"), for: .normal)
+        cell.itemImageButton.layer.cornerRadius = cell.itemImageButton.frame.size.width / 2
+
+        cell.itemImageButton.layer.masksToBounds = true
+        
+        cell.itemImageButton.layer.borderWidth = cell.itemImageButton.frame.size.width / 15
+        cell.itemImageButton.layer.borderColor = getBorderColor()
         
         cell.name.text = filteredItems[indexPath.row]
 
@@ -71,6 +75,11 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
             
         }
         collectionView.reloadData()
+    }
+    
+    func showPopup(cell: InventoryCollectionViewCell) {
+        print(cell.name.text!)
+        self.popUpPosition.constant = 0
     }
 
 }

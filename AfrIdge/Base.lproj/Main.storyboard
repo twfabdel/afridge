@@ -55,33 +55,35 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="120"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ynL-zM-BMM">
-                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
-                                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="ynL-zM-BMM" secondAttribute="height" multiplier="1:1" id="M6R-B8-Rf2"/>
-                                                            </constraints>
-                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deo-43-qOa">
-                                                            <rect key="frame" x="0.0" y="95" width="90" height="25"/>
+                                                            <rect key="frame" x="0.0" y="99" width="90" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWw-DU-wXR">
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="hWw-DU-wXR" secondAttribute="height" multiplier="1:1" id="I6J-I7-dQr"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button" image="default"/>
+                                                            <connections>
+                                                                <action selector="foodClicked:" destination="OAt-i7-gzf" eventType="touchUpInside" id="UT2-Up-3Ox"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                 </view>
                                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="deo-43-qOa" secondAttribute="bottom" id="7xl-Op-svu"/>
-                                                    <constraint firstItem="ynL-zM-BMM" firstAttribute="leading" secondItem="OAt-i7-gzf" secondAttribute="leading" id="CCQ-JF-UPe"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ynL-zM-BMM" secondAttribute="trailing" id="EpI-0d-EUH"/>
-                                                    <constraint firstItem="deo-43-qOa" firstAttribute="top" secondItem="ynL-zM-BMM" secondAttribute="bottom" constant="5" id="cC1-JV-KmH"/>
-                                                    <constraint firstItem="ynL-zM-BMM" firstAttribute="top" secondItem="OAt-i7-gzf" secondAttribute="top" id="gUe-nN-aox"/>
+                                                    <constraint firstItem="hWw-DU-wXR" firstAttribute="top" secondItem="OAt-i7-gzf" secondAttribute="top" id="GUL-Ll-kU5"/>
+                                                    <constraint firstItem="hWw-DU-wXR" firstAttribute="leading" secondItem="OAt-i7-gzf" secondAttribute="leading" id="IkB-bh-v1L"/>
                                                     <constraint firstItem="deo-43-qOa" firstAttribute="leading" secondItem="OAt-i7-gzf" secondAttribute="leading" id="nKd-rj-aZ0"/>
                                                     <constraint firstAttribute="trailing" secondItem="deo-43-qOa" secondAttribute="trailing" id="pKy-5C-wQp"/>
+                                                    <constraint firstAttribute="trailing" secondItem="hWw-DU-wXR" secondAttribute="trailing" id="xF6-g6-Q6X"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="itemImageView" destination="ynL-zM-BMM" id="KGK-Pn-jUP"/>
+                                                    <outlet property="itemImageButton" destination="hWw-DU-wXR" id="aGc-zp-MMa"/>
                                                     <outlet property="name" destination="deo-43-qOa" id="Qj3-F5-p9t"/>
                                                 </connections>
                                             </collectionViewCell>
@@ -97,11 +99,22 @@
                                     <constraint firstItem="lGb-V1-iqW" firstAttribute="top" secondItem="On2-fA-3ZB" secondAttribute="bottom" constant="10" id="l0L-b7-urR"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8w-ME-5qn">
+                                <rect key="frame" x="41" y="649" width="238" height="270"/>
+                                <color key="backgroundColor" red="0.1311645092" green="0.88963494060000003" blue="0.12723679090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="AIy-zf-aLb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="abg-1h-WCx" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="20" id="24w-VR-2OA"/>
+                            <constraint firstItem="R8w-ME-5qn" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="25" id="4O0-aL-KgS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="R8w-ME-5qn" secondAttribute="trailing" constant="25" id="DYS-7h-TOt"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="abg-1h-WCx" secondAttribute="bottom" id="Uo0-Lg-bTa"/>
+                            <constraint firstItem="R8w-ME-5qn" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" constant="500" id="eXW-6W-sKC"/>
+                            <constraint firstItem="R8w-ME-5qn" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="kat-pO-vZ7"/>
                             <constraint firstItem="abg-1h-WCx" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="10" id="nxk-pE-Y0K"/>
                             <constraint firstAttribute="trailingMargin" secondItem="abg-1h-WCx" secondAttribute="trailing" constant="10" id="uF2-3E-VBL"/>
                         </constraints>
@@ -109,12 +122,14 @@
                     <tabBarItem key="tabBarItem" title="Inventory" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="collectionView" destination="lGb-V1-iqW" id="4bK-ok-s9N"/>
+                        <outlet property="popUp" destination="R8w-ME-5qn" id="oyk-ba-vLD"/>
+                        <outlet property="popUpPosition" destination="eXW-6W-sKC" id="5yy-4r-Nb4"/>
                         <outlet property="searchBar" destination="On2-fA-3ZB" id="WIB-ij-ogu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="742.5" y="-880.9859154929577"/>
         </scene>
         <!--Grocery List-->
         <scene sceneID="wg7-f3-ORb">
@@ -269,6 +284,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="default" width="256" height="256"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
