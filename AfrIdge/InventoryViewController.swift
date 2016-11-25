@@ -29,7 +29,7 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 7
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -43,6 +43,8 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         
         cell.itemImageView.layer.borderWidth = cell.itemImageView.frame.size.width / 15
         cell.itemImageView.layer.borderColor = getBorderColor()
+        
+        cell.name.text = String(indexPath.row)
 
         return cell
     }

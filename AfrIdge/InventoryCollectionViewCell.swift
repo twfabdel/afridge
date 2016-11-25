@@ -11,6 +11,7 @@ import UIKit
 class InventoryCollectionViewCell: UICollectionViewCell {
 
     
+    @IBOutlet weak var name: UILabel!
     @IBOutlet weak var itemImageView: UIImageView!
     
     override func awakeFromNib() {
@@ -20,7 +21,6 @@ class InventoryCollectionViewCell: UICollectionViewCell {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        self.layer.cornerRadius = self.frame.size.width / 2
     }
 
 }
