@@ -38,8 +38,12 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     
         cell.itemImageView.image = UIImage(named: "spaghetti-pie")
         cell.itemImageView.layer.cornerRadius = cell.itemImageView.frame.size.width / 2
+
         cell.itemImageView.layer.masksToBounds = true
-    
+        
+        cell.itemImageView.layer.borderWidth = cell.itemImageView.frame.size.width / 15
+        cell.itemImageView.layer.borderColor = UIColor.red.cgColor
+
         return cell
     }
 

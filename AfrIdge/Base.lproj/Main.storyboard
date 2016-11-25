@@ -49,20 +49,19 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ynL-zM-BMM">
-                                                            <rect key="frame" x="10" y="10" width="70" height="70"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </imageView>
                                                     </subviews>
                                                 </view>
-                                                <color key="backgroundColor" red="0.13116450915382344" green="0.88963494059953052" blue="0.12723679090198109" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="ynL-zM-BMM" firstAttribute="centerX" secondItem="OAt-i7-gzf" secondAttribute="centerX" id="HGU-gr-tnV"/>
                                                     <constraint firstItem="ynL-zM-BMM" firstAttribute="centerY" secondItem="OAt-i7-gzf" secondAttribute="centerY" id="Hmn-Ax-Wte"/>
-                                                    <constraint firstItem="ynL-zM-BMM" firstAttribute="leading" secondItem="OAt-i7-gzf" secondAttribute="leading" constant="10" id="euf-zb-eVo"/>
-                                                    <constraint firstAttribute="bottom" secondItem="ynL-zM-BMM" secondAttribute="bottom" constant="10" id="sv7-pK-UDx"/>
-                                                    <constraint firstItem="ynL-zM-BMM" firstAttribute="top" secondItem="OAt-i7-gzf" secondAttribute="top" constant="10" id="tdV-tA-CLT"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ynL-zM-BMM" secondAttribute="trailing" constant="10" id="xvB-tD-Fjh"/>
+                                                    <constraint firstItem="ynL-zM-BMM" firstAttribute="leading" secondItem="OAt-i7-gzf" secondAttribute="leading" id="euf-zb-eVo"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ynL-zM-BMM" secondAttribute="bottom" id="sv7-pK-UDx"/>
+                                                    <constraint firstItem="ynL-zM-BMM" firstAttribute="top" secondItem="OAt-i7-gzf" secondAttribute="top" id="tdV-tA-CLT"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ynL-zM-BMM" secondAttribute="trailing" id="xvB-tD-Fjh"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="itemImageView" destination="ynL-zM-BMM" id="KGK-Pn-jUP"/>
