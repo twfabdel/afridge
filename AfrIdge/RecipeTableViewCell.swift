@@ -11,7 +11,7 @@ import UIKit
 class RecipeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var recipeName: UILabel!
-    @IBOutlet weak var rating: UILabel!
+    @IBOutlet weak var viewButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,4 +24,9 @@ class RecipeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    //Called when view button is clicked
+    @IBAction func viewButtonClicked(_ sender: Any) {
+        //go to recipe view for this specific recipe
+        print("clicking view button in recipes")
+    }
 }
