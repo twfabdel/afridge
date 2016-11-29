@@ -22,11 +22,9 @@ class Recipe {
     var cookTime: Int
     var difficulty: Difficulty
     var videoLink: String
-    //how are we specifying amount of a food?
-    //should we just have an array of inventory-type items?
-    var ingredients: [String: Int]
+    var ingredients: [FoodItem]
     
-    init?(name: String, rating: Double, favorite: Bool, cookTime: Int, difficulty: Difficulty, videoLink: String, ingredients: [String: Int]) {
+    init?(name: String, rating: Double, favorite: Bool, cookTime: Int, difficulty: Difficulty, videoLink: String, ingredients: [FoodItem]) {
         self.name = name
         self.rating = rating
         self.favorite = favorite

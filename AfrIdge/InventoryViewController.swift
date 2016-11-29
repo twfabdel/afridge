@@ -10,8 +10,8 @@ import UIKit
 
 class InventoryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
     
-    var items = ["Cheese", "Yogurt", "Milk", "Chicken", "Apples", "Oranges", "Ketchup", "Mustard"]
-    var filteredItems: [String] = []
+    var items = [FoodItem]()
+    var filteredItems: [FoodItem] = []
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UITextField!
@@ -25,7 +25,10 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         // Do any additional setup after loading the view, typically from a nib.
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        items.sort()
+        
+        initializeInventory()
+        
+        items.sort{$0.name < $1.name}
         self.filteredItems = self.items
         
         self.popUp.layer.cornerRadius = 20
@@ -58,7 +61,7 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         cell.itemImageButton.layer.borderWidth = cell.itemImageButton.frame.size.width / 15
         cell.itemImageButton.layer.borderColor = getBorderColor()
         
-        cell.name.text = filteredItems[indexPath.row]
+        cell.name.text = filteredItems[indexPath.row].name
 
         return cell
     }
@@ -75,7 +78,7 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         } else {
             //$0.lowercaseString.rangeOfString(str.lowercaseString) != nil
             
-            self.filteredItems = self.items.filter({$0.lowercased().range(of: str!.lowercased()) != nil})
+            self.filteredItems = self.items.filter({$0.name.lowercased().range(of: str!.lowercased()) != nil})
             
         }
         collectionView.reloadData()
@@ -90,6 +93,18 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBAction func closePopup(_ sender: Any) {
         self.popUpPosition.constant = -500
         self.backgroundButton.alpha = 0
+    }
+    
+    //initialize inventory entries
+    func initializeInventory() {
+        items.append(FoodItem(name: "Cheese", amount: 10)!)
+        items.append(FoodItem(name: "Yogurt", amount: 10)!)
+        items.append(FoodItem(name: "Milk", amount: 10)!)
+        items.append(FoodItem(name: "Chicken", amount: 10)!)
+        items.append(FoodItem(name: "Apples", amount: 10)!)
+        items.append(FoodItem(name: "Oranges", amount: 10)!)
+        items.append(FoodItem(name: "Ketchup", amount: 10)!)
+        items.append(FoodItem(name: "Mustard", amount: 10)!)
     }
 }
 
