@@ -252,7 +252,7 @@
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a0K-BP-idq">
                                 <rect key="frame" x="36" y="118" width="303" height="43"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="xrE-ov-58D"/>
+                                    <constraint firstAttribute="height" constant="80" id="xrE-ov-58D"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="xuh-pJ-11M" id="3bC-9s-CbA"/>
@@ -276,13 +276,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="4Il-vI-BFj" secondAttribute="trailing" constant="20" id="7FD-Yr-hdI"/>
                             <constraint firstItem="CsP-ju-QeF" firstAttribute="trailing" secondItem="4Il-vI-BFj" secondAttribute="trailing" id="EdA-uj-Hci"/>
                             <constraint firstAttribute="trailingMargin" secondItem="a0K-BP-idq" secondAttribute="trailing" constant="20" id="H7a-JZ-Cki"/>
-                            <constraint firstItem="CsP-ju-QeF" firstAttribute="top" secondItem="xuh-pJ-11M" secondAttribute="topMargin" constant="20" id="IqI-eQ-uDo"/>
+                            <constraint firstItem="CsP-ju-QeF" firstAttribute="top" secondItem="xuh-pJ-11M" secondAttribute="topMargin" constant="25" id="IqI-eQ-uDo"/>
                             <constraint firstItem="qAn-BN-gRb" firstAttribute="top" secondItem="4Il-vI-BFj" secondAttribute="bottom" id="NPj-KI-4y9"/>
                             <constraint firstItem="YJk-KO-sdr" firstAttribute="top" secondItem="CsP-ju-QeF" secondAttribute="bottom" constant="20" id="TBv-wa-RBb"/>
                             <constraint firstItem="4Il-vI-BFj" firstAttribute="leading" secondItem="xuh-pJ-11M" secondAttribute="leadingMargin" constant="20" id="erO-VQ-NH8"/>
-                            <constraint firstItem="4Il-vI-BFj" firstAttribute="top" secondItem="a0K-BP-idq" secondAttribute="bottom" constant="30" id="kYr-To-jGv"/>
+                            <constraint firstItem="4Il-vI-BFj" firstAttribute="top" secondItem="a0K-BP-idq" secondAttribute="bottom" constant="10" id="kYr-To-jGv"/>
                             <constraint firstItem="a0K-BP-idq" firstAttribute="leading" secondItem="xuh-pJ-11M" secondAttribute="leadingMargin" constant="20" id="lhV-Od-uMS"/>
-                            <constraint firstItem="a0K-BP-idq" firstAttribute="top" secondItem="YJk-KO-sdr" secondAttribute="bottom" constant="20" id="mTy-ga-IuU"/>
+                            <constraint firstItem="a0K-BP-idq" firstAttribute="top" secondItem="YJk-KO-sdr" secondAttribute="bottom" constant="10" id="mTy-ga-IuU"/>
                             <constraint firstItem="a0K-BP-idq" firstAttribute="centerX" secondItem="xuh-pJ-11M" secondAttribute="centerX" id="swb-Ly-Ki7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YJk-KO-sdr" secondAttribute="trailing" constant="20" id="yEr-Xm-yke"/>
                         </constraints>
