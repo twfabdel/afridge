@@ -12,6 +12,17 @@ enum Difficulty: String {
     case Easy = "Easy"
     case Medium = "Medium"
     case Hard = "Hard"
+    
+    func toSort() -> Int {
+        switch self {
+        case .Easy:
+            return 0
+        case .Medium:
+            return 1
+        case .Hard:
+            return 2
+        }
+    }
 }
 
 class Recipe {

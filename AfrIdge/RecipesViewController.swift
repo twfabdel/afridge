@@ -86,19 +86,31 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //if new sort type is selected
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        var tempRecipeList = favorites
+        if (index == 1) {
+            tempRecipeList = recipes
+        }
         if (row == 0) {
             //sort list by alphabetical
-            self.view.backgroundColor = UIColor.orange;
+            tempRecipeList.sort{$0.name <= $1.name}
         } else if (row == 1) {
             //sort list by rating
-            self.view.backgroundColor = UIColor.blue;
+            tempRecipeList.sort{$0.rating >= $1.rating}
         } else if (row == 2) {
             //sort list by cook time
-            self.view.backgroundColor = UIColor.red;
+            tempRecipeList.sort{$0.cookTime <= $1.cookTime}
         } else {
             //sort list by difficulty
-            self.view.backgroundColor = UIColor.green;
+            tempRecipeList.sort{$0.difficulty.toSort() <= $1.difficulty.toSort()}
         }
+        
+        if (index == 0) {
+            favorites = tempRecipeList
+        } else {
+            recipes = tempRecipeList
+        }
+        
+        recipeList.reloadData()
     }
     
     func initializeLists() {

@@ -28,7 +28,7 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         
         initializeInventory()
         
-        items.sort{$0.name < $1.name}
+        items.sort{$0.name <= $1.name}
         self.filteredItems = self.items
         
         self.popUp.layer.cornerRadius = 20
