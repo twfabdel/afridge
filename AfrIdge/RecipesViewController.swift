@@ -62,16 +62,36 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         return(recipeCell)
     }
     
+    //for sortPicker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1;
     }
     
+    //for sortPicker
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return sortData.count;
     }
     
+    //for displaying info in sortPicker
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return sortData[row];
+    }
+    
+    //if new sort type is selected
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if (row == 0) {
+            //sort list by alphabetical
+            self.view.backgroundColor = UIColor.orange;
+        } else if (row == 1) {
+            //sort list by rating
+            self.view.backgroundColor = UIColor.blue;
+        } else if (row == 2) {
+            //sort list by cook time
+            self.view.backgroundColor = UIColor.red;
+        } else {
+            //sort list by difficulty
+            self.view.backgroundColor = UIColor.green;
+        }
     }
     
     
