@@ -266,7 +266,7 @@
                                     <segment title="Recipes"/>
                                 </segments>
                                 <connections>
-                                    <action selector="changeListFilter:" destination="8rJ-Kc-sve" eventType="valueChanged" id="fjw-wW-e1G"/>
+                                    <action selector="changeRecipeListFilter:" destination="hUx-Zv-hRd" eventType="valueChanged" id="EGC-Kt-miu"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>

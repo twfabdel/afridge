@@ -17,24 +17,22 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var ticker: UISegmentedControl!
     @IBOutlet weak var sortPicker: UIPickerView!
     
+    var favorites = [Recipe]();
     var recipes = [Recipe]();
-    var favorites = [String]();
     var sortData = ["Alphabetical", "Rating", "Cook Time", "Difficulty"]
+    var index = 0
     
+    @IBAction func changeRecipeListFilter(_ sender: UISegmentedControl) {
+        index = ticker.selectedSegmentIndex
+        recipeList.reloadData()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.sortPicker.dataSource = self;
         self.sortPicker.delegate = self;
         initializeLists()
-    }
-    
-    func initializeLists() {
-        recipes.append(Recipe(name:"Chicken Marsala", rating: 4.5, favorite: false, cookTime: 40, videoLink: "emptyLink", ingredients: [String: Int]())!)
-        recipes.append(Recipe(name:"Chicken Parm", rating: 2.5, favorite: false, cookTime: 40, videoLink: "emptyLink", ingredients: [String: Int]())!)
-        recipes.append(Recipe(name:"Southwestern Scramble", rating: 3.0, favorite: false, cookTime: 40, videoLink: "emptyLink", ingredients: [String: Int]())!)
-        recipes.append(Recipe(name:"Roasted Brussel Sprouts", rating: 4.0, favorite: false, cookTime: 40, videoLink: "emptyLink", ingredients: [String: Int]())!)
-        recipes.append(Recipe(name:"Tofu Sautee", rating: 3.5, favorite: false, cookTime: 40, videoLink: "emptyLink", ingredients: [String: Int]())!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,6 +46,9 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //Return number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(index == 0) {
+            return(favorites.count)
+        }
         return(recipes.count)
     }
     
@@ -56,7 +57,13 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let recipeCell = Bundle.main.loadNibNamed("RecipeTableViewCell", owner: self, options: nil)?.first as! RecipeTableViewCell
         
-        recipeCell.recipeName.text = recipes[indexPath.row].name
+        var tempList = self.favorites
+        
+        if (index == 1) {
+            tempList = recipes
+        }
+        
+        recipeCell.recipeName.text = tempList[indexPath.row].name
         //recipeCell.rating.text = String(recipes[indexPath.row].rating)
         
         return(recipeCell)
@@ -92,6 +99,19 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
             //sort list by difficulty
             self.view.backgroundColor = UIColor.green;
         }
+    }
+    
+    func initializeLists() {
+        favorites.append(Recipe(name:"Vanilla Milk Shake", rating: 5, favorite: true, cookTime: 10, difficulty: Difficulty.Easy, videoLink: "emptyLink", ingredients: [String: Int]())!)
+        favorites.append(Recipe(name:"Shrimp Linguini", rating: 4.5, favorite: true, cookTime: 40, difficulty: Difficulty.Hard, videoLink: "emptyLink", ingredients: [String: Int]())!)
+        favorites.append(Recipe(name:"Cheese Burger", rating: 4.0, favorite: true, cookTime: 20, difficulty: Difficulty.Medium, videoLink: "emptyLink", ingredients: [String: Int]())!)
+        
+        recipes.append(Recipe(name:"Chicken Marsala", rating: 4.5, favorite: false, cookTime: 40, difficulty: Difficulty.Medium, videoLink: "emptyLink", ingredients: [String: Int]())!)
+        recipes.append(Recipe(name:"Chicken Parm", rating: 2.5, favorite: false, cookTime: 40, difficulty: Difficulty.Medium, videoLink: "emptyLink", ingredients: [String: Int]())!)
+        recipes.append(Recipe(name:"Southwestern Scramble", rating: 3.0, favorite: false, cookTime: 40, difficulty: Difficulty.Easy, videoLink: "emptyLink", ingredients: [String: Int]())!)
+        recipes.append(Recipe(name:"Roasted Brussel Sprouts", rating: 4.0, favorite: false, cookTime: 40, difficulty: Difficulty.Easy, videoLink: "emptyLink", ingredients: [String: Int]())!)
+        recipes.append(Recipe(name:"Tofu Sautee", rating: 3.5, favorite: false, cookTime: 40, difficulty: Difficulty.Medium, videoLink: "emptyLink", ingredients: [String: Int]())!)
+        
     }
     
     
