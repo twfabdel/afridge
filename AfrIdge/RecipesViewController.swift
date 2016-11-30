@@ -21,6 +21,28 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     var recipes = [Recipe]()
     var sortData = ["Alphabetical", "Rating", "Cook Time", "Difficulty"]
     var index = 0
+    let recipeSegueIdentifier = "ShowRecipeDetailSegue"
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == recipeSegueIdentifier) {
+            let destination = segue.destination as! RecipeDetailViewController
+            //let tableIndex = recipeList.indexPathForSelectedRow?.row
+            let tableIndex = sender as! Int
+    
+            if (index == 0) {
+                destination.curRecipe = favorites[tableIndex]
+            } else {
+                destination.curRecipe = recipes[tableIndex]
+            }
+        }
+     }
+    
+    //used to force a segue to recipe detail view when a cell is selected
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let row = indexPath.row
+        performSegue(withIdentifier: recipeSegueIdentifier, sender: row)
+    }
     
     @IBAction func changeRecipeListFilter(_ sender: UISegmentedControl) {
         index = ticker.selectedSegmentIndex
@@ -79,6 +101,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         recipeCell.recipeName.text = tempList[indexPath.row].name
+        recipeCell.recipe = tempList[indexPath.row]
         //recipeCell.rating.text = String(recipes[indexPath.row].rating)
         
         return(recipeCell)

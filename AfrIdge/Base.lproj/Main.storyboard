@@ -206,7 +206,7 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
         </scene>
-        <!--Recipes-->
+        <!--Recipes View Controller-->
         <scene sceneID="0pZ-OA-Pf9">
             <objects>
                 <viewController id="hUx-Zv-hRd" customClass="RecipesViewController" customModule="AfrIdge" customModuleProvider="target" sceneMemberID="viewController">
@@ -229,6 +229,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="248" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="guM-bN-RnD" kind="show" identifier="ShowRecipeDetailSegue" id="vpj-Xm-bdW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -247,6 +250,8 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="filter:" destination="9pv-A4-QxB" eventType="editingChanged" id="heg-5W-cYE"/>
+                                    <action selector="searchRecipes:" destination="hUx-Zv-hRd" eventType="valueChanged" id="0I6-Sm-bDO"/>
+                                    <action selector="searchRecipes:" destination="hUx-Zv-hRd" eventType="editingDidEnd" id="V6g-su-cvO"/>
                                 </connections>
                             </textField>
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a0K-BP-idq">
@@ -287,7 +292,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="YJk-KO-sdr" secondAttribute="trailing" constant="20" id="yEr-Xm-yke"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Recipes" image="first" id="Ye5-e2-EsR"/>
+                    <navigationItem key="navigationItem" id="gU6-Q1-3ox"/>
                     <connections>
                         <outlet property="recipeList" destination="4Il-vI-BFj" id="lDa-Vn-WQ3"/>
                         <outlet property="searchBar" destination="CsP-ju-QeF" id="kiH-4i-EO3"/>
@@ -297,7 +302,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iVk-bd-O3F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="743.20000000000005" y="1034.9325337331336"/>
+            <point key="canvasLocation" x="1688.8" y="1034.9325337331336"/>
+        </scene>
+        <!--Recipe Detail View Controller-->
+        <scene sceneID="WOg-HR-ieb">
+            <objects>
+                <viewController id="guM-bN-RnD" customClass="RecipeDetailViewController" customModule="AfrIdge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C4v-sx-Ata"/>
+                        <viewControllerLayoutGuide type="bottom" id="ey9-hW-gnc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X8k-Yo-gJW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ob-le-MLy">
+                                <rect key="frame" x="119" y="309" width="136" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hbt-3U-DJM"/>
+                    <connections>
+                        <outlet property="recipeNameLabel" destination="2Ob-le-MLy" id="n7G-If-zjs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HoY-ol-Cgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2663" y="1035"/>
         </scene>
         <!--Progress-->
         <scene sceneID="k7H-pP-ch7">
@@ -331,13 +367,32 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="hUx-Zv-hRd" kind="relationship" relationship="viewControllers" id="wLa-B4-cpJ"/>
+                        <segue destination="LKW-pB-1tC" kind="relationship" relationship="viewControllers" id="wLa-B4-cpJ"/>
                         <segue destination="R2s-XB-ggg" kind="relationship" relationship="viewControllers" id="WEO-4s-pgL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-724" y="706"/>
+        </scene>
+        <!--Recipes-->
+        <scene sceneID="T8m-Po-Gg8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LKW-pB-1tC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recipes" image="first" id="Ye5-e2-EsR"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mLO-23-TH9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hUx-Zv-hRd" kind="relationship" relationship="rootViewController" id="YjU-Un-FU0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GND-kQ-Hag" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749.60000000000002" y="1034.9325337331336"/>
         </scene>
     </scenes>
     <resources>

@@ -32,6 +32,7 @@ class Recipe {
     var favorite: Bool
     var cookTime: Int
     var difficulty: Difficulty
+    //still doing a string description?
     var videoLink: String
     var ingredients: [FoodItem]
     
@@ -47,6 +48,17 @@ class Recipe {
         if name.isEmpty {
             return nil
         }
+    }
+    
+    //for search from recipe search bar (not implemented in RecipeViewController yet)
+    func ingredientsContainsSubstring(str: String) -> Bool {
+        for curItem in ingredients {
+            //check for substring in each item
+            if (curItem.name.range(of: str) != nil) {
+                return true;
+            }
+        }
+        return false;
     }
     
 }
