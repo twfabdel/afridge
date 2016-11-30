@@ -14,6 +14,7 @@ class RecipeDetailViewController: UIViewController {
     var curRecipe: Recipe!
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
         recipeNameLabel.text = curRecipe.name
         //additional formatting of page
     }
