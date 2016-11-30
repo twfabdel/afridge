@@ -10,12 +10,23 @@ import UIKit
 
 class RecipeDetailViewController: UIViewController {
 
+    
     @IBOutlet weak var recipeNameLabel: UILabel!
+    @IBOutlet weak var recipeImage: UIImageView!
+    @IBOutlet weak var recipeDifficulty: UILabel!
+    @IBOutlet weak var recipeRating: UILabel!
+    @IBOutlet weak var recipeCookTime: UILabel!
+    
     var curRecipe: Recipe!
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
         recipeNameLabel.text = curRecipe.name
+        let newImage = UIImage(named: curRecipe.imageString)
+        recipeImage.image = newImage
+        recipeDifficulty.text = curRecipe.difficulty.rawValue
+        recipeRating.text = String(curRecipe.rating)
+        recipeCookTime.text = String(curRecipe.cookTime)
         //additional formatting of page
     }
     

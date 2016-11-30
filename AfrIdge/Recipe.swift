@@ -34,16 +34,18 @@ class Recipe {
     var difficulty: Difficulty
     //still doing a string description?
     var videoLink: String
+    var imageString: String
     var ingredients: [FoodItem]
     
-    init?(name: String, rating: Double, favorite: Bool, cookTime: Int, difficulty: Difficulty, videoLink: String, ingredients: [FoodItem]) {
+    init?(name: String, rating: Double, favorite: Bool, cookTime: Int, difficulty: Difficulty, videoLink: String, imageString: String, ingredients: [FoodItem]) {
         self.name = name
         self.rating = rating
         self.favorite = favorite
-        self.cookTime = cookTime;
-        self.difficulty = difficulty;
-        self.videoLink = videoLink;
-        self.ingredients = ingredients;
+        self.cookTime = cookTime
+        self.difficulty = difficulty
+        self.videoLink = videoLink
+        self.imageString = imageString
+        self.ingredients = ingredients
         
         if name.isEmpty {
             return nil
