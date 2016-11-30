@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1125BF7A1DEE2BAF00CA4C67 /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1125BF791DEE2BAF00CA4C67 /* FoodItem.swift */; };
+		1125BF801DEE7DBE00CA4C67 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1125BF7F1DEE7DBE00CA4C67 /* RecipeDetailViewController.swift */; };
 		B83908C01DE7587600F69DEA /* InventoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83908BE1DE7587600F69DEA /* InventoryCollectionViewCell.swift */; };
 		B83908C11DE7587600F69DEA /* InventoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B83908BF1DE7587600F69DEA /* InventoryCollectionViewCell.xib */; };
 		B8A0B1C61DDF8C6E0054796E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0B1C51DDF8C6E0054796E /* AppDelegate.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1125BF791DEE2BAF00CA4C67 /* FoodItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
+		1125BF7F1DEE7DBE00CA4C67 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		B83908BE1DE7587600F69DEA /* InventoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B83908BF1DE7587600F69DEA /* InventoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InventoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		B8A0B1C21DDF8C6E0054796E /* AfrIdge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AfrIdge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +89,7 @@
 				B8E8308C1DE134A200A56B30 /* ListItemTableViewCell.swift */,
 				B8E8308D1DE134A200A56B30 /* ListItemTableViewCell.xib */,
 				B8E830901DE13C9500A56B30 /* GroceryListItem.swift */,
+				1125BF7F1DEE7DBE00CA4C67 /* RecipeDetailViewController.swift */,
 				B8E830801DDFAF8700A56B30 /* RecipesViewController.swift */,
 				B8E830981DE39A5D00A56B30 /* RecipeTableViewCell.swift */,
 				B8E830991DE39A5D00A56B30 /* RecipeTableViewCell.xib */,
@@ -93,6 +98,7 @@
 				B8A0B1CE1DDF8C6F0054796E /* Assets.xcassets */,
 				B8A0B1D01DDF8C6F0054796E /* LaunchScreen.storyboard */,
 				B8A0B1D31DDF8C6F0054796E /* Info.plist */,
+				1125BF791DEE2BAF00CA4C67 /* FoodItem.swift */,
 			);
 			path = AfrIdge;
 			sourceTree = "<group>";
@@ -182,6 +188,8 @@
 				B8E8309D1DE39D0300A56B30 /* Recipe.swift in Sources */,
 				B8A0B1C81DDF8C6E0054796E /* InventoryViewController.swift in Sources */,
 				B8E8309A1DE39A5D00A56B30 /* RecipeTableViewCell.swift in Sources */,
+				1125BF801DEE7DBE00CA4C67 /* RecipeDetailViewController.swift in Sources */,
+				1125BF7A1DEE2BAF00CA4C67 /* FoodItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

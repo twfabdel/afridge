@@ -25,16 +25,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGl-Gs-Mhr">
-                        <rect key="frame" x="250" y="11" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="CGl-Gs-Mhr" secondAttribute="trailing" constant="20" id="B4h-T1-2ZY"/>
-                    <constraint firstItem="CGl-Gs-Mhr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="K7n-ca-OOf"/>
                     <constraint firstItem="r4Z-sb-pLf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="bPz-zK-APZ"/>
                     <constraint firstItem="r4Z-sb-pLf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="ihV-mL-xnN"/>
                     <constraint firstItem="r4Z-sb-pLf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nhg-YT-Da8"/>
@@ -42,9 +34,18 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="rating" destination="CGl-Gs-Mhr" id="Ege-UT-4HV"/>
                 <outlet property="recipeName" destination="r4Z-sb-pLf" id="Ky4-K2-Tmh"/>
+                <outlet property="viewButton" destination="5kd-fQ-Plb" id="y6N-sh-ESO"/>
             </connections>
         </tableViewCell>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5kd-fQ-Plb">
+            <rect key="frame" x="0.0" y="0.0" width="89" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="                                                              View"/>
+            <connections>
+                <action selector="viewButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Oo6-8N-WOE"/>
+            </connections>
+            <point key="canvasLocation" x="151.5" y="-21"/>
+        </button>
     </objects>
 </document>
