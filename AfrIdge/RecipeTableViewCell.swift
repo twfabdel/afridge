@@ -11,7 +11,14 @@ import UIKit
 class RecipeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var recipeName: UILabel!
+    
+    //view button currently not used
     @IBOutlet weak var viewButton: UIButton!
+    
+    var delegate: RecipesViewController?
+    var recipe: Recipe!
+    
+    let recipeSegueIdentifier = "ShowRecipeSegue"
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +34,6 @@ class RecipeTableViewCell: UITableViewCell {
     //Called when view button is clicked
     @IBAction func viewButtonClicked(_ sender: Any) {
         //go to recipe view for this specific recipe
-        print("clicking view button in recipes")
+        print(recipe.difficulty.rawValue)
     }
 }
