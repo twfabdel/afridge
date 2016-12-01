@@ -55,30 +55,39 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         return(cell)
     }
     
-    //Swipe left to delete
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") {
+            (action, indexPath) -> Void in
+            
             if self.index == 0 {
                 self.unchecked.remove(at: indexPath.row)
             } else {
                 self.checked.remove(at: indexPath.row)
             }
-            list.reloadData()
+            self.list.reloadData()
         }
+        
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") {
+            (action, indexPath) -> Void in
+            if self.index == 0 {
+                print("Edit " + self.unchecked[indexPath.row].food)
+            } else {
+                print("Edit " + self.checked[indexPath.row].food)
+            }
+        }
+        edit.backgroundColor = UIColor(colorLiteralRed: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
+        
+        return [delete, edit]
     }
     
     func boxClicked(cell: ListItemTableViewCell) {
         let index = self.list.indexPath(for: cell)!.row
-        print("Button tapped on row \(index)")
         
         if(cell.isChecked) {
-            print("was Checked")
             let listItem = checked[index]
             checked.remove(at: index)
             unchecked.append(listItem)
-            
         } else {
-            print("wasn't checked")
             let listItem = unchecked[index]
             unchecked.remove(at: index)
             checked.append(listItem)
