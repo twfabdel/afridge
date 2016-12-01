@@ -158,22 +158,22 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fkX-HA-aUc">
                                 <rect key="frame" x="36" y="80" width="303" height="29"/>
                                 <segments>
-                                    <segment title="Unchecked"/>
-                                    <segment title="Checked"/>
+                                    <segment title="To Buy"/>
+                                    <segment title="Bought"/>
                                 </segments>
                                 <connections>
                                     <action selector="changeListFilter:" destination="8rJ-Kc-sve" eventType="valueChanged" id="ase-uC-GJp"/>
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UQY-AD-Pyl">
-                                <rect key="frame" x="36" y="128" width="303" height="490"/>
+                                <rect key="frame" x="0.0" y="128" width="375" height="490"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="IVd-hn-0ze" customClass="ListItemTableViewCell" customModule="AfrIdge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="303" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IVd-hn-0ze" id="BJf-YD-TS9">
-                                            <rect key="frame" x="0.0" y="0.0" width="303" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -186,13 +186,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="UQY-AD-Pyl" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="20" id="1UG-YG-eph"/>
                             <constraint firstItem="UQY-AD-Pyl" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="CUd-Qn-O3i"/>
                             <constraint firstItem="UQY-AD-Pyl" firstAttribute="top" secondItem="fkX-HA-aUc" secondAttribute="bottom" constant="20" id="HdE-Ar-cKN"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="UQY-AD-Pyl" secondAttribute="bottom" id="R51-yP-NCe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fkX-HA-aUc" secondAttribute="trailing" constant="20" id="RiB-yh-mqC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UQY-AD-Pyl" secondAttribute="trailing" constant="20" id="XKu-wS-LbM"/>
+                            <constraint firstAttribute="trailing" secondItem="UQY-AD-Pyl" secondAttribute="trailing" id="qSj-jP-7AT"/>
                             <constraint firstItem="fkX-HA-aUc" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="20" id="qns-fX-tjc"/>
+                            <constraint firstItem="UQY-AD-Pyl" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="u64-aG-Vvj"/>
                             <constraint firstItem="fkX-HA-aUc" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="60" id="vAK-8q-WXv"/>
                         </constraints>
                     </view>
@@ -226,7 +226,7 @@
                                         <rect key="frame" x="0.0" y="28" width="248" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HJf-cy-eO5" id="fJd-lo-uFx">
-                                            <rect key="frame" x="0.0" y="0.0" width="248" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="248" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
