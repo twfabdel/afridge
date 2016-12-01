@@ -234,6 +234,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvu-R0-DhF">
                                                 <rect key="frame" x="120" y="0.0" width="120" height="40"/>
                                                 <state key="normal" title="Done"/>
+                                                <connections>
+                                                    <action selector="done:" destination="aOK-Pq-IpS" eventType="touchUpInside" id="yzx-k8-WaB"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -299,8 +302,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="amountTextField" destination="ERA-NW-hPy" id="Y7u-QG-PpY"/>
                         <outlet property="cancelBtn" destination="NMU-8W-IcA" id="k6d-xC-vtA"/>
                         <outlet property="doneBtn" destination="Rvu-R0-DhF" id="bCR-OP-RNV"/>
+                        <outlet property="itemTextField" destination="3Pw-UW-2Kr" id="xfU-My-n6S"/>
                         <outlet property="popUp" destination="6tx-bM-Jnf" id="Egd-IQ-srb"/>
                     </connections>
                 </viewController>

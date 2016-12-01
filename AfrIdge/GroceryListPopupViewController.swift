@@ -13,6 +13,11 @@ class GroceryListPopupViewController: UIViewController {
     @IBOutlet weak var popUp: UIView!
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var doneBtn: UIButton!
+    @IBOutlet weak var itemTextField: UITextField!
+    @IBOutlet weak var amountTextField: UITextField!
+    
+    var itemID: [Int] = []
+    var parentView: GroceryListViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +55,10 @@ class GroceryListPopupViewController: UIViewController {
         self.view.removeFromSuperview()
     }
     
+    @IBAction func done(_ sender: Any) {
+        self.parentView?.editItem(itemID: self.itemID, food: self.itemTextField.text!, amount: self.amountTextField.text!)
+        self.view.removeFromSuperview()
+    }
 
     /*
     // MARK: - Navigation

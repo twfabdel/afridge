@@ -69,10 +69,16 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         
         let edit = UITableViewRowAction(style: .normal, title: "Edit") {
             (action, indexPath) -> Void in
+            var foodItem: GroceryListItem
+            var id: [Int]
             if self.index == 0 {
-                print("Edit " + self.unchecked[indexPath.row].food)
+                foodItem = self.unchecked[indexPath.row]
+                id = [0, indexPath.row]
+                print("Edit " + foodItem.food)
             } else {
-                print("Edit " + self.checked[indexPath.row].food)
+                foodItem = self.checked[indexPath.row]
+                id = [1, indexPath.row]
+                print("Edit " + foodItem.food)
             }
             
             
@@ -82,10 +88,27 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             self.view.addSubview(popUp.view)
             popUp.didMove(toParentViewController: self)
             
+            popUp.itemID = id
+            popUp.parentView = self
+            popUp.itemTextField.text = foodItem.food
+            popUp.amountTextField.text = foodItem.amount
+            
         }
         edit.backgroundColor = UIColor(colorLiteralRed: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
         
         return [delete, edit]
+    }
+    
+    func editItem(itemID: [Int], food: String, amount: String) {
+        let index = itemID[1]
+        if itemID[0] == 0 {
+            self.unchecked[index].food = food
+            self.unchecked[index].amount = amount
+        } else {
+            self.checked[index].food = food
+            self.checked[index].amount = amount
+        }
+        self.list.reloadData()
     }
     
     func boxClicked(cell: ListItemTableViewCell) {
