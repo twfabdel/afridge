@@ -55,6 +55,18 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         return(cell)
     }
     
+    //Swipe left to delete
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if self.index == 0 {
+                self.unchecked.remove(at: indexPath.row)
+            } else {
+                self.checked.remove(at: indexPath.row)
+            }
+            list.reloadData()
+        }
+    }
+    
     func boxClicked(cell: ListItemTableViewCell) {
         let index = self.list.indexPath(for: cell)!.row
         print("Button tapped on row \(index)")
