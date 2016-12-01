@@ -74,6 +74,14 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             } else {
                 print("Edit " + self.checked[indexPath.row].food)
             }
+            
+            
+            let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "groceryPopUp") as! GroceryListPopupViewController
+            self.addChildViewController(popUp)
+            popUp.view.frame = self.view.frame
+            self.view.addSubview(popUp.view)
+            popUp.didMove(toParentViewController: self)
+            
         }
         edit.backgroundColor = UIColor(colorLiteralRed: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
         
