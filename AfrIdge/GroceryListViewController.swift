@@ -55,18 +55,70 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         return(cell)
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") {
+            (action, indexPath) -> Void in
+            
+            if self.index == 0 {
+                self.unchecked.remove(at: indexPath.row)
+            } else {
+                self.checked.remove(at: indexPath.row)
+            }
+            self.list.reloadData()
+        }
+        
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") {
+            (action, indexPath) -> Void in
+            var foodItem: GroceryListItem
+            var id: [Int]
+            if self.index == 0 {
+                foodItem = self.unchecked[indexPath.row]
+                id = [0, indexPath.row]
+                print("Edit " + foodItem.food)
+            } else {
+                foodItem = self.checked[indexPath.row]
+                id = [1, indexPath.row]
+                print("Edit " + foodItem.food)
+            }
+            
+            
+            let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "groceryPopUp") as! GroceryListPopupViewController
+            self.addChildViewController(popUp)
+            popUp.view.frame = self.view.frame
+            self.view.addSubview(popUp.view)
+            popUp.didMove(toParentViewController: self)
+            
+            popUp.itemID = id
+            popUp.parentView = self
+            popUp.itemTextField.text = foodItem.food
+            popUp.amountTextField.text = foodItem.amount
+            
+        }
+        edit.backgroundColor = UIColor(colorLiteralRed: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
+        
+        return [delete, edit]
+    }
+    
+    func editItem(itemID: [Int], food: String, amount: String) {
+        let index = itemID[1]
+        if itemID[0] == 0 {
+            self.unchecked[index].food = food
+            self.unchecked[index].amount = amount
+        } else {
+            self.checked[index].food = food
+            self.checked[index].amount = amount
+        }
+        self.list.reloadData()
+    }
+    
     func boxClicked(cell: ListItemTableViewCell) {
         let index = self.list.indexPath(for: cell)!.row
-        print("Button tapped on row \(index)")
         
         if(cell.isChecked) {
-            print("was Checked")
             let listItem = checked[index]
             checked.remove(at: index)
             unchecked.append(listItem)
-            
         } else {
-            print("wasn't checked")
             let listItem = unchecked[index]
             unchecked.remove(at: index)
             checked.append(listItem)
