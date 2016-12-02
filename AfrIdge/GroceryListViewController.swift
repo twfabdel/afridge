@@ -129,6 +129,16 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         return [delete, edit]
     }
     
+    @IBAction func showDoneShoppingPopUp(_ sender: UIButton) {
+        let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "doneShoppingPopUp") as! DoneShoppingViewController
+        
+        self.addChildViewController(popUp)
+        popUp.view.frame = self.view.frame
+        self.view.addSubview(popUp.view)
+        popUp.didMove(toParentViewController: self)
+        
+    }
+    
     @IBAction func showAddItemPopup(_ sender: UIButton) {
         
         let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "groceryPopUp") as! GroceryListPopupViewController

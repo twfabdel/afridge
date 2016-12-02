@@ -197,6 +197,9 @@
                                         <state key="normal" title="Done Shopping">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="showDoneShoppingPopUp:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="o0T-T7-2iu"/>
+                                        </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UQY-AD-Pyl">
                                         <rect key="frame" x="0.0" y="100" width="375" height="433"/>
@@ -389,6 +392,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fYQ-Kh-9jX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1546" y="359"/>
+        </scene>
+        <!--Done Shopping View Controller-->
+        <scene sceneID="89g-Bk-PGh">
+            <objects>
+                <viewController storyboardIdentifier="doneShoppingPopUp" id="LKt-Xf-iNU" customClass="DoneShoppingViewController" customModule="AfrIdge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AIB-gc-9Zv"/>
+                        <viewControllerLayoutGuide type="bottom" id="E4p-8e-mh4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Q8-Hl-rLJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oeJ-u6-LVE">
+                                <rect key="frame" x="0.0" y="121" width="375" height="425"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="425" id="GfP-yf-UMC"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oeJ-u6-LVE" firstAttribute="centerY" secondItem="8Q8-Hl-rLJ" secondAttribute="centerY" id="1E4-Ix-j0J"/>
+                            <constraint firstAttribute="trailing" secondItem="oeJ-u6-LVE" secondAttribute="trailing" id="d4b-bL-SkV"/>
+                            <constraint firstItem="oeJ-u6-LVE" firstAttribute="centerX" secondItem="8Q8-Hl-rLJ" secondAttribute="centerX" id="dZL-QN-uHJ"/>
+                            <constraint firstItem="oeJ-u6-LVE" firstAttribute="leading" secondItem="8Q8-Hl-rLJ" secondAttribute="leading" id="h85-MU-oOb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="popUp" destination="oeJ-u6-LVE" id="Fgd-TS-Z2G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ysw-BT-FLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2256.8000000000002" y="357.57121439280365"/>
         </scene>
         <!--Recipes View Controller-->
         <scene sceneID="0pZ-OA-Pf9">
