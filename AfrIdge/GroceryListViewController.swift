@@ -12,16 +12,34 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
 
 
     @IBOutlet weak var list: UITableView!
-    @IBOutlet weak var ticker: UISegmentedControl!
     @IBOutlet weak var addBtn: UIButton!
+    @IBOutlet weak var toBuyBtn: UIButton!
+    @IBOutlet weak var boughtBtn: UIButton!
     
     var unchecked = [GroceryListItem]()
     var checked = [GroceryListItem]()
     var index = 0
     
-    //Change which list is being displayed
-    @IBAction func changeListFilter(_ sender: UISegmentedControl) {
-        index = ticker.selectedSegmentIndex
+    let selectedTabImg = UIImage(named: "tab selected")
+    let unselectedTabImg = UIImage(named: "tab unselected")
+    
+    @IBAction func changeFilterToBuy(_ sender: UIButton) {
+        if index == 0 {
+            return
+        }
+        index = 0
+        self.toBuyBtn.setBackgroundImage(selectedTabImg, for: .normal)
+        self.boughtBtn.setBackgroundImage(unselectedTabImg, for: .normal)
+        list.reloadData()
+    }
+    
+    @IBAction func changeFilterBought(_ sender: UIButton) {
+        if index == 1 {
+            return
+        }
+        index = 1
+        self.boughtBtn.setBackgroundImage(selectedTabImg, for: .normal)
+        self.toBuyBtn.setBackgroundImage(unselectedTabImg, for: .normal)
         list.reloadData()
     }
     
@@ -167,9 +185,8 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         loadInitialCells()
-        
-        let tickerFont = UIFont(name: "AmericanTypewriter", size: 16)
-        self.ticker.setTitleTextAttributes([NSFontAttributeName: tickerFont!], for: .normal)
+        self.toBuyBtn.adjustsImageWhenHighlighted = false
+        self.boughtBtn.adjustsImageWhenHighlighted = false
     }
 
     override func didReceiveMemoryWarning() {
