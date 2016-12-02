@@ -51,6 +51,12 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         cell.ListItemLabel.text = tempList[indexPath.row].food
         cell.ListItemAmount.text = tempList[indexPath.row].amount
         
+        let imgStr = tempList[indexPath.row].food + " icon"
+        let img = UIImage(named: imgStr)
+        if (img != nil) {
+            cell.imgView?.image = img
+        }
+        
         cell.selectionStyle = .none
 
         return(cell)
@@ -150,12 +156,12 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     //Load hardcoded data
     func loadInitialCells() {
-        unchecked.append(GroceryListItem(food: "milk", amount: "1 gal", isChecked: false)!)
-        unchecked.append(GroceryListItem(food: "eggs", amount: "12", isChecked: false)!)
-        unchecked.append(GroceryListItem(food: "cheese", amount: "0.5 lbs", isChecked: false)!)
-        unchecked.append(GroceryListItem(food: "yogurt", amount: "0.25 gal", isChecked: false)!)
-        unchecked.append(GroceryListItem(food: "chicken", amount: "2.5 lbs", isChecked: false)!)
-        checked.append(GroceryListItem(food: "tomatoes", amount: "5", isChecked: true)!)
+        unchecked.append(GroceryListItem(food: "whole milk", amount: "1 gal", isChecked: false)!)
+        unchecked.append(GroceryListItem(food: "eggs", amount: "1 doz", isChecked: false)!)
+        unchecked.append(GroceryListItem(food: "swiss cheese", amount: "0.5 lbs", isChecked: false)!)
+        unchecked.append(GroceryListItem(food: "red apples", amount: "6", isChecked: false)!)
+        unchecked.append(GroceryListItem(food: "chicken legs", amount: "2.5 lbs", isChecked: false)!)
+        checked.append(GroceryListItem(food: "pears", amount: "5", isChecked: true)!)
     }
     
     override func viewDidLoad() {
