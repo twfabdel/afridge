@@ -13,6 +13,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
 
     @IBOutlet weak var list: UITableView!
     @IBOutlet weak var ticker: UISegmentedControl!
+    @IBOutlet weak var addBtn: UIButton!
     
     var unchecked = [GroceryListItem]()
     var checked = [GroceryListItem]()
@@ -83,6 +84,8 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             
             
             let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "groceryPopUp") as! GroceryListPopupViewController
+            popUp.add = false
+            
             self.addChildViewController(popUp)
             popUp.view.frame = self.view.frame
             self.view.addSubview(popUp.view)
@@ -99,6 +102,19 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         return [delete, edit]
     }
     
+    @IBAction func showAddItemPopup(_ sender: UIButton) {
+        
+        let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "groceryPopUp") as! GroceryListPopupViewController
+        popUp.add = true
+        
+        self.addChildViewController(popUp)
+        popUp.view.frame = self.view.frame
+        self.view.addSubview(popUp.view)
+        popUp.didMove(toParentViewController: self)
+        
+        popUp.parentView = self
+    }
+    
     func editItem(itemID: [Int], food: String, amount: String) {
         let index = itemID[1]
         if itemID[0] == 0 {
@@ -111,17 +127,23 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         self.list.reloadData()
     }
     
+    func addItem(food: String, amount: String) {
+        let newItem = GroceryListItem(food: food, amount: amount, isChecked: false)
+        self.unchecked.insert(newItem!, at: 0)
+        self.list.reloadData()
+    }
+    
     func boxClicked(cell: ListItemTableViewCell) {
         let index = self.list.indexPath(for: cell)!.row
         
         if(cell.isChecked) {
             let listItem = checked[index]
             checked.remove(at: index)
-            unchecked.append(listItem)
+            unchecked.insert(listItem, at: 0)
         } else {
             let listItem = unchecked[index]
             unchecked.remove(at: index)
-            checked.append(listItem)
+            checked.insert(listItem, at: 0)
         }
         list.reloadData()
     }
