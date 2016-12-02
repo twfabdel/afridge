@@ -97,7 +97,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             popUp.amountTextField.text = foodItem.amount
             
         }
-        edit.backgroundColor = UIColor(colorLiteralRed: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
+        edit.backgroundColor = UIColor(colorLiteralRed: 69.0/255.0, green: 133.0/255.0, blue: 189.0/255.0, alpha: 1.0)
         
         return [delete, edit]
     }
@@ -161,6 +161,9 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         loadInitialCells()
+        
+        let tickerFont = UIFont(name: "AmericanTypewriter", size: 16)
+        self.ticker.setTitleTextAttributes([NSFontAttributeName: tickerFont!], for: .normal)
     }
 
     override func didReceiveMemoryWarning() {
