@@ -15,6 +15,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var toBuyBtn: UIButton!
     @IBOutlet weak var boughtBtn: UIButton!
+    @IBOutlet weak var doneBtn: UIButton!
     
     var unchecked = [GroceryListItem]()
     var checked = [GroceryListItem]()
@@ -30,6 +31,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         index = 0
         self.toBuyBtn.setBackgroundImage(selectedTabImg, for: .normal)
         self.boughtBtn.setBackgroundImage(unselectedTabImg, for: .normal)
+        self.doneBtn.isHidden = true
         list.reloadData()
     }
     
@@ -40,6 +42,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         index = 1
         self.boughtBtn.setBackgroundImage(selectedTabImg, for: .normal)
         self.toBuyBtn.setBackgroundImage(unselectedTabImg, for: .normal)
+        self.doneBtn.isHidden = false
         list.reloadData()
     }
     
@@ -187,6 +190,8 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         loadInitialCells()
         self.toBuyBtn.adjustsImageWhenHighlighted = false
         self.boughtBtn.adjustsImageWhenHighlighted = false
+        self.doneBtn.layer.cornerRadius = 15
+        self.doneBtn.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
