@@ -8,10 +8,11 @@
 
 import UIKit
 
-class DoneShoppingViewController: UIViewController {
+class DoneShoppingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var popUp: UIView!
     @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet weak var list: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,5 +31,8 @@ class DoneShoppingViewController: UIViewController {
         self.view.removeFromSuperview()
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
 
 }
