@@ -84,10 +84,10 @@
 			children = (
 				B8A0B1C51DDF8C6E0054796E /* AppDelegate.swift */,
 				B8A0B1CB1DDF8C6F0054796E /* Main.storyboard */,
-				B807AB5A1DF0003E00A9A779 /* GroceryListPopupViewController.swift */,
 				B8A0B1C71DDF8C6E0054796E /* InventoryViewController.swift */,
 				B83908BE1DE7587600F69DEA /* InventoryCollectionViewCell.swift */,
 				B83908BF1DE7587600F69DEA /* InventoryCollectionViewCell.xib */,
+				B807AB5A1DF0003E00A9A779 /* GroceryListPopupViewController.swift */,
 				B8A0B1C91DDF8C6E0054796E /* GroceryListViewController.swift */,
 				B8E8308C1DE134A200A56B30 /* ListItemTableViewCell.swift */,
 				B8E8308D1DE134A200A56B30 /* ListItemTableViewCell.xib */,
