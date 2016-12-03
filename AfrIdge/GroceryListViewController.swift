@@ -137,6 +137,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         self.view.addSubview(popUp.view)
         popUp.didMove(toParentViewController: self)
         
+        popUp.boughtItems = self.checked
     }
     
     @IBAction func showAddItemPopup(_ sender: UIButton) {

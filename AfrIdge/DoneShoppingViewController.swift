@@ -14,6 +14,8 @@ class DoneShoppingViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var list: UITableView!
     
+    var boughtItems: [GroceryListItem] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,7 +34,29 @@ class DoneShoppingViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.boughtItems.count
+    }
+    
+    //Format and return cell for given row indexPath.row
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = Bundle.main.loadNibNamed("ListItemTableViewCell", owner: self, options: nil)?.first as! ListItemTableViewCell
+        
+        cell.checkbox.setImage(UIImage(named: "checkbox_t") as UIImage?, for: .normal)
+        cell.checkbox.isEnabled = false
+        
+        cell.ListItemLabel.text = self.boughtItems[indexPath.row].food
+        cell.ListItemAmount.text = self.boughtItems[indexPath.row].amount
+        
+        let imgStr = self.boughtItems[indexPath.row].food + " icon"
+        let img = UIImage(named: imgStr)
+        if (img != nil) {
+            cell.imgView?.image = img
+        }
+        
+        cell.selectionStyle = .none
+    
+        return cell
     }
 
 }
