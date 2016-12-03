@@ -18,6 +18,7 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var recipeCookTime: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var videoButton: UIButton!
+    @IBOutlet weak var recipeScroll: UITextView!
     
     var curRecipe: Recipe!
     
@@ -33,12 +34,19 @@ class RecipeDetailViewController: UIViewController {
         if (curRecipe.favorite) {
             favoriteButton.setTitle("Unfavorite", for: .normal)
         } else {
-            favoriteButton.setTitle("Add To Favorites", for: .normal)
+            favoriteButton.setTitle("Favorite", for: .normal)
         }
         
         videoButton.setTitle("Video Tutorial", for: .normal)
         
+        recipeScroll.text = curRecipe.description
+        
         //additional formatting of page
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        recipeScroll.setContentOffset(CGPoint.zero, animated: false)
     }
     
     override func viewDidLoad() {
