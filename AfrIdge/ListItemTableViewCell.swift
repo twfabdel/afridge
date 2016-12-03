@@ -12,6 +12,7 @@ class ListItemTableViewCell: UITableViewCell {
     @IBOutlet weak var ListItemLabel: UILabel!
     @IBOutlet weak var ListItemAmount: UILabel!
     @IBOutlet weak var checkbox: UIButton!
+    @IBOutlet weak var imgView: UIImageView!
    
     var delegate: GroceryListViewController?
     var isChecked = false

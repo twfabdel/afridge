@@ -18,18 +18,21 @@ class GroceryListPopupViewController: UIViewController {
     
     var itemID: [Int] = []
     var parentView: GroceryListViewController?
+    var add = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        
+        if add {
+            self.doneBtn.setTitle("Add", for: .normal)
+        }
     }
     
     func setup() {
        self.view.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 0.5, alpha: 0.5)
         self.popUp.layer.cornerRadius = 20
         
-        
-        //let lineColor = UIColor(colorLiteralRed: 0, green: 125.0/225.0, blue: 1, alpha: 1)
         let lineColor = UIColor.gray
 
         let line1 = UIView(frame: CGRect(x: 0, y: 0, width: cancelBtn.frame.size.width, height: 0.5))
@@ -56,7 +59,11 @@ class GroceryListPopupViewController: UIViewController {
     }
     
     @IBAction func done(_ sender: Any) {
-        self.parentView?.editItem(itemID: self.itemID, food: self.itemTextField.text!, amount: self.amountTextField.text!)
+        if add {
+            self.parentView?.addItem(food: self.itemTextField.text!, amount: self.amountTextField.text!)
+        } else {
+            self.parentView?.editItem(itemID: self.itemID, food: self.itemTextField.text!, amount: self.amountTextField.text!)
+        }
         self.view.removeFromSuperview()
     }
 

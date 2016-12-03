@@ -12,15 +12,34 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
 
 
     @IBOutlet weak var list: UITableView!
-    @IBOutlet weak var ticker: UISegmentedControl!
+    @IBOutlet weak var addBtn: UIButton!
+    @IBOutlet weak var toBuyBtn: UIButton!
+    @IBOutlet weak var boughtBtn: UIButton!
     
     var unchecked = [GroceryListItem]()
     var checked = [GroceryListItem]()
     var index = 0
     
-    //Change which list is being displayed
-    @IBAction func changeListFilter(_ sender: UISegmentedControl) {
-        index = ticker.selectedSegmentIndex
+    let selectedTabImg = UIImage(named: "tab selected")
+    let unselectedTabImg = UIImage(named: "tab unselected")
+    
+    @IBAction func changeFilterToBuy(_ sender: UIButton) {
+        if index == 0 {
+            return
+        }
+        index = 0
+        self.toBuyBtn.setBackgroundImage(selectedTabImg, for: .normal)
+        self.boughtBtn.setBackgroundImage(unselectedTabImg, for: .normal)
+        list.reloadData()
+    }
+    
+    @IBAction func changeFilterBought(_ sender: UIButton) {
+        if index == 1 {
+            return
+        }
+        index = 1
+        self.boughtBtn.setBackgroundImage(selectedTabImg, for: .normal)
+        self.toBuyBtn.setBackgroundImage(unselectedTabImg, for: .normal)
         list.reloadData()
     }
     
@@ -49,6 +68,12 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         
         cell.ListItemLabel.text = tempList[indexPath.row].food
         cell.ListItemAmount.text = tempList[indexPath.row].amount
+        
+        let imgStr = tempList[indexPath.row].food + " icon"
+        let img = UIImage(named: imgStr)
+        if (img != nil) {
+            cell.imgView?.image = img
+        }
         
         cell.selectionStyle = .none
 
@@ -83,6 +108,8 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             
             
             let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "groceryPopUp") as! GroceryListPopupViewController
+            popUp.add = false
+            
             self.addChildViewController(popUp)
             popUp.view.frame = self.view.frame
             self.view.addSubview(popUp.view)
@@ -94,9 +121,22 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             popUp.amountTextField.text = foodItem.amount
             
         }
-        edit.backgroundColor = UIColor(colorLiteralRed: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
+        edit.backgroundColor = UIColor(colorLiteralRed: 69.0/255.0, green: 133.0/255.0, blue: 189.0/255.0, alpha: 1.0)
         
         return [delete, edit]
+    }
+    
+    @IBAction func showAddItemPopup(_ sender: UIButton) {
+        
+        let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "groceryPopUp") as! GroceryListPopupViewController
+        popUp.add = true
+        
+        self.addChildViewController(popUp)
+        popUp.view.frame = self.view.frame
+        self.view.addSubview(popUp.view)
+        popUp.didMove(toParentViewController: self)
+        
+        popUp.parentView = self
     }
     
     func editItem(itemID: [Int], food: String, amount: String) {
@@ -111,34 +151,42 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         self.list.reloadData()
     }
     
+    func addItem(food: String, amount: String) {
+        let newItem = GroceryListItem(food: food, amount: amount, isChecked: false)
+        self.unchecked.insert(newItem!, at: 0)
+        self.list.reloadData()
+    }
+    
     func boxClicked(cell: ListItemTableViewCell) {
         let index = self.list.indexPath(for: cell)!.row
         
         if(cell.isChecked) {
             let listItem = checked[index]
             checked.remove(at: index)
-            unchecked.append(listItem)
+            unchecked.insert(listItem, at: 0)
         } else {
             let listItem = unchecked[index]
             unchecked.remove(at: index)
-            checked.append(listItem)
+            checked.insert(listItem, at: 0)
         }
         list.reloadData()
     }
     
     //Load hardcoded data
     func loadInitialCells() {
-        unchecked.append(GroceryListItem(food: "milk", amount: "1 gal", isChecked: false)!)
-        unchecked.append(GroceryListItem(food: "eggs", amount: "12", isChecked: false)!)
-        unchecked.append(GroceryListItem(food: "cheese", amount: "0.5 lbs", isChecked: false)!)
-        unchecked.append(GroceryListItem(food: "yogurt", amount: "0.25 gal", isChecked: false)!)
-        unchecked.append(GroceryListItem(food: "chicken", amount: "2.5 lbs", isChecked: false)!)
-        checked.append(GroceryListItem(food: "tomatoes", amount: "5", isChecked: true)!)
+        unchecked.append(GroceryListItem(food: "whole milk", amount: "1 gal", isChecked: false)!)
+        unchecked.append(GroceryListItem(food: "eggs", amount: "1 doz", isChecked: false)!)
+        unchecked.append(GroceryListItem(food: "swiss cheese", amount: "0.5 lbs", isChecked: false)!)
+        unchecked.append(GroceryListItem(food: "red apples", amount: "6", isChecked: false)!)
+        unchecked.append(GroceryListItem(food: "chicken legs", amount: "2.5 lbs", isChecked: false)!)
+        checked.append(GroceryListItem(food: "pears", amount: "5", isChecked: true)!)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadInitialCells()
+        self.toBuyBtn.adjustsImageWhenHighlighted = false
+        self.boughtBtn.adjustsImageWhenHighlighted = false
     }
 
     override func didReceiveMemoryWarning() {

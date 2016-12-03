@@ -66,7 +66,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="hWw-DU-wXR" secondAttribute="height" multiplier="1:1" id="I6J-I7-dQr"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="default"/>
+                                                            <state key="normal" title="Button" image="question_mark"/>
                                                             <connections>
                                                                 <action selector="foodClicked:" destination="OAt-i7-gzf" eventType="touchUpInside" id="UT2-Up-3Ox"/>
                                                             </connections>
@@ -155,25 +155,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fkX-HA-aUc">
-                                <rect key="frame" x="36" y="80" width="303" height="29"/>
-                                <segments>
-                                    <segment title="To Buy"/>
-                                    <segment title="Bought"/>
-                                </segments>
-                                <connections>
-                                    <action selector="changeListFilter:" destination="8rJ-Kc-sve" eventType="valueChanged" id="ase-uC-GJp"/>
-                                </connections>
-                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xc2-jm-daU">
+                                <rect key="frame" x="16" y="95" width="343" height="37"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZs-RZ-Ruf">
+                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="D1G-8J-3z4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
+                                        <state key="normal" title="To Buy" backgroundImage="tab selected">
+                                            <color key="titleColor" red="0.27058041100000002" green="0.52048254009999995" blue="0.73934572939999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeFilterToBuy:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="rY8-Gf-zCk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcT-AT-Ydm">
+                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="oKb-Eo-mcg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="21"/>
+                                        <state key="normal" title="Bought" backgroundImage="tab unselected">
+                                            <color key="titleColor" red="0.27058041100000002" green="0.52048254009999995" blue="0.73934572939999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeFilterBought:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="KS0-Ue-BIk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UQY-AD-Pyl">
-                                <rect key="frame" x="0.0" y="128" width="375" height="490"/>
+                                <rect key="frame" x="0.0" y="148" width="375" height="470"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="IVd-hn-0ze" customClass="ListItemTableViewCell" customModule="AfrIdge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IVd-hn-0ze" id="BJf-YD-TS9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -183,23 +204,66 @@
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="Lnp-Rt-SVT"/>
                                 </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title-nav-background" translatesAutoresizingMaskIntoConstraints="NO" id="BTX-xL-Zun">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdZ-mJ-RHO">
+                                <rect key="frame" x="315" y="25" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cdZ-mJ-RHO" secondAttribute="height" multiplier="1:1" id="2oC-3H-ogf"/>
+                                    <constraint firstAttribute="width" constant="40" id="7HZ-ha-F1N"/>
+                                    <constraint firstAttribute="height" constant="40" id="rU2-Rk-BiT"/>
+                                </constraints>
+                                <state key="normal" title="+" image="plusBtn"/>
+                                <connections>
+                                    <action selector="showAddItemPopup:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="DPG-7s-eXI"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PIj-zF-AVM">
+                                <rect key="frame" x="21" y="25" width="175.5" height="38"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9i-m5-abt">
+                                        <rect key="frame" x="0.0" y="0.0" width="8" height="38"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="JMr-Qc-0Bv"/>
+                                            <constraint firstAttribute="width" constant="8" id="QD8-JK-nZY"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grocery List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ba-Xj-vUf">
+                                        <rect key="frame" x="18" y="0.0" width="157.5" height="38"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="UQY-AD-Pyl" firstAttribute="top" secondItem="xc2-jm-daU" secondAttribute="bottom" constant="16" id="9y7-5o-Zji"/>
                             <constraint firstItem="UQY-AD-Pyl" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="CUd-Qn-O3i"/>
-                            <constraint firstItem="UQY-AD-Pyl" firstAttribute="top" secondItem="fkX-HA-aUc" secondAttribute="bottom" constant="20" id="HdE-Ar-cKN"/>
+                            <constraint firstItem="PIj-zF-AVM" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="5" id="GqN-Pw-MqY"/>
+                            <constraint firstItem="BTX-xL-Zun" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="LM1-84-G9d"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="UQY-AD-Pyl" secondAttribute="bottom" id="R51-yP-NCe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fkX-HA-aUc" secondAttribute="trailing" constant="20" id="RiB-yh-mqC"/>
+                            <constraint firstItem="xc2-jm-daU" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="Wwm-Vs-7W9"/>
+                            <constraint firstAttribute="trailing" secondItem="cdZ-mJ-RHO" secondAttribute="trailing" constant="20" id="Xxb-Zl-wFt"/>
+                            <constraint firstItem="PIj-zF-AVM" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="5" id="Ye6-h4-DW3"/>
+                            <constraint firstItem="xc2-jm-daU" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="topMargin" constant="95" id="gea-XT-JFz"/>
+                            <constraint firstItem="BTX-xL-Zun" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="hyq-tW-CGX"/>
+                            <constraint firstItem="cdZ-mJ-RHO" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="5" id="pAr-PQ-Xze"/>
                             <constraint firstAttribute="trailing" secondItem="UQY-AD-Pyl" secondAttribute="trailing" id="qSj-jP-7AT"/>
-                            <constraint firstItem="fkX-HA-aUc" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="20" id="qns-fX-tjc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xc2-jm-daU" secondAttribute="trailing" id="r3x-BR-jLm"/>
                             <constraint firstItem="UQY-AD-Pyl" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="u64-aG-Vvj"/>
-                            <constraint firstItem="fkX-HA-aUc" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="60" id="vAK-8q-WXv"/>
+                            <constraint firstAttribute="trailing" secondItem="BTX-xL-Zun" secondAttribute="trailing" id="w7G-q4-IY9"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Grocery List" image="second" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="addBtn" destination="cdZ-mJ-RHO" id="hnn-Yc-7VJ"/>
+                        <outlet property="boughtBtn" destination="jcT-AT-Ydm" id="PgQ-zR-I1K"/>
                         <outlet property="list" destination="UQY-AD-Pyl" id="VD8-G6-tHL"/>
-                        <outlet property="ticker" destination="fkX-HA-aUc" id="gNw-Eu-4Tk"/>
+                        <outlet property="toBuyBtn" destination="vZs-RZ-Ruf" id="j1S-PN-dFI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -233,7 +297,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvu-R0-DhF">
                                                 <rect key="frame" x="120" y="0.0" width="120" height="40"/>
-                                                <state key="normal" title="Done"/>
+                                                <state key="normal" title="Edit"/>
                                                 <connections>
                                                     <action selector="done:" destination="aOK-Pq-IpS" eventType="touchUpInside" id="yzx-k8-WaB"/>
                                                 </connections>
@@ -311,7 +375,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fYQ-Kh-9jX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1524" y="457"/>
+            <point key="canvasLocation" x="1546" y="359"/>
         </scene>
         <!--Recipes View Controller-->
         <scene sceneID="0pZ-OA-Pf9">
@@ -333,7 +397,7 @@
                                         <rect key="frame" x="0.0" y="28" width="248" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HJf-cy-eO5" id="fJd-lo-uFx">
-                                            <rect key="frame" x="0.0" y="0.0" width="248" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="248" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -622,8 +686,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="default" width="256" height="256"/>
         <image name="first" width="30" height="30"/>
+        <image name="plusBtn" width="55" height="53"/>
+        <image name="question_mark" width="256" height="256"/>
         <image name="second" width="30" height="30"/>
+        <image name="tab selected" width="151" height="37"/>
+        <image name="tab unselected" width="151" height="37"/>
+        <image name="title-nav-background" width="375" height="78"/>
     </resources>
 </document>
