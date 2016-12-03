@@ -31,7 +31,9 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         index = 0
         self.toBuyBtn.setBackgroundImage(selectedTabImg, for: .normal)
         self.boughtBtn.setBackgroundImage(unselectedTabImg, for: .normal)
-        self.doneBtn.isHidden = true
+        if self.unchecked.count > 0 {
+            self.doneBtn.isHidden = true
+        }
         list.reloadData()
     }
     
@@ -42,7 +44,9 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         index = 1
         self.boughtBtn.setBackgroundImage(selectedTabImg, for: .normal)
         self.toBuyBtn.setBackgroundImage(unselectedTabImg, for: .normal)
-        self.doneBtn.isHidden = false
+        if self.checked.count > 0 {
+            self.doneBtn.isHidden = false
+        }
         list.reloadData()
     }
     
@@ -89,8 +93,14 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             
             if self.index == 0 {
                 self.unchecked.remove(at: indexPath.row)
+                if self.unchecked.count == 0 && self.checked.count > 0 {
+                    self.doneBtn.isHidden = false
+                }
             } else {
                 self.checked.remove(at: indexPath.row)
+                if self.checked.count == 0 {
+                    self.doneBtn.isHidden = true
+                }
             }
             self.list.reloadData()
         }
@@ -178,10 +188,16 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             let listItem = checked[index]
             checked.remove(at: index)
             unchecked.insert(listItem, at: 0)
+            if self.checked.count == 0 {
+                self.doneBtn.isHidden = true
+            }
         } else {
             let listItem = unchecked[index]
             unchecked.remove(at: index)
             checked.insert(listItem, at: 0)
+            if self.unchecked.count == 0 {
+                self.doneBtn.isHidden = false
+            }
         }
         list.reloadData()
     }
@@ -202,7 +218,9 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         self.toBuyBtn.adjustsImageWhenHighlighted = false
         self.boughtBtn.adjustsImageWhenHighlighted = false
         self.doneBtn.layer.cornerRadius = 15
-        self.doneBtn.isHidden = true
+        if self.unchecked.count > 0 || self.checked.count == 0 {
+            self.doneBtn.isHidden = true
+        }
     }
 
     override func didReceiveMemoryWarning() {
