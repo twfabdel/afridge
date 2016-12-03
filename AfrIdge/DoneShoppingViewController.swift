@@ -12,6 +12,7 @@ class DoneShoppingViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var popUp: UIView!
     @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var list: UITableView!
     
     var boughtItems: [GroceryListItem] = []
