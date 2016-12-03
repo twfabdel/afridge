@@ -16,6 +16,8 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var recipeDifficulty: UILabel!
     @IBOutlet weak var recipeRating: UILabel!
     @IBOutlet weak var recipeCookTime: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var videoButton: UIButton!
     
     var curRecipe: Recipe!
     
@@ -27,6 +29,15 @@ class RecipeDetailViewController: UIViewController {
         recipeDifficulty.text = curRecipe.difficulty.rawValue
         recipeRating.text = String(curRecipe.rating)
         recipeCookTime.text = String(curRecipe.cookTime)
+        
+        if (curRecipe.favorite) {
+            favoriteButton.setTitle("Unfavorite", for: .normal)
+        } else {
+            favoriteButton.setTitle("Add To Favorites", for: .normal)
+        }
+        
+        videoButton.setTitle("Video Tutorial", for: .normal)
+        
         //additional formatting of page
     }
     
