@@ -26,7 +26,6 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == recipeSegueIdentifier) {
             let destination = segue.destination as! RecipeDetailViewController
-            //let tableIndex = recipeList.indexPathForSelectedRow?.row
             let tableIndex = sender as! Int
     
             if (index == 0) {
@@ -67,8 +66,6 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Do any additional setup after loading the view.
         self.sortPicker.dataSource = self
         self.sortPicker.delegate = self
-        
-        favorites.sort{$0.name <= $1.name}
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,6 +75,15 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        
+        //in case global data changed
+        favorites = Data.sharedData.favoritedRecipes
+        recipes = Data.sharedData.unfavoritedRecipes
+        
+        recipeList.reloadData()
+        favorites.sort{$0.name <= $1.name}
+        sortPicker.selectRow(0, inComponent: 0, animated: false)
+        
         print("In Recipes!")
     }
     
