@@ -403,7 +403,7 @@
                                         <rect key="frame" x="0.0" y="28" width="334" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HJf-cy-eO5" id="fJd-lo-uFx">
-                                            <rect key="frame" x="0.0" y="0.0" width="334" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="334" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -714,35 +714,15 @@
                             <constraint firstItem="ey9-hW-gnc" firstAttribute="top" secondItem="zXM-UW-P4q" secondAttribute="bottom" id="sjf-69-iav"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hbt-3U-DJM">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="KPo-Wz-SXy">
-                            <view key="customView" contentMode="scaleToFill" id="cgP-2l-8yp">
-                                <rect key="frame" x="244" y="5" width="150" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNF-33-MnK">
-                                        <rect key="frame" x="5" y="6" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="YNF-33-MnK" firstAttribute="centerY" secondItem="cgP-2l-8yp" secondAttribute="centerY" id="MDc-iv-OcB"/>
-                                    <constraint firstItem="YNF-33-MnK" firstAttribute="leading" secondItem="cgP-2l-8yp" secondAttribute="leading" constant="5" id="Oya-13-syR"/>
-                                </constraints>
-                            </view>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="hbt-3U-DJM"/>
                     <connections>
                         <outlet property="favoriteButton" destination="Gik-kJ-nXP" id="mWh-kn-MFC"/>
                         <outlet property="recipeCookTime" destination="IwD-ZX-gPs" id="PcB-VP-0lC"/>
                         <outlet property="recipeDifficulty" destination="mBk-bG-lmT" id="4JC-Dq-nAL"/>
                         <outlet property="recipeImage" destination="9qf-mo-eqa" id="ZUn-DJ-2ZA"/>
-                        <outlet property="recipeNameLabel" destination="YNF-33-MnK" id="KVR-E8-yN1"/>
                         <outlet property="recipeRating" destination="eBp-hY-5p6" id="oyM-MP-MKe"/>
                         <outlet property="recipeScroll" destination="2HC-X1-eIg" id="NNh-py-fPF"/>
+                        <outlet property="topNavigationBar" destination="hbt-3U-DJM" id="1zv-VZ-4YX"/>
                         <outlet property="videoButton" destination="E2a-jg-iOB" id="KXe-L2-NOQ"/>
                     </connections>
                 </viewController>

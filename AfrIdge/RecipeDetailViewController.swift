@@ -11,7 +11,7 @@ import UIKit
 class RecipeDetailViewController: UIViewController {
 
     
-    @IBOutlet weak var recipeNameLabel: UILabel!
+    //@IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeDifficulty: UILabel!
     @IBOutlet weak var recipeRating: UILabel!
@@ -19,12 +19,13 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var videoButton: UIButton!
     @IBOutlet weak var recipeScroll: UITextView!
+    @IBOutlet weak var topNavigationBar: UINavigationItem!
     
     var curRecipe: Recipe!
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
-        recipeNameLabel.text = curRecipe.name
+       // recipeNameLabel.text = curRecipe.name
         let newImage = UIImage(named: curRecipe.imageString)
         recipeImage.image = newImage
         recipeDifficulty.text = curRecipe.difficulty.rawValue
@@ -40,6 +41,9 @@ class RecipeDetailViewController: UIViewController {
         videoButton.setTitle("Video Tutorial", for: .normal)
         
         recipeScroll.text = curRecipe.description
+        
+        topNavigationBar.title = curRecipe.name
+        
         
         //additional formatting of page
     }
