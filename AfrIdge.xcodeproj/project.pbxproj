@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1125BF7A1DEE2BAF00CA4C67 /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1125BF791DEE2BAF00CA4C67 /* FoodItem.swift */; };
 		1125BF801DEE7DBE00CA4C67 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1125BF7F1DEE7DBE00CA4C67 /* RecipeDetailViewController.swift */; };
+		11CD471E1DF3A5DB0042B6DE /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD471D1DF3A5DB0042B6DE /* Data.swift */; };
 		B807AB5B1DF0003F00A9A779 /* GroceryListPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807AB5A1DF0003E00A9A779 /* GroceryListPopupViewController.swift */; };
 		B83908C01DE7587600F69DEA /* InventoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83908BE1DE7587600F69DEA /* InventoryCollectionViewCell.swift */; };
 		B83908C11DE7587600F69DEA /* InventoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B83908BF1DE7587600F69DEA /* InventoryCollectionViewCell.xib */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		1125BF791DEE2BAF00CA4C67 /* FoodItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
 		1125BF7F1DEE7DBE00CA4C67 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		11CD471D1DF3A5DB0042B6DE /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		B807AB5A1DF0003E00A9A779 /* GroceryListPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListPopupViewController.swift; sourceTree = "<group>"; };
 		B83908BE1DE7587600F69DEA /* InventoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B83908BF1DE7587600F69DEA /* InventoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InventoryCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				B8A0B1D01DDF8C6F0054796E /* LaunchScreen.storyboard */,
 				B8A0B1D31DDF8C6F0054796E /* Info.plist */,
 				1125BF791DEE2BAF00CA4C67 /* FoodItem.swift */,
+				11CD471D1DF3A5DB0042B6DE /* Data.swift */,
 			);
 			path = AfrIdge;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				B8A0B1CA1DDF8C6E0054796E /* GroceryListViewController.swift in Sources */,
 				B8E830911DE13C9500A56B30 /* GroceryListItem.swift in Sources */,
 				B807AB5B1DF0003F00A9A779 /* GroceryListPopupViewController.swift in Sources */,
+				11CD471E1DF3A5DB0042B6DE /* Data.swift in Sources */,
 				B8A0B1C61DDF8C6E0054796E /* AppDelegate.swift in Sources */,
 				B8E8309D1DE39D0300A56B30 /* Recipe.swift in Sources */,
 				B8A0B1C81DDF8C6E0054796E /* InventoryViewController.swift in Sources */,
