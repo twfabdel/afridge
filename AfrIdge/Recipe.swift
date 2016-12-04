@@ -32,17 +32,18 @@ class Recipe {
     var favorite: Bool
     var cookTime: Int
     var difficulty: Difficulty
-    //still doing a string description?
+    var description: String
     var videoLink: String
     var imageString: String
     var ingredients: [FoodItem]
     
-    init?(name: String, rating: Double, favorite: Bool, cookTime: Int, difficulty: Difficulty, videoLink: String, imageString: String, ingredients: [FoodItem]) {
+    init?(name: String, rating: Double, favorite: Bool, cookTime: Int, difficulty: Difficulty, description: String, videoLink: String, imageString: String, ingredients: [FoodItem]) {
         self.name = name
         self.rating = rating
         self.favorite = favorite
         self.cookTime = cookTime
         self.difficulty = difficulty
+        self.description = description
         self.videoLink = videoLink
         self.imageString = imageString
         self.ingredients = ingredients
