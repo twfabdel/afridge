@@ -14,19 +14,22 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var recipeList: UITableView!
     @IBOutlet weak var searchBar: UITextField!
-    @IBOutlet weak var ticker: UISegmentedControl!
     @IBOutlet weak var sortPicker: UIPickerView!
+    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var recipeButton: UIButton!
     
-    var favorites = [Recipe]()
-    var recipes = [Recipe]()
-    var sortData = ["Alphabetical", "Rating", "Cook Time", "Difficulty"]
+    var favorites = Data.sharedData.favoritedRecipes
+    var recipes = Data.sharedData.unfavoritedRecipes
     var index = 0
+    
+    let sortData = ["Alphabetical", "Rating", "Cook Time", "Difficulty"]
     let recipeSegueIdentifier = "ShowRecipeDetailSegue"
+    let selectedTabImg = UIImage(named: "tab selected")
+    let unselectedTabImg = UIImage(named: "tab unselected")
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == recipeSegueIdentifier) {
             let destination = segue.destination as! RecipeDetailViewController
-            //let tableIndex = recipeList.indexPathForSelectedRow?.row
             let tableIndex = sender as! Int
     
             if (index == 0) {
@@ -44,21 +47,29 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         performSegue(withIdentifier: recipeSegueIdentifier, sender: row)
     }
     
-    @IBAction func changeRecipeListFilter(_ sender: UISegmentedControl) {
-        index = ticker.selectedSegmentIndex
-        
-        //sort new list alphabetically
-        if (index == 0) {
-            //switching to favorites list
-            favorites.sort{$0.name <= $1.name}
-        } else {
-            //switching to recipes list
-            recipes.sort{$0.name <= $1.name}
+    @IBAction func favoriteButtonClicked(_ sender: Any) {
+        if index == 0 {
+            return
         }
+        index = 0
+        favoriteButton.setBackgroundImage(selectedTabImg, for: .normal)
+        recipeButton.setBackgroundImage(unselectedTabImg, for: .normal)
         
         //defaults dial back to alphabetical
         sortPicker.selectRow(0, inComponent: 0, animated: true)
+        recipeList.reloadData()
+    }
+    
+    @IBAction func recipeButtonClicked(_ sender: Any) {
+        if index == 1 {
+            return
+        }
+        index = 1
+        recipeButton.setBackgroundImage(selectedTabImg, for: .normal)
+        favoriteButton.setBackgroundImage(unselectedTabImg, for: .normal)
         
+        //defaults dial back to alphabetical
+        sortPicker.selectRow(0, inComponent: 0, animated: true)
         recipeList.reloadData()
     }
 
@@ -67,9 +78,6 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Do any additional setup after loading the view.
         self.sortPicker.dataSource = self
         self.sortPicker.delegate = self
-        initializeLists()
-        
-        favorites.sort{$0.name <= $1.name}
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,6 +87,15 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        
+        //in case global data changed
+        favorites = Data.sharedData.favoritedRecipes
+        recipes = Data.sharedData.unfavoritedRecipes
+        
+        recipeList.reloadData()
+        favorites.sort{$0.name <= $1.name}
+        sortPicker.selectRow(0, inComponent: 0, animated: false)
+        
         print("In Recipes!")
     }
     
@@ -150,19 +167,6 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         recipeList.reloadData()
-    }
-    
-    func initializeLists() {
-        favorites.append(Recipe(name:"Vanilla Milk Shake", rating: 5, favorite: true, cookTime: 10, difficulty: Difficulty.Easy, videoLink: "emptyLink", imageString: "question_mark", ingredients: [FoodItem]())!)
-        favorites.append(Recipe(name:"Shrimp Linguini", rating: 4.5, favorite: true, cookTime: 40, difficulty: Difficulty.Hard, videoLink: "emptyLink", imageString: "question_mark", ingredients: [FoodItem]())!)
-        favorites.append(Recipe(name:"Cheese Burger", rating: 4.0, favorite: true, cookTime: 20, difficulty: Difficulty.Medium, videoLink: "emptyLink", imageString: "question_mark", ingredients: [FoodItem]())!)
-        
-        recipes.append(Recipe(name:"Tofu Sautee", rating: 3.5, favorite: false, cookTime: 40, difficulty: Difficulty.Medium, videoLink: "emptyLink", imageString: "question_mark", ingredients: [FoodItem]())!)
-        recipes.append(Recipe(name:"Chicken Marsala", rating: 4.5, favorite: false, cookTime: 40, difficulty: Difficulty.Medium, videoLink: "emptyLink", imageString: "question_mark", ingredients: [FoodItem]())!)
-        recipes.append(Recipe(name:"Chicken Parm", rating: 2.5, favorite: false, cookTime: 40, difficulty: Difficulty.Medium, videoLink: "emptyLink", imageString: "question_mark", ingredients: [FoodItem]())!)
-        recipes.append(Recipe(name:"Southwestern Scramble", rating: 3.0, favorite: false, cookTime: 40, difficulty: Difficulty.Easy, videoLink: "emptyLink", imageString: "question_mark", ingredients: [FoodItem]())!)
-        recipes.append(Recipe(name:"Roasted Brussel Sprouts", rating: 4.0, favorite: false, cookTime: 40, difficulty: Difficulty.Easy, videoLink: "emptyLink", imageString: "question_mark", ingredients: [FoodItem]())!)
-        
     }
     
     
