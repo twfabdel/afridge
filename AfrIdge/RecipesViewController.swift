@@ -14,14 +14,18 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var recipeList: UITableView!
     @IBOutlet weak var searchBar: UITextField!
-    @IBOutlet weak var ticker: UISegmentedControl!
     @IBOutlet weak var sortPicker: UIPickerView!
+    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var recipeButton: UIButton!
     
     var favorites = Data.sharedData.favoritedRecipes
     var recipes = Data.sharedData.unfavoritedRecipes
-    var sortData = ["Alphabetical", "Rating", "Cook Time", "Difficulty"]
     var index = 0
+    
+    let sortData = ["Alphabetical", "Rating", "Cook Time", "Difficulty"]
     let recipeSegueIdentifier = "ShowRecipeDetailSegue"
+    let selectedTabImg = UIImage(named: "tab selected")
+    let unselectedTabImg = UIImage(named: "tab unselected")
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == recipeSegueIdentifier) {
@@ -43,21 +47,29 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         performSegue(withIdentifier: recipeSegueIdentifier, sender: row)
     }
     
-    @IBAction func changeRecipeListFilter(_ sender: UISegmentedControl) {
-        index = ticker.selectedSegmentIndex
-        
-        //sort new list alphabetically
-        if (index == 0) {
-            //switching to favorites list
-            favorites.sort{$0.name <= $1.name}
-        } else {
-            //switching to recipes list
-            recipes.sort{$0.name <= $1.name}
+    @IBAction func favoriteButtonClicked(_ sender: Any) {
+        if index == 0 {
+            return
         }
+        index = 0
+        favoriteButton.setBackgroundImage(selectedTabImg, for: .normal)
+        recipeButton.setBackgroundImage(unselectedTabImg, for: .normal)
         
         //defaults dial back to alphabetical
         sortPicker.selectRow(0, inComponent: 0, animated: true)
+        recipeList.reloadData()
+    }
+    
+    @IBAction func recipeButtonClicked(_ sender: Any) {
+        if index == 1 {
+            return
+        }
+        index = 1
+        recipeButton.setBackgroundImage(selectedTabImg, for: .normal)
+        favoriteButton.setBackgroundImage(unselectedTabImg, for: .normal)
         
+        //defaults dial back to alphabetical
+        sortPicker.selectRow(0, inComponent: 0, animated: true)
         recipeList.reloadData()
     }
 

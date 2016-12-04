@@ -165,7 +165,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
                                         <state key="normal" title="To Buy" backgroundImage="tab selected">
-                                            <color key="titleColor" red="0.27058041100000002" green="0.52048254009999995" blue="0.73934572939999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.27058823529411763" green="0.52156862745098043" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="changeFilterToBuy:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="rY8-Gf-zCk"/>
@@ -395,27 +395,16 @@
                                     <constraint firstAttribute="height" constant="64" id="Lyr-zj-Q1k"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Il-vI-BFj">
-                                <rect key="frame" x="40" y="203" width="334" height="484"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recipeCell" id="HJf-cy-eO5" customClass="RecipeTableViewCell" customModule="AfrIdge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="334" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HJf-cy-eO5" id="fJd-lo-uFx">
-                                            <rect key="frame" x="0.0" y="0.0" width="334" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="guM-bN-RnD" kind="show" identifier="ShowRecipeDetailSegue" id="vpj-Xm-bdW"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0K-BP-idq">
+                                <rect key="frame" x="40" y="204" width="334" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="xrE-ov-58D"/>
+                                </constraints>
                                 <connections>
-                                    <outlet property="dataSource" destination="hUx-Zv-hRd" id="YsV-Sd-yg2"/>
-                                    <outlet property="delegate" destination="hUx-Zv-hRd" id="Ohp-3R-doA"/>
+                                    <outlet property="dataSource" destination="xuh-pJ-11M" id="3bC-9s-CbA"/>
+                                    <outlet property="delegate" destination="xuh-pJ-11M" id="3eF-PB-NJj"/>
                                 </connections>
-                            </tableView>
+                            </pickerView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ehM-Ov-N0R">
                                 <rect key="frame" x="10.000000000000007" y="21" width="113.66666666666669" height="38"/>
                                 <subviews>
@@ -450,55 +439,89 @@
                                     <action selector="searchRecipes:" destination="hUx-Zv-hRd" eventType="editingDidEnd" id="V6g-su-cvO"/>
                                 </connections>
                             </textField>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0K-BP-idq">
-                                <rect key="frame" x="40" y="113" width="334" height="80"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huC-jd-4dt">
+                                <rect key="frame" x="20" y="139" width="374" height="37"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cC9-KS-OJZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="187" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="BY2-SL-2Wy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
+                                        <state key="normal" title="Favorites" backgroundImage="tab selected">
+                                            <color key="titleColor" red="0.27058823529411763" green="0.52156862745098043" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="favoriteButtonClicked:" destination="hUx-Zv-hRd" eventType="touchUpInside" id="OgU-ga-bzL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qG-85-Yca">
+                                        <rect key="frame" x="187" y="0.0" width="187" height="37"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
+                                        <state key="normal" title="Recipes" backgroundImage="tab unselected">
+                                            <color key="titleColor" red="0.27058823529411763" green="0.52156862745098043" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="recipeButtonClicked:" destination="hUx-Zv-hRd" eventType="touchUpInside" id="j9f-0Y-sPM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="xrE-ov-58D"/>
+                                    <constraint firstItem="8qG-85-Yca" firstAttribute="width" secondItem="cC9-KS-OJZ" secondAttribute="width" id="8mF-zF-3bE"/>
+                                    <constraint firstItem="8qG-85-Yca" firstAttribute="height" secondItem="cC9-KS-OJZ" secondAttribute="height" id="lpU-fM-cB4"/>
                                 </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Il-vI-BFj">
+                                <rect key="frame" x="40" y="306" width="334" height="381"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recipeCell" id="HJf-cy-eO5" customClass="RecipeTableViewCell" customModule="AfrIdge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="334" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HJf-cy-eO5" id="fJd-lo-uFx">
+                                            <rect key="frame" x="0.0" y="0.0" width="334" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="guM-bN-RnD" kind="show" identifier="ShowRecipeDetailSegue" id="vpj-Xm-bdW"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="xuh-pJ-11M" id="3bC-9s-CbA"/>
-                                    <outlet property="delegate" destination="xuh-pJ-11M" id="3eF-PB-NJj"/>
+                                    <outlet property="dataSource" destination="hUx-Zv-hRd" id="YsV-Sd-yg2"/>
+                                    <outlet property="delegate" destination="hUx-Zv-hRd" id="Ohp-3R-doA"/>
                                 </connections>
-                            </pickerView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YJk-KO-sdr">
-                                <rect key="frame" x="40" y="75" width="334" height="29"/>
-                                <segments>
-                                    <segment title="Favorites"/>
-                                    <segment title="Recipes"/>
-                                </segments>
-                                <connections>
-                                    <action selector="changeRecipeListFilter:" destination="hUx-Zv-hRd" eventType="valueChanged" id="EGC-Kt-miu"/>
-                                </connections>
-                            </segmentedControl>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YJk-KO-sdr" firstAttribute="leading" secondItem="xuh-pJ-11M" secondAttribute="leadingMargin" constant="20" id="6xn-vQ-aYt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Il-vI-BFj" secondAttribute="trailing" constant="20" id="7FD-Yr-hdI"/>
                             <constraint firstItem="CsP-ju-QeF" firstAttribute="trailing" secondItem="4Il-vI-BFj" secondAttribute="trailing" id="EdA-uj-Hci"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="a0K-BP-idq" secondAttribute="trailing" constant="20" id="H7a-JZ-Cki"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="a0K-BP-idq" secondAttribute="trailing" constant="20" id="Esa-rV-29G"/>
+                            <constraint firstItem="a0K-BP-idq" firstAttribute="leading" secondItem="xuh-pJ-11M" secondAttribute="leadingMargin" constant="20" id="GNG-IS-tBU"/>
                             <constraint firstItem="jkj-Qx-SS6" firstAttribute="leading" secondItem="xuh-pJ-11M" secondAttribute="leading" id="I20-pZ-Pts"/>
                             <constraint firstItem="ehM-Ov-N0R" firstAttribute="leading" secondItem="xuh-pJ-11M" secondAttribute="leading" constant="10" id="ICn-Y8-5tl"/>
+                            <constraint firstItem="a0K-BP-idq" firstAttribute="top" secondItem="huC-jd-4dt" secondAttribute="bottom" constant="28" id="Ibo-uU-4aD"/>
                             <constraint firstItem="CsP-ju-QeF" firstAttribute="top" secondItem="xuh-pJ-11M" secondAttribute="topMargin" constant="25" id="IqI-eQ-uDo"/>
+                            <constraint firstItem="huC-jd-4dt" firstAttribute="leading" secondItem="xuh-pJ-11M" secondAttribute="leadingMargin" id="KEj-Vd-Zgz"/>
+                            <constraint firstItem="huC-jd-4dt" firstAttribute="centerX" secondItem="xuh-pJ-11M" secondAttribute="centerX" id="Lk4-SP-Wgz"/>
                             <constraint firstItem="qAn-BN-gRb" firstAttribute="top" secondItem="4Il-vI-BFj" secondAttribute="bottom" id="NPj-KI-4y9"/>
                             <constraint firstAttribute="trailing" secondItem="jkj-Qx-SS6" secondAttribute="trailing" id="RxB-Ub-bED"/>
-                            <constraint firstItem="YJk-KO-sdr" firstAttribute="top" secondItem="CsP-ju-QeF" secondAttribute="bottom" constant="20" id="TBv-wa-RBb"/>
+                            <constraint firstItem="huC-jd-4dt" firstAttribute="top" secondItem="jJ1-U8-kkN" secondAttribute="bottom" constant="75" id="TSG-eA-eCB"/>
                             <constraint firstItem="CsP-ju-QeF" firstAttribute="centerY" secondItem="ehM-Ov-N0R" secondAttribute="centerY" id="aqV-44-6Z5"/>
+                            <constraint firstItem="4Il-vI-BFj" firstAttribute="top" secondItem="a0K-BP-idq" secondAttribute="bottom" constant="22" id="e3u-te-DMV"/>
                             <constraint firstItem="4Il-vI-BFj" firstAttribute="leading" secondItem="xuh-pJ-11M" secondAttribute="leadingMargin" constant="20" id="erO-VQ-NH8"/>
-                            <constraint firstItem="4Il-vI-BFj" firstAttribute="top" secondItem="a0K-BP-idq" secondAttribute="bottom" constant="10" id="kYr-To-jGv"/>
-                            <constraint firstItem="a0K-BP-idq" firstAttribute="leading" secondItem="xuh-pJ-11M" secondAttribute="leadingMargin" constant="20" id="lhV-Od-uMS"/>
-                            <constraint firstItem="a0K-BP-idq" firstAttribute="top" secondItem="YJk-KO-sdr" secondAttribute="bottom" constant="10" id="mTy-ga-IuU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="huC-jd-4dt" secondAttribute="trailing" id="n5P-uZ-TPm"/>
                             <constraint firstItem="jkj-Qx-SS6" firstAttribute="top" secondItem="xuh-pJ-11M" secondAttribute="top" id="qYn-4e-TX2"/>
-                            <constraint firstItem="a0K-BP-idq" firstAttribute="centerX" secondItem="xuh-pJ-11M" secondAttribute="centerX" id="swb-Ly-Ki7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="YJk-KO-sdr" secondAttribute="trailing" constant="20" id="yEr-Xm-yke"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gU6-Q1-3ox"/>
                     <connections>
+                        <outlet property="favoriteButton" destination="cC9-KS-OJZ" id="MWc-GP-t1d"/>
+                        <outlet property="recipeButton" destination="8qG-85-Yca" id="SsL-j3-lFN"/>
                         <outlet property="recipeList" destination="4Il-vI-BFj" id="lDa-Vn-WQ3"/>
                         <outlet property="searchBar" destination="CsP-ju-QeF" id="kiH-4i-EO3"/>
                         <outlet property="sortPicker" destination="a0K-BP-idq" id="awP-b7-qpu"/>
-                        <outlet property="ticker" destination="YJk-KO-sdr" id="fS6-0Q-sRU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iVk-bd-O3F" userLabel="First Responder" sceneMemberID="firstResponder"/>
