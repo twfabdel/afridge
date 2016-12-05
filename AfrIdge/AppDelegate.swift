@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearance.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         navigationBarAppearance.titleTextAttributes = [NSFontAttributeName: UIFont(name: "American Typewriter", size: 22)!, NSForegroundColorAttributeName: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), NSBaselineOffsetAttributeName: NSNumber(value: 7)]
         
+        //comment to check github updating correctly
+        
         return true
     }
 
