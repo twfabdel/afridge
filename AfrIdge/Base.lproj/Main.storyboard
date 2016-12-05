@@ -391,7 +391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fYQ-Kh-9jX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546" y="359"/>
+            <point key="canvasLocation" x="1481" y="360"/>
         </scene>
         <!--Done Shopping View Controller-->
         <scene sceneID="89g-Bk-PGh">
@@ -424,7 +424,7 @@
                                                 <rect key="frame" x="0.0" y="40" width="375" height="325"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="G9y-sR-i1z">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="c" id="G9y-sR-i1z" customClass="ListItemTableViewCell" customModule="AfrIdge" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G9y-sR-i1z" id="NJM-wJ-WJm">
@@ -465,9 +465,9 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="PIB-WQ-v8J" secondAttribute="trailing" id="KZf-XR-0Qr"/>
                                             <constraint firstAttribute="trailing" secondItem="rtQ-cK-Dzc" secondAttribute="trailing" constant="10" id="QvJ-1T-kfQ"/>
-                                            <constraint firstItem="PIB-WQ-v8J" firstAttribute="leading" secondItem="QM9-VT-JpC" secondAttribute="leading" id="TWH-IN-41w"/>
+                                            <constraint firstAttribute="trailing" secondItem="PIB-WQ-v8J" secondAttribute="trailing" id="UML-xU-qwo"/>
+                                            <constraint firstItem="PIB-WQ-v8J" firstAttribute="leading" secondItem="QM9-VT-JpC" secondAttribute="leading" id="Ypl-1E-gmS"/>
                                             <constraint firstItem="rtQ-cK-Dzc" firstAttribute="leading" secondItem="QM9-VT-JpC" secondAttribute="leading" constant="10" id="s1H-FA-BEz"/>
                                         </constraints>
                                     </stackView>
@@ -499,7 +499,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ysw-BT-FLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2256.8000000000002" y="357.57121439280365"/>
+            <point key="canvasLocation" x="2193" y="359"/>
         </scene>
         <!--Recipes View Controller-->
         <scene sceneID="0pZ-OA-Pf9">

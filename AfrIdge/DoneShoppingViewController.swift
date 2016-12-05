@@ -43,8 +43,7 @@ class DoneShoppingViewController: UIViewController, UITableViewDelegate, UITable
         
         let cell = Bundle.main.loadNibNamed("ListItemTableViewCell", owner: self, options: nil)?.first as! ListItemTableViewCell
         
-        cell.checkbox.setImage(UIImage(named: "checkbox_t") as UIImage?, for: .normal)
-        cell.checkbox.isEnabled = false
+        cell.checkbox.isHidden = true
         
         cell.ListItemLabel.text = self.boughtItems[indexPath.row].food
         cell.ListItemAmount.text = self.boughtItems[indexPath.row].amount

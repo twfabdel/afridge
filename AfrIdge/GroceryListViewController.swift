@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroceryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class GroceryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate{
 
 
     @IBOutlet weak var list: UITableView!
@@ -83,8 +83,22 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         cell.selectionStyle = .none
+        
+        let lpg = UILongPressGestureRecognizer(target: self, action: #selector(GroceryListViewController.longPressAction))
+        lpg.minimumPressDuration = 2
+        cell.addGestureRecognizer(lpg)
 
         return(cell)
+    }
+    
+    func longPressAction(sender: UILongPressGestureRecognizer) {
+        print("LongPress")
+        
+        let pressLocation = sender.location(in: self.list)
+        let indexPath = self.list.indexPathForRow(at: pressLocation)
+        let cell = self.list.cellForRow(at: indexPath!) as! ListItemTableViewCell
+        print(cell.ListItemLabel.text!)
+        
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
