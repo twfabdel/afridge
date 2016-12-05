@@ -92,12 +92,11 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func longPressAction(sender: UILongPressGestureRecognizer) {
-        print("LongPress")
-        
         let pressLocation = sender.location(in: self.list)
         let indexPath = self.list.indexPathForRow(at: pressLocation)
         let cell = self.list.cellForRow(at: indexPath!) as! ListItemTableViewCell
         print(cell.ListItemLabel.text!)
+        
         
     }
     
