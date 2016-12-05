@@ -25,6 +25,14 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kd-fQ-Plb">
+                        <rect key="frame" x="223" y="0.0" width="89" height="44"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="                                                              View"/>
+                        <connections>
+                            <action selector="viewButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Oo6-8N-WOE"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="r4Z-sb-pLf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="bPz-zK-APZ"/>
@@ -38,14 +46,5 @@
                 <outlet property="viewButton" destination="5kd-fQ-Plb" id="y6N-sh-ESO"/>
             </connections>
         </tableViewCell>
-        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5kd-fQ-Plb">
-            <rect key="frame" x="0.0" y="0.0" width="89" height="40"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <state key="normal" title="                                                              View"/>
-            <connections>
-                <action selector="viewButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Oo6-8N-WOE"/>
-            </connections>
-            <point key="canvasLocation" x="151.5" y="-21"/>
-        </button>
     </objects>
 </document>
