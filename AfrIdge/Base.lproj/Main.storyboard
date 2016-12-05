@@ -513,7 +513,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Il-vI-BFj">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Il-vI-BFj">
                                 <rect key="frame" x="63" y="200" width="248" height="387"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -549,7 +549,7 @@
                                     <action selector="searchRecipes:" destination="hUx-Zv-hRd" eventType="editingDidEnd" id="V6g-su-cvO"/>
                                 </connections>
                             </textField>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a0K-BP-idq">
+                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a0K-BP-idq">
                                 <rect key="frame" x="36" y="118" width="303" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="xrE-ov-58D"/>
@@ -559,40 +559,43 @@
                                     <outlet property="delegate" destination="xuh-pJ-11M" id="3eF-PB-NJj"/>
                                 </connections>
                             </pickerView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YJk-KO-sdr">
-                                <rect key="frame" x="63" y="66" width="248" height="29"/>
-                                <segments>
-                                    <segment title="Favorites"/>
-                                    <segment title="Recipes"/>
-                                </segments>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuR-dL-JHh">
+                                <rect key="frame" x="55" y="72" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Favorites"/>
                                 <connections>
-                                    <action selector="changeRecipeListFilter:" destination="hUx-Zv-hRd" eventType="valueChanged" id="EGC-Kt-miu"/>
+                                    <action selector="favoriteButtonClicked:" destination="hUx-Zv-hRd" eventType="touchUpInside" id="q0Q-wp-G1a"/>
                                 </connections>
-                            </segmentedControl>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2g-TR-rkQ">
+                                <rect key="frame" x="239" y="72" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Recipes"/>
+                                <connections>
+                                    <action selector="recipeButtonClicked:" destination="hUx-Zv-hRd" eventType="touchUpInside" id="6Tg-RJ-sdf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YJk-KO-sdr" firstAttribute="leading" secondItem="xuh-pJ-11M" secondAttribute="leadingMargin" constant="20" id="6xn-vQ-aYt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Il-vI-BFj" secondAttribute="trailing" constant="20" id="7FD-Yr-hdI"/>
                             <constraint firstItem="CsP-ju-QeF" firstAttribute="trailing" secondItem="4Il-vI-BFj" secondAttribute="trailing" id="EdA-uj-Hci"/>
                             <constraint firstAttribute="trailingMargin" secondItem="a0K-BP-idq" secondAttribute="trailing" constant="20" id="H7a-JZ-Cki"/>
                             <constraint firstItem="CsP-ju-QeF" firstAttribute="top" secondItem="xuh-pJ-11M" secondAttribute="topMargin" constant="25" id="IqI-eQ-uDo"/>
                             <constraint firstItem="qAn-BN-gRb" firstAttribute="top" secondItem="4Il-vI-BFj" secondAttribute="bottom" id="NPj-KI-4y9"/>
-                            <constraint firstItem="YJk-KO-sdr" firstAttribute="top" secondItem="CsP-ju-QeF" secondAttribute="bottom" constant="20" id="TBv-wa-RBb"/>
                             <constraint firstItem="4Il-vI-BFj" firstAttribute="leading" secondItem="xuh-pJ-11M" secondAttribute="leadingMargin" constant="20" id="erO-VQ-NH8"/>
                             <constraint firstItem="4Il-vI-BFj" firstAttribute="top" secondItem="a0K-BP-idq" secondAttribute="bottom" constant="10" id="kYr-To-jGv"/>
                             <constraint firstItem="a0K-BP-idq" firstAttribute="leading" secondItem="xuh-pJ-11M" secondAttribute="leadingMargin" constant="20" id="lhV-Od-uMS"/>
-                            <constraint firstItem="a0K-BP-idq" firstAttribute="top" secondItem="YJk-KO-sdr" secondAttribute="bottom" constant="10" id="mTy-ga-IuU"/>
                             <constraint firstItem="a0K-BP-idq" firstAttribute="centerX" secondItem="xuh-pJ-11M" secondAttribute="centerX" id="swb-Ly-Ki7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="YJk-KO-sdr" secondAttribute="trailing" constant="20" id="yEr-Xm-yke"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gU6-Q1-3ox"/>
                     <connections>
+                        <outlet property="favoriteButton" destination="cuR-dL-JHh" id="Oe8-JG-5qT"/>
+                        <outlet property="recipeButton" destination="v2g-TR-rkQ" id="Pap-oo-A4h"/>
                         <outlet property="recipeList" destination="4Il-vI-BFj" id="lDa-Vn-WQ3"/>
                         <outlet property="searchBar" destination="CsP-ju-QeF" id="kiH-4i-EO3"/>
                         <outlet property="sortPicker" destination="a0K-BP-idq" id="awP-b7-qpu"/>
-                        <outlet property="ticker" destination="YJk-KO-sdr" id="fS6-0Q-sRU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iVk-bd-O3F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -795,7 +798,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LKW-pB-1tC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Recipes" image="first" id="Ye5-e2-EsR"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mLO-23-TH9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mLO-23-TH9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
