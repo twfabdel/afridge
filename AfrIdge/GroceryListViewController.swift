@@ -8,13 +8,14 @@
 
 import UIKit
 
-class GroceryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class GroceryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate{
 
 
     @IBOutlet weak var list: UITableView!
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var toBuyBtn: UIButton!
     @IBOutlet weak var boughtBtn: UIButton!
+    @IBOutlet weak var doneBtn: UIButton!
     
     var unchecked = [GroceryListItem]()
     var checked = [GroceryListItem]()
@@ -30,6 +31,9 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         index = 0
         self.toBuyBtn.setBackgroundImage(selectedTabImg, for: .normal)
         self.boughtBtn.setBackgroundImage(unselectedTabImg, for: .normal)
+        if self.unchecked.count > 0 {
+            self.doneBtn.isHidden = true
+        }
         list.reloadData()
     }
     
@@ -40,6 +44,9 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         index = 1
         self.boughtBtn.setBackgroundImage(selectedTabImg, for: .normal)
         self.toBuyBtn.setBackgroundImage(unselectedTabImg, for: .normal)
+        if self.checked.count > 0 {
+            self.doneBtn.isHidden = false
+        }
         list.reloadData()
     }
     
@@ -76,8 +83,21 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         cell.selectionStyle = .none
+        
+        let lpg = UILongPressGestureRecognizer(target: self, action: #selector(GroceryListViewController.longPressAction))
+        lpg.minimumPressDuration = 2
+        cell.addGestureRecognizer(lpg)
 
         return(cell)
+    }
+    
+    func longPressAction(sender: UILongPressGestureRecognizer) {
+        let pressLocation = sender.location(in: self.list)
+        let indexPath = self.list.indexPathForRow(at: pressLocation)
+        let cell = self.list.cellForRow(at: indexPath!) as! ListItemTableViewCell
+        print(cell.ListItemLabel.text!)
+        
+        
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -86,8 +106,14 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             
             if self.index == 0 {
                 self.unchecked.remove(at: indexPath.row)
+                if self.unchecked.count == 0 && self.checked.count > 0 {
+                    self.doneBtn.isHidden = false
+                }
             } else {
                 self.checked.remove(at: indexPath.row)
+                if self.checked.count == 0 {
+                    self.doneBtn.isHidden = true
+                }
             }
             self.list.reloadData()
         }
@@ -124,6 +150,17 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         edit.backgroundColor = UIColor(colorLiteralRed: 69.0/255.0, green: 133.0/255.0, blue: 189.0/255.0, alpha: 1.0)
         
         return [delete, edit]
+    }
+    
+    @IBAction func showDoneShoppingPopUp(_ sender: UIButton) {
+        let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "doneShoppingPopUp") as! DoneShoppingViewController
+        
+        self.addChildViewController(popUp)
+        popUp.view.frame = self.view.frame
+        self.view.addSubview(popUp.view)
+        popUp.didMove(toParentViewController: self)
+        
+        popUp.boughtItems = self.checked
     }
     
     @IBAction func showAddItemPopup(_ sender: UIButton) {
@@ -164,10 +201,16 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             let listItem = checked[index]
             checked.remove(at: index)
             unchecked.insert(listItem, at: 0)
+            if self.checked.count == 0 {
+                self.doneBtn.isHidden = true
+            }
         } else {
             let listItem = unchecked[index]
             unchecked.remove(at: index)
             checked.insert(listItem, at: 0)
+            if self.unchecked.count == 0 {
+                self.doneBtn.isHidden = false
+            }
         }
         list.reloadData()
     }
@@ -187,6 +230,10 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         loadInitialCells()
         self.toBuyBtn.adjustsImageWhenHighlighted = false
         self.boughtBtn.adjustsImageWhenHighlighted = false
+        self.doneBtn.layer.cornerRadius = 15
+        if self.unchecked.count > 0 || self.checked.count == 0 {
+            self.doneBtn.isHidden = true
+        }
     }
 
     override func didReceiveMemoryWarning() {

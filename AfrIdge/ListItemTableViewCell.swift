@@ -16,7 +16,7 @@ class ListItemTableViewCell: UITableViewCell {
    
     var delegate: GroceryListViewController?
     var isChecked = false
-    
+
     @IBAction func checkClicked(_ sender: UIButton) {
         self.delegate?.boxClicked(cell: self)
         isChecked = !isChecked
