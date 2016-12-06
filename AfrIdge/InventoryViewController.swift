@@ -87,6 +87,16 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         collectionView.reloadData()
     }
     
+    func showDetailPopup(cell: InventoryCollectionViewCell) {
+        
+        let popUp = UIStoryboard(name: "Inventory", bundle: nil).instantiateViewController(withIdentifier: "inventoryDetailPopup") as! InventoryDetailPopupViewController
+        
+        self.addChildViewController(popUp)
+        popUp.view.frame = self.view.frame
+        self.view.addSubview(popUp.view)
+        popUp.didMove(toParentViewController: self)
+    }
+    
     //initialize inventory entries
     func initializeInventory() {
         items.append(FoodItem(name: "Cheese", amount: 10)!)

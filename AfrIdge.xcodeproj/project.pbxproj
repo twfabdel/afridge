@@ -17,6 +17,7 @@
 		B807AB5B1DF0003F00A9A779 /* GroceryListPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807AB5A1DF0003E00A9A779 /* GroceryListPopupViewController.swift */; };
 		B83908C01DE7587600F69DEA /* InventoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83908BE1DE7587600F69DEA /* InventoryCollectionViewCell.swift */; };
 		B83908C11DE7587600F69DEA /* InventoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B83908BF1DE7587600F69DEA /* InventoryCollectionViewCell.xib */; };
+		B8919C8B1DF740BB001D09F5 /* InventoryDetailPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8919C8A1DF740BB001D09F5 /* InventoryDetailPopupViewController.swift */; };
 		B8A0B1C61DDF8C6E0054796E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0B1C51DDF8C6E0054796E /* AppDelegate.swift */; };
 		B8A0B1C81DDF8C6E0054796E /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0B1C71DDF8C6E0054796E /* InventoryViewController.swift */; };
 		B8A0B1CA1DDF8C6E0054796E /* GroceryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0B1C91DDF8C6E0054796E /* GroceryListViewController.swift */; };
@@ -45,6 +46,7 @@
 		B807AB5A1DF0003E00A9A779 /* GroceryListPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListPopupViewController.swift; sourceTree = "<group>"; };
 		B83908BE1DE7587600F69DEA /* InventoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B83908BF1DE7587600F69DEA /* InventoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InventoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		B8919C8A1DF740BB001D09F5 /* InventoryDetailPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryDetailPopupViewController.swift; sourceTree = "<group>"; };
 		B8A0B1C21DDF8C6E0054796E /* AfrIdge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AfrIdge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A0B1C51DDF8C6E0054796E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8A0B1C71DDF8C6E0054796E /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				B83908BE1DE7587600F69DEA /* InventoryCollectionViewCell.swift */,
 				B83908BF1DE7587600F69DEA /* InventoryCollectionViewCell.xib */,
 				23297AF31DF6748D0042E26C /* Inventory.storyboard */,
+				B8919C8A1DF740BB001D09F5 /* InventoryDetailPopupViewController.swift */,
 			);
 			name = Inventory;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				B83908C01DE7587600F69DEA /* InventoryCollectionViewCell.swift in Sources */,
 				B8A0B1CA1DDF8C6E0054796E /* GroceryListViewController.swift in Sources */,
 				B8E830911DE13C9500A56B30 /* GroceryListItem.swift in Sources */,
+				B8919C8B1DF740BB001D09F5 /* InventoryDetailPopupViewController.swift in Sources */,
 				B807AB5B1DF0003F00A9A779 /* GroceryListPopupViewController.swift in Sources */,
 				11CD471E1DF3A5DB0042B6DE /* Data.swift in Sources */,
 				B8A0B1C61DDF8C6E0054796E /* AppDelegate.swift in Sources */,
