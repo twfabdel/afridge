@@ -26,6 +26,7 @@ class InventoryCollectionViewCell: UICollectionViewCell {
     }
 
     @IBAction func foodClicked(_ sender: UIButton) {
-        self.delegate?.showPopup(cell: self)
+        print("food clicked")
+        //self.delegate?.showPopup(cell: self)
     }
 }

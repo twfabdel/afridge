@@ -16,10 +16,6 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UITextField!
     
-    @IBOutlet weak var popUp: UIView!
-    @IBOutlet weak var popUpPosition: NSLayoutConstraint!
-    @IBOutlet weak var backgroundButton: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -30,8 +26,6 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         
         items.sort{$0.name <= $1.name}
         self.filteredItems = self.items
-        
-        self.popUp.layer.cornerRadius = 20
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +38,7 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filteredItems.count
+        return filteredItems.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -53,15 +47,26 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         
         cell.delegate = self
     
-        cell.itemImageButton.setImage(UIImage(named: "spaghetti-pie"), for: .normal)
         cell.itemImageButton.layer.cornerRadius = cell.itemImageButton.frame.size.width / 2
 
         cell.itemImageButton.layer.masksToBounds = true
         
+        if indexPath.row == 0 {
+            cell.itemImageButton.setImage(UIImage(named:"add_inventory"), for: .normal)
+            cell.name.text = "New Item"
+            cell.itemImageButton.layer.borderWidth = 0
+            return cell
+        }
+        
+        
+        cell.itemImageButton.setImage(UIImage(named: "spaghetti-pie"), for: .normal)
+        
         cell.itemImageButton.layer.borderWidth = cell.itemImageButton.frame.size.width / 15
         cell.itemImageButton.layer.borderColor = getBorderColor()
         
-        cell.name.text = filteredItems[indexPath.row].name
+        let i = indexPath.row - 1
+        
+        cell.name.text = filteredItems[i].name
 
         return cell
     }
@@ -76,23 +81,10 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
             //Empty searchbar, show everything
             self.filteredItems = self.items
         } else {
-            //$0.lowercaseString.rangeOfString(str.lowercaseString) != nil
-            
             self.filteredItems = self.items.filter({$0.name.lowercased().range(of: str!.lowercased()) != nil})
             
         }
         collectionView.reloadData()
-    }
-    
-    func showPopup(cell: InventoryCollectionViewCell) {
-        print(cell.name.text!)
-        self.popUpPosition.constant = 0
-        self.backgroundButton.alpha = 0.5
-    }
-
-    @IBAction func closePopup(_ sender: Any) {
-        self.popUpPosition.constant = -500
-        self.backgroundButton.alpha = 0
     }
     
     //initialize inventory entries
