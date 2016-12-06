@@ -18,7 +18,9 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.navigationController?.isNavigationBarHidden = true
+        
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         

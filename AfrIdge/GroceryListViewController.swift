@@ -227,6 +227,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         loadInitialCells()
         self.toBuyBtn.adjustsImageWhenHighlighted = false
         self.boughtBtn.adjustsImageWhenHighlighted = false
