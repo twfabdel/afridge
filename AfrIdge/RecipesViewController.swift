@@ -13,10 +13,10 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     
     @IBOutlet weak var recipeList: UITableView!
-    @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var sortPicker: UIPickerView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var recipeButton: UIButton!
+    @IBOutlet weak var searchBar: UITextField!
     
     var favorites = Data.sharedData.favoritedRecipes
     var recipes = Data.sharedData.unfavoritedRecipes
@@ -85,10 +85,10 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {        
+        //in case global data changed
         self.navigationController?.isNavigationBarHidden = true
         
-        //in case global data changed
         favorites = Data.sharedData.favoritedRecipes
         recipes = Data.sharedData.unfavoritedRecipes
         

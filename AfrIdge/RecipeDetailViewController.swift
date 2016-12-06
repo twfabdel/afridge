@@ -11,7 +11,6 @@ import UIKit
 class RecipeDetailViewController: UIViewController {
 
     
-    @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeDifficulty: UILabel!
     @IBOutlet weak var recipeRating: UILabel!
@@ -27,7 +26,6 @@ class RecipeDetailViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
         let newImage = UIImage(named: curRecipe.imageString)
         
-        recipeNameLabel.text = curRecipe.name
         recipeImage.image = newImage
         recipeDifficulty.text = curRecipe.difficulty.rawValue
         recipeRating.text = String(curRecipe.rating)
