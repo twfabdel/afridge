@@ -33,7 +33,7 @@
                                         <rect key="frame" x="0.0" y="28" width="303" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kqv-wE-ERP" id="qGG-fu-weo">
-                                            <rect key="frame" x="0.0" y="0.0" width="303" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="303" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -115,7 +115,7 @@
                         <outlet property="favoriteButton" destination="C6r-bs-FG0" id="j5L-hV-jtO"/>
                         <outlet property="recipeButton" destination="d3W-Hf-cQG" id="dNf-xf-P9Z"/>
                         <outlet property="recipeList" destination="TFD-1r-WPB" id="hZP-d9-KD3"/>
-                        <outlet property="searchBar" destination="hvj-Ob-KZv" id="G2C-YH-8wX"/>
+                        <outlet property="searchBar" destination="hvj-Ob-KZv" id="AXb-J2-H0u"/>
                         <outlet property="sortPicker" destination="e0n-0A-Hkz" id="pd9-79-rZY"/>
                     </connections>
                 </viewController>
@@ -141,19 +141,46 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="74g-do-vqo">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="214.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5S-QK-NMd">
-                                                <rect key="frame" x="140" y="92" width="95" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Video"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8NE-SO-X1d">
-                                                <rect key="frame" x="160" y="92" width="55" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Favorite"/>
-                                                <connections>
-                                                    <action selector="favoriteButtonClicked:" destination="ZfR-aj-CVI" eventType="touchUpInside" id="QZb-BA-o9i"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="U38-P5-CRe">
+                                                <rect key="frame" x="20" y="168.5" width="335" height="36"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8NE-SO-X1d">
+                                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="36"/>
+                                                        <color key="backgroundColor" red="0.26953428983688354" green="0.52200561761856079" blue="0.73868006467819214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
+                                                        <state key="normal" title="Favorite">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="12"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="favoriteButtonClicked:" destination="ZfR-aj-CVI" eventType="touchUpInside" id="QZb-BA-o9i"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5S-QK-NMd">
+                                                        <rect key="frame" x="177.5" y="0.0" width="157.5" height="36"/>
+                                                        <color key="backgroundColor" red="0.26953428983688354" green="0.52200561761856079" blue="0.73868006467819214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
+                                                        <state key="normal" title="Video Tutorial">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="12"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="f5S-QK-NMd" firstAttribute="height" secondItem="8NE-SO-X1d" secondAttribute="height" id="BH4-qb-eng"/>
+                                                    <constraint firstItem="f5S-QK-NMd" firstAttribute="width" secondItem="8NE-SO-X1d" secondAttribute="width" id="fnT-Ai-6kC"/>
+                                                </constraints>
+                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pC1-Ce-d4U">
                                                 <rect key="frame" x="0.0" y="5" width="355" height="100"/>
                                                 <subviews>
@@ -224,6 +251,9 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="pC1-Ce-d4U" firstAttribute="top" secondItem="74g-do-vqo" secondAttribute="top" constant="5" id="2uT-dY-FiO"/>
+                                            <constraint firstAttribute="bottom" secondItem="U38-P5-CRe" secondAttribute="bottom" constant="10" id="CB7-TI-8ZM"/>
+                                            <constraint firstAttribute="trailing" secondItem="U38-P5-CRe" secondAttribute="trailing" constant="20" id="DPU-gF-L89"/>
+                                            <constraint firstItem="U38-P5-CRe" firstAttribute="leading" secondItem="74g-do-vqo" secondAttribute="leading" constant="20" id="Jlb-OV-n9o"/>
                                             <constraint firstItem="pC1-Ce-d4U" firstAttribute="leading" secondItem="74g-do-vqo" secondAttribute="leading" id="RvW-bh-1Ov"/>
                                             <constraint firstAttribute="trailing" secondItem="pC1-Ce-d4U" secondAttribute="trailing" constant="20" id="kIU-xx-bkY"/>
                                         </constraints>
@@ -248,10 +278,18 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="www-Mb-EbR" firstAttribute="height" secondItem="74g-do-vqo" secondAttribute="height" id="28b-51-0tV"/>
                                     <constraint firstItem="5o7-yx-JXZ" firstAttribute="height" secondItem="74g-do-vqo" secondAttribute="height" id="5Mp-8A-rzS"/>
                                     <constraint firstItem="5o7-yx-JXZ" firstAttribute="width" secondItem="74g-do-vqo" secondAttribute="width" id="CCA-0u-RJd"/>
+                                    <constraint firstItem="www-Mb-EbR" firstAttribute="top" secondItem="74g-do-vqo" secondAttribute="bottom" constant="2" id="Ltu-4C-nOJ"/>
+                                    <constraint firstItem="5o7-yx-JXZ" firstAttribute="width" secondItem="74g-do-vqo" secondAttribute="width" id="X0R-zr-ydK"/>
                                     <constraint firstItem="www-Mb-EbR" firstAttribute="height" secondItem="74g-do-vqo" secondAttribute="height" id="ZDh-Sz-WhU"/>
                                     <constraint firstItem="www-Mb-EbR" firstAttribute="width" secondItem="74g-do-vqo" secondAttribute="width" id="f3t-6g-eyM"/>
+                                    <constraint firstItem="74g-do-vqo" firstAttribute="top" secondItem="yFk-Id-tOG" secondAttribute="top" id="fZe-Ra-TRe"/>
+                                    <constraint firstItem="5o7-yx-JXZ" firstAttribute="height" secondItem="74g-do-vqo" secondAttribute="height" id="kE4-P0-l06"/>
+                                    <constraint firstAttribute="trailing" secondItem="74g-do-vqo" secondAttribute="trailing" id="lpj-gS-6kz"/>
+                                    <constraint firstItem="www-Mb-EbR" firstAttribute="width" secondItem="74g-do-vqo" secondAttribute="width" id="qXJ-FB-Gpw"/>
+                                    <constraint firstItem="74g-do-vqo" firstAttribute="leading" secondItem="yFk-Id-tOG" secondAttribute="leading" id="uhv-Hz-Ouj"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -263,33 +301,12 @@
                             <constraint firstItem="yFk-Id-tOG" firstAttribute="top" secondItem="3g7-Wj-oyC" secondAttribute="bottom" id="yIb-aG-aZE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ewT-AE-vNx">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="lZf-kW-wKi">
-                            <view key="customView" contentMode="scaleToFill" id="l19-hW-u8A">
-                                <rect key="frame" x="209" y="5" width="150" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqs-e4-2vf">
-                                        <rect key="frame" x="5" y="6" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Rqs-e4-2vf" firstAttribute="centerY" secondItem="l19-hW-u8A" secondAttribute="centerY" id="2DY-Ws-KM8"/>
-                                    <constraint firstItem="Rqs-e4-2vf" firstAttribute="leading" secondItem="l19-hW-u8A" secondAttribute="leading" constant="5" id="iBk-vf-Axk"/>
-                                </constraints>
-                            </view>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="ewT-AE-vNx"/>
                     <connections>
                         <outlet property="favoriteButton" destination="8NE-SO-X1d" id="i4W-Hh-toW"/>
                         <outlet property="recipeCookTime" destination="idv-4y-ATZ" id="e7f-vc-cyh"/>
                         <outlet property="recipeDifficulty" destination="PZn-bb-zmU" id="xqL-Mp-ipI"/>
                         <outlet property="recipeImage" destination="89Q-N0-ewG" id="cxq-fM-NEU"/>
-                        <outlet property="recipeNameLabel" destination="Rqs-e4-2vf" id="Qum-qT-TeJ"/>
                         <outlet property="recipeRating" destination="nIk-Y0-RA3" id="JkM-Bb-Ums"/>
                         <outlet property="recipeScroll" destination="1Ci-OO-Qe2" id="6tu-eH-rUF"/>
                         <outlet property="topNavigationBar" destination="ewT-AE-vNx" id="Eou-Kc-6Qe"/>

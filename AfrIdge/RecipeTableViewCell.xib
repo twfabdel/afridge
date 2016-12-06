@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,21 +20,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4Z-sb-pLf">
-                        <rect key="frame" x="28" y="11" width="42" height="21"/>
+                        <rect key="frame" x="28" y="11" width="264" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kd-fQ-Plb">
-                        <rect key="frame" x="223" y="0.0" width="89" height="44"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="                                                              View"/>
-                        <connections>
-                            <action selector="viewButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Oo6-8N-WOE"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="r4Z-sb-pLf" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="DJo-nT-q3S"/>
+                    <constraint firstItem="r4Z-sb-pLf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bFc-eP-haY"/>
                     <constraint firstItem="r4Z-sb-pLf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="bPz-zK-APZ"/>
                     <constraint firstItem="r4Z-sb-pLf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="ihV-mL-xnN"/>
                     <constraint firstItem="r4Z-sb-pLf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nhg-YT-Da8"/>
@@ -43,7 +37,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="recipeName" destination="r4Z-sb-pLf" id="Ky4-K2-Tmh"/>
-                <outlet property="viewButton" destination="5kd-fQ-Plb" id="y6N-sh-ESO"/>
             </connections>
         </tableViewCell>
     </objects>
