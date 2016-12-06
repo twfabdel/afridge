@@ -19,6 +19,7 @@
 		B8A0B1CD1DDF8C6F0054796E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A0B1CB1DDF8C6F0054796E /* Main.storyboard */; };
 		B8A0B1CF1DDF8C6F0054796E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8A0B1CE1DDF8C6F0054796E /* Assets.xcassets */; };
 		B8A0B1D21DDF8C6F0054796E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A0B1D01DDF8C6F0054796E /* LaunchScreen.storyboard */; };
+		B8ABC3AA1DF20B47006C52CE /* DoneShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ABC3A91DF20B47006C52CE /* DoneShoppingViewController.swift */; };
 		B8E830811DDFAF8700A56B30 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E830801DDFAF8700A56B30 /* RecipesViewController.swift */; };
 		B8E830831DDFF39E00A56B30 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E830821DDFF39E00A56B30 /* ProgressViewController.swift */; };
 		B8E8308E1DE134A200A56B30 /* ListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E8308C1DE134A200A56B30 /* ListItemTableViewCell.swift */; };
@@ -44,6 +45,7 @@
 		B8A0B1CE1DDF8C6F0054796E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8A0B1D11DDF8C6F0054796E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8A0B1D31DDF8C6F0054796E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8ABC3A91DF20B47006C52CE /* DoneShoppingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneShoppingViewController.swift; sourceTree = "<group>"; };
 		B8E830801DDFAF8700A56B30 /* RecipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		B8E830821DDFF39E00A56B30 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		B8E8308C1DE134A200A56B30 /* ListItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListItemTableViewCell.swift; path = AfrIdge/ListItemTableViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -91,6 +93,7 @@
 				B83908BF1DE7587600F69DEA /* InventoryCollectionViewCell.xib */,
 				B807AB5A1DF0003E00A9A779 /* GroceryListPopupViewController.swift */,
 				B8A0B1C91DDF8C6E0054796E /* GroceryListViewController.swift */,
+				B8ABC3A91DF20B47006C52CE /* DoneShoppingViewController.swift */,
 				B8E8308C1DE134A200A56B30 /* ListItemTableViewCell.swift */,
 				B8E8308D1DE134A200A56B30 /* ListItemTableViewCell.xib */,
 				B8E830901DE13C9500A56B30 /* GroceryListItem.swift */,
@@ -185,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8ABC3AA1DF20B47006C52CE /* DoneShoppingViewController.swift in Sources */,
 				B8E830831DDFF39E00A56B30 /* ProgressViewController.swift in Sources */,
 				B8E830811DDFAF8700A56B30 /* RecipesViewController.swift in Sources */,
 				B8E8308E1DE134A200A56B30 /* ListItemTableViewCell.swift in Sources */,
