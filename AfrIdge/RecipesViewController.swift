@@ -87,6 +87,8 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {        
         //in case global data changed
+        self.navigationController?.isNavigationBarHidden = true
+        
         favorites = Data.sharedData.favoritedRecipes
         recipes = Data.sharedData.unfavoritedRecipes
         
