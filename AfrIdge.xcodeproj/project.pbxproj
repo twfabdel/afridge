@@ -10,6 +10,8 @@
 		1125BF7A1DEE2BAF00CA4C67 /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1125BF791DEE2BAF00CA4C67 /* FoodItem.swift */; };
 		1125BF801DEE7DBE00CA4C67 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1125BF7F1DEE7DBE00CA4C67 /* RecipeDetailViewController.swift */; };
 		11CD471E1DF3A5DB0042B6DE /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD471D1DF3A5DB0042B6DE /* Data.swift */; };
+		23297AED1DF66ECB0042E26C /* Progress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23297AEC1DF66ECB0042E26C /* Progress.storyboard */; };
+		23297AF41DF6748D0042E26C /* Inventory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23297AF31DF6748D0042E26C /* Inventory.storyboard */; };
 		B807AB5B1DF0003F00A9A779 /* GroceryListPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807AB5A1DF0003E00A9A779 /* GroceryListPopupViewController.swift */; };
 		B83908C01DE7587600F69DEA /* InventoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83908BE1DE7587600F69DEA /* InventoryCollectionViewCell.swift */; };
 		B83908C11DE7587600F69DEA /* InventoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B83908BF1DE7587600F69DEA /* InventoryCollectionViewCell.xib */; };
@@ -34,6 +36,8 @@
 		1125BF791DEE2BAF00CA4C67 /* FoodItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
 		1125BF7F1DEE7DBE00CA4C67 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		11CD471D1DF3A5DB0042B6DE /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		23297AEC1DF66ECB0042E26C /* Progress.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Progress.storyboard; sourceTree = "<group>"; };
+		23297AF31DF6748D0042E26C /* Inventory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Inventory.storyboard; sourceTree = "<group>"; };
 		B807AB5A1DF0003E00A9A779 /* GroceryListPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListPopupViewController.swift; sourceTree = "<group>"; };
 		B83908BE1DE7587600F69DEA /* InventoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B83908BF1DE7587600F69DEA /* InventoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InventoryCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -67,6 +71,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23297AEE1DF673890042E26C /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				B8E830821DDFF39E00A56B30 /* ProgressViewController.swift */,
+				23297AEC1DF66ECB0042E26C /* Progress.storyboard */,
+			);
+			name = Progress;
+			sourceTree = "<group>";
+		};
+		23297AF01DF673A80042E26C /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				1125BF7F1DEE7DBE00CA4C67 /* RecipeDetailViewController.swift */,
+				B8E830801DDFAF8700A56B30 /* RecipesViewController.swift */,
+				B8E830981DE39A5D00A56B30 /* RecipeTableViewCell.swift */,
+				B8E830991DE39A5D00A56B30 /* RecipeTableViewCell.xib */,
+				B8E8309C1DE39D0300A56B30 /* Recipe.swift */,
+			);
+			name = Recipes;
+			sourceTree = "<group>";
+		};
+		23297AF11DF673F90042E26C /* GroceryList */ = {
+			isa = PBXGroup;
+			children = (
+				B807AB5A1DF0003E00A9A779 /* GroceryListPopupViewController.swift */,
+				B8A0B1C91DDF8C6E0054796E /* GroceryListViewController.swift */,
+				B8ABC3A91DF20B47006C52CE /* DoneShoppingViewController.swift */,
+				B8E8308C1DE134A200A56B30 /* ListItemTableViewCell.swift */,
+				B8E8308D1DE134A200A56B30 /* ListItemTableViewCell.xib */,
+				B8E830901DE13C9500A56B30 /* GroceryListItem.swift */,
+			);
+			name = GroceryList;
+			sourceTree = "<group>";
+		};
+		23297AF21DF674010042E26C /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				1125BF791DEE2BAF00CA4C67 /* FoodItem.swift */,
+				B8A0B1C71DDF8C6E0054796E /* InventoryViewController.swift */,
+				B83908BE1DE7587600F69DEA /* InventoryCollectionViewCell.swift */,
+				B83908BF1DE7587600F69DEA /* InventoryCollectionViewCell.xib */,
+				23297AF31DF6748D0042E26C /* Inventory.storyboard */,
+			);
+			name = Inventory;
+			sourceTree = "<group>";
+		};
 		B8A0B1B91DDF8C6D0054796E = {
 			isa = PBXGroup;
 			children = (
@@ -88,25 +138,13 @@
 			children = (
 				B8A0B1C51DDF8C6E0054796E /* AppDelegate.swift */,
 				B8A0B1CB1DDF8C6F0054796E /* Main.storyboard */,
-				B8A0B1C71DDF8C6E0054796E /* InventoryViewController.swift */,
-				B83908BE1DE7587600F69DEA /* InventoryCollectionViewCell.swift */,
-				B83908BF1DE7587600F69DEA /* InventoryCollectionViewCell.xib */,
-				B807AB5A1DF0003E00A9A779 /* GroceryListPopupViewController.swift */,
-				B8A0B1C91DDF8C6E0054796E /* GroceryListViewController.swift */,
-				B8ABC3A91DF20B47006C52CE /* DoneShoppingViewController.swift */,
-				B8E8308C1DE134A200A56B30 /* ListItemTableViewCell.swift */,
-				B8E8308D1DE134A200A56B30 /* ListItemTableViewCell.xib */,
-				B8E830901DE13C9500A56B30 /* GroceryListItem.swift */,
-				1125BF7F1DEE7DBE00CA4C67 /* RecipeDetailViewController.swift */,
-				B8E830801DDFAF8700A56B30 /* RecipesViewController.swift */,
-				B8E830981DE39A5D00A56B30 /* RecipeTableViewCell.swift */,
-				B8E830991DE39A5D00A56B30 /* RecipeTableViewCell.xib */,
-				B8E8309C1DE39D0300A56B30 /* Recipe.swift */,
-				B8E830821DDFF39E00A56B30 /* ProgressViewController.swift */,
+				23297AF21DF674010042E26C /* Inventory */,
+				23297AF11DF673F90042E26C /* GroceryList */,
+				23297AF01DF673A80042E26C /* Recipes */,
+				23297AEE1DF673890042E26C /* Progress */,
 				B8A0B1CE1DDF8C6F0054796E /* Assets.xcassets */,
 				B8A0B1D01DDF8C6F0054796E /* LaunchScreen.storyboard */,
 				B8A0B1D31DDF8C6F0054796E /* Info.plist */,
-				1125BF791DEE2BAF00CA4C67 /* FoodItem.swift */,
 				11CD471D1DF3A5DB0042B6DE /* Data.swift */,
 			);
 			path = AfrIdge;
@@ -144,7 +182,6 @@
 				TargetAttributes = {
 					B8A0B1C11DDF8C6D0054796E = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = DGZE8536VV;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -173,9 +210,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8E8308F1DE134A200A56B30 /* ListItemTableViewCell.xib in Resources */,
+				23297AF41DF6748D0042E26C /* Inventory.storyboard in Resources */,
 				B8A0B1D21DDF8C6F0054796E /* LaunchScreen.storyboard in Resources */,
 				B8A0B1CF1DDF8C6F0054796E /* Assets.xcassets in Resources */,
 				B83908C11DE7587600F69DEA /* InventoryCollectionViewCell.xib in Resources */,
+				23297AED1DF66ECB0042E26C /* Progress.storyboard in Resources */,
 				B8E8309B1DE39A5D00A56B30 /* RecipeTableViewCell.xib in Resources */,
 				B8A0B1CD1DDF8C6F0054796E /* Main.storyboard in Resources */,
 			);
@@ -323,7 +362,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DGZE8536VV;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AfrIdge/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -338,7 +377,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DGZE8536VV;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AfrIdge/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
