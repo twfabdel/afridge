@@ -64,7 +64,9 @@
                                             <constraint firstAttribute="height" constant="37" id="OLR-rC-HpK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
-                                        <state key="normal" title="Favorites" backgroundImage="tab selected"/>
+                                        <state key="normal" title="Favorites" backgroundImage="tab selected">
+                                            <color key="titleColor" red="0.27058041100000002" green="0.52048254009999995" blue="0.73934572939999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="favoriteButtonClicked:" destination="15m-ED-HZm" eventType="touchUpInside" id="hrd-RB-Xuj"/>
                                         </connections>
@@ -72,7 +74,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3W-Hf-cQG">
                                         <rect key="frame" x="171.5" y="0.0" width="171.5" height="37"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
-                                        <state key="normal" title="Recipes" backgroundImage="tab unselected"/>
+                                        <state key="normal" title="Recipes" backgroundImage="tab unselected">
+                                            <color key="titleColor" red="0.27058041100000002" green="0.52048254009999995" blue="0.73934572939999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="recipeButtonClicked:" destination="15m-ED-HZm" eventType="touchUpInside" id="fev-zD-M5B"/>
                                         </connections>
