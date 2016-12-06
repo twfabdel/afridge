@@ -17,19 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-<<<<<<< HEAD
-        let navigationBarAppearance = UINavigationBar.appearance()
-        navigationBarAppearance.setBackgroundImage(#imageLiteral(resourceName: "title-nav-background"), for: .top, barMetrics: .default)
+//        let navigationBarAppearance = UINavigationBar.appearance()
+//        navigationBarAppearance.setBackgroundImage(#imageLiteral(resourceName: "title-nav-background"), for: .top, barMetrics: .default)
+//        
+//        navigationBarAppearance.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//        navigationBarAppearance.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//        navigationBarAppearance.titleTextAttributes = [NSFontAttributeName: UIFont(name: "American Typewriter", size: 22)!, NSForegroundColorAttributeName: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), NSBaselineOffsetAttributeName: NSNumber(value: 7)]
+//        
         
-        navigationBarAppearance.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        navigationBarAppearance.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        navigationBarAppearance.titleTextAttributes = [NSFontAttributeName: UIFont(name: "American Typewriter", size: 22)!, NSForegroundColorAttributeName: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), NSBaselineOffsetAttributeName: NSNumber(value: 7)]
-        
-        //comment to check github updating correctly
-        
-=======
+
 //        UITabBar.appearance().layer.backgroundColor = UIColor(colorLiteralRed: 69.0/255.0, green: 133.0/255.0, blue: 189.0/255.0, alpha: 1.0).cgColor
->>>>>>> twfabdel/master
+
         return true
     }
 
