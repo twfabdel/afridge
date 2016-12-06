@@ -29,6 +29,7 @@ class RecipeDetailViewController: UIViewController {
         recipeImage.image = newImage
         recipeDifficulty.text = curRecipe.difficulty.rawValue
         recipeRating.text = String(curRecipe.rating)
+        
         recipeCookTime.text = String(curRecipe.cookTime)
         
         if (curRecipe.favorite) {

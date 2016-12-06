@@ -27,6 +27,9 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     let selectedTabImg = UIImage(named: "tab selected")
     let unselectedTabImg = UIImage(named: "tab unselected")
     
+    let cellReuseIdentifier = "cell"
+    let cellSpacingHeight: CGFloat = 5
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == recipeSegueIdentifier) {
             let destination = segue.destination as! RecipeDetailViewController
@@ -89,6 +92,8 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         //in case global data changed
         self.navigationController?.isNavigationBarHidden = true
         
+        self.recipeList.separatorStyle = .none
+        
         favorites = Data.sharedData.favoritedRecipes
         recipes = Data.sharedData.unfavoritedRecipes
         
@@ -120,6 +125,13 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         recipeCell.recipeName.text = tempList[indexPath.row].name
         recipeCell.recipe = tempList[indexPath.row]
+        
+        recipeCell.layer.cornerRadius = 12
+        recipeCell.layer.masksToBounds = true
+        recipeCell.layer.borderWidth = 1
+        recipeCell.layer.borderColor = UIColor.gray.cgColor
+        
+        
         //recipeCell.rating.text = String(recipes[indexPath.row].rating)
         
         return(recipeCell)
