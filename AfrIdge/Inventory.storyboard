@@ -137,10 +137,10 @@
                                     </collectionView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="myx-z0-Ftu" firstAttribute="bottom" secondItem="D6q-CM-JZ6" secondAttribute="bottomMargin" id="IOb-HT-0Zy"/>
                                     <constraint firstAttribute="trailing" secondItem="myx-z0-Ftu" secondAttribute="trailing" constant="10" id="Zb6-7G-JHo"/>
                                     <constraint firstItem="8nx-hW-3ub" firstAttribute="leading" secondItem="D6q-CM-JZ6" secondAttribute="leading" constant="40" id="fCn-lW-nxV"/>
                                     <constraint firstAttribute="trailing" secondItem="8nx-hW-3ub" secondAttribute="trailing" constant="40" id="kCL-Yg-7Fp"/>
-                                    <constraint firstAttribute="bottom" secondItem="myx-z0-Ftu" secondAttribute="bottom" id="rjk-jX-5Bc"/>
                                     <constraint firstItem="myx-z0-Ftu" firstAttribute="leading" secondItem="D6q-CM-JZ6" secondAttribute="leading" constant="10" id="xuX-tu-waa"/>
                                 </constraints>
                             </stackView>
@@ -149,6 +149,7 @@
                         <constraints>
                             <constraint firstItem="D6q-CM-JZ6" firstAttribute="leading" secondItem="raI-UQ-KTw" secondAttribute="leading" id="6hE-nt-Izm"/>
                             <constraint firstItem="5oK-h6-j43" firstAttribute="leading" secondItem="raI-UQ-KTw" secondAttribute="leadingMargin" constant="5" id="ARR-Ow-VJA"/>
+                            <constraint firstItem="fTT-nm-PTi" firstAttribute="top" secondItem="D6q-CM-JZ6" secondAttribute="bottom" id="JEN-Ox-HuB"/>
                             <constraint firstItem="D6q-CM-JZ6" firstAttribute="top" secondItem="F1p-vB-jJt" secondAttribute="bottom" constant="20" id="LlL-KB-wyb"/>
                             <constraint firstAttribute="trailing" secondItem="D6q-CM-JZ6" secondAttribute="trailing" id="ULS-yx-ApA"/>
                             <constraint firstAttribute="trailing" secondItem="F1p-vB-jJt" secondAttribute="trailing" id="Xa0-pn-zjx"/>
