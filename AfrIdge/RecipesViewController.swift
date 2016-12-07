@@ -19,7 +19,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var searchBar: UITextField!
     
     var favorites = Data.sharedData.favoritedRecipes
-    var recipes = Data.sharedData.unfavoritedRecipes
+    var recipes = Data.sharedData.allRecipes
     var index = 0
     
     let sortData = ["Alphabetical", "Rating", "Cook Time", "Difficulty"]
@@ -74,6 +74,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         //defaults dial back to alphabetical
         sortPicker.selectRow(0, inComponent: 0, animated: true)
         recipeList.reloadData()
+        recipes.sort{$0.name <= $1.name}
     }
 
     override func viewDidLoad() {
@@ -95,10 +96,11 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.recipeList.separatorStyle = .none
         
         favorites = Data.sharedData.favoritedRecipes
-        recipes = Data.sharedData.unfavoritedRecipes
+        recipes = Data.sharedData.allRecipes
         
         recipeList.reloadData()
         favorites.sort{$0.name <= $1.name}
+        recipes.sort{$0.name <= $1.name}
         sortPicker.selectRow(0, inComponent: 0, animated: false)
         
         print("In Recipes!")

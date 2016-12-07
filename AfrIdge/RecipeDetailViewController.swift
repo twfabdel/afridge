@@ -30,7 +30,7 @@ class RecipeDetailViewController: UIViewController {
         recipeDifficulty.text = curRecipe.difficulty.rawValue
         recipeRating.text = String(curRecipe.rating)
         
-        recipeCookTime.text = String(curRecipe.cookTime)
+        recipeCookTime.text = String(curRecipe.cookTime) + " mins"
         
         if (curRecipe.favorite) {
             favoriteButton.setTitle("Unfavorite", for: .normal)
@@ -77,14 +77,23 @@ class RecipeDetailViewController: UIViewController {
             }
             
             curRecipe.favorite = false
-            Data.sharedData.unfavoritedRecipes.append(curRecipe)
+            
+            //need to make sure duplicate in allRecipes is unfavorited
+            for i in 0 ..< Data.sharedData.allRecipes.count {
+                if Data.sharedData.allRecipes[i].name == curRecipe.name {
+                    Data.sharedData.allRecipes[i].favorite = false
+                    break
+                }
+            }
+            
             favoriteButton.setTitle("Favorite", for: .normal)
         } else {
             //favoriting recipe
             
-            for i in 0 ..< Data.sharedData.unfavoritedRecipes.count {
-                if Data.sharedData.unfavoritedRecipes[i].name == curRecipe.name {
-                    Data.sharedData.unfavoritedRecipes.remove(at: i)
+            //need to make sure duplicate in allRecipes is favorited
+            for i in 0 ..< Data.sharedData.allRecipes.count {
+                if Data.sharedData.allRecipes[i].name == curRecipe.name {
+                    Data.sharedData.allRecipes[i].favorite = true
                     break
                 }
             }

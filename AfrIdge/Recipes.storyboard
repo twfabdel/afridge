@@ -252,16 +252,16 @@
                                                         <rect key="frame" x="236.5" y="0.0" width="98.5" height="107"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZn-bb-zmU">
-                                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="19"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="21"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="19" id="HQ5-1R-oIT"/>
+                                                                    <constraint firstAttribute="height" constant="21" id="HQ5-1R-oIT"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeE-1M-eNr">
-                                                                <rect key="frame" x="0.0" y="39" width="98.5" height="24.5"/>
+                                                                <rect key="frame" x="0.0" y="41" width="98.5" height="22.5"/>
                                                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
