@@ -8,10 +8,9 @@
 
 import UIKit
 
-class RecipeDetailViewController: UIViewController {
+class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
-    @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeDifficulty: UILabel!
     @IBOutlet weak var recipeRating: UILabel!
@@ -20,6 +19,7 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var videoButton: UIButton!
     @IBOutlet weak var recipeScroll: UITextView!
     @IBOutlet weak var topNavigationBar: UINavigationItem!
+    @IBOutlet weak var ingredientListView: UITableView!
     
     var curRecipe: Recipe!
     
@@ -27,11 +27,11 @@ class RecipeDetailViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
         let newImage = UIImage(named: curRecipe.imageString)
         
-        recipeNameLabel.text = curRecipe.name
         recipeImage.image = newImage
         recipeDifficulty.text = curRecipe.difficulty.rawValue
         recipeRating.text = String(curRecipe.rating)
-        recipeCookTime.text = String(curRecipe.cookTime)
+        
+        recipeCookTime.text = String(curRecipe.cookTime) + " mins"
         
         if (curRecipe.favorite) {
             favoriteButton.setTitle("Unfavorite", for: .normal)
@@ -57,13 +57,18 @@ class RecipeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("In Recipe Controller!")
-        
+            
         // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func videoClicked(_ sender: Any) {
+        let url = URL(string: curRecipe.videoLink)
+        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
     }
     
     @IBAction func favoriteButtonClicked(_ sender: Any) {
@@ -78,14 +83,23 @@ class RecipeDetailViewController: UIViewController {
             }
             
             curRecipe.favorite = false
-            Data.sharedData.unfavoritedRecipes.append(curRecipe)
+            
+            //need to make sure duplicate in allRecipes is unfavorited
+            for i in 0 ..< Data.sharedData.allRecipes.count {
+                if Data.sharedData.allRecipes[i].name == curRecipe.name {
+                    Data.sharedData.allRecipes[i].favorite = false
+                    break
+                }
+            }
+            
             favoriteButton.setTitle("Favorite", for: .normal)
         } else {
             //favoriting recipe
             
-            for i in 0 ..< Data.sharedData.unfavoritedRecipes.count {
-                if Data.sharedData.unfavoritedRecipes[i].name == curRecipe.name {
-                    Data.sharedData.unfavoritedRecipes.remove(at: i)
+            //need to make sure duplicate in allRecipes is favorited
+            for i in 0 ..< Data.sharedData.allRecipes.count {
+                if Data.sharedData.allRecipes[i].name == curRecipe.name {
+                    Data.sharedData.allRecipes[i].favorite = true
                     break
                 }
             }
@@ -94,6 +108,20 @@ class RecipeDetailViewController: UIViewController {
             Data.sharedData.favoritedRecipes.append(curRecipe)
             favoriteButton.setTitle("Unfavorite", for: .normal)
         }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(curRecipe.ingredients.count)
+        return curRecipe.ingredients.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = Bundle.main.loadNibNamed("IngredientsTableViewCell", owner: self, options: nil)?.first as! IngredientsTableViewCell
+        return cell
     }
 
     /*
