@@ -28,7 +28,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     let unselectedTabImg = UIImage(named: "tab unselected")
     
     let cellReuseIdentifier = "cell"
-    let cellSpacingHeight: CGFloat = 5
+    let cellSpacingHeight: CGFloat = 7
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == recipeSegueIdentifier) {
@@ -46,7 +46,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     //used to force a segue to recipe detail view when a cell is selected
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let row = indexPath.row
+        let row = indexPath.section
         performSegue(withIdentifier: recipeSegueIdentifier, sender: row)
     }
     
@@ -106,13 +106,34 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         print("In Recipes!")
     }
     
+    //Return number of sections
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if (index == 0) {
+            return favorites.count
+        } else {
+            return recipes.count
+        }
+    }
+    
     //Return number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(index == 0) {
-            return(favorites.count)
-        }
-        return(recipes.count)
+        return 1
+//        if(index == 0) {
+//            return(favorites.count)
+//        }
+//        return(recipes.count)
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
     
     //Format and return cell for given row indexPath.row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -125,8 +146,8 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
             tempList = recipes
         }
         
-        recipeCell.recipeName.text = tempList[indexPath.row].name
-        recipeCell.recipe = tempList[indexPath.row]
+        recipeCell.recipeName.text = tempList[indexPath.section].name
+        recipeCell.recipe = tempList[indexPath.section]
         
         recipeCell.layer.cornerRadius = 12
         recipeCell.layer.masksToBounds = true
@@ -136,7 +157,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //recipeCell.rating.text = String(recipes[indexPath.row].rating)
         
-        return(recipeCell)
+        return recipeCell
     }
     
     //for sortPicker
