@@ -31,8 +31,8 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func fetchItems() {
+        Data.sharedData.inventoryItems.sort{$0.name.lowercased() <= $1.name.lowercased()}
         self.items = Data.sharedData.inventoryItems
-        self.items.sort{$0.name <= $1.name}
         self.filterFunction()
     }
 
