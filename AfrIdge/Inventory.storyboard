@@ -328,6 +328,9 @@
                                         <state key="normal" title="Add To Inventory">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addItem:" destination="Yc5-VH-moK" eventType="touchUpInside" id="bKM-Ne-9yc"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title-nav-background" translatesAutoresizingMaskIntoConstraints="NO" id="SCL-4c-sz5">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="64"/>
@@ -406,7 +409,7 @@ Expiration:</string>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQs-Gr-TCh">
                                         <rect key="frame" x="5" y="5" width="30" height="30"/>
@@ -462,6 +465,9 @@ Expiration:</string>
                     </view>
                     <connections>
                         <outlet property="addBtn" destination="yKk-AG-r8L" id="NQP-7v-i0O"/>
+                        <outlet property="amountTextField" destination="ApJ-QC-ozD" id="3oj-8k-VQT"/>
+                        <outlet property="expirationTextField" destination="Rz8-rE-BnS" id="Ig3-d2-XTd"/>
+                        <outlet property="itemTextField" destination="DPm-qt-Vmz" id="zfW-Ac-xAf"/>
                         <outlet property="popUp" destination="Llu-KB-XKt" id="Ka2-vE-sSc"/>
                     </connections>
                 </viewController>

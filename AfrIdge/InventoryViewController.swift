@@ -27,10 +27,13 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
-        initializeInventory()
-        
-        items.sort{$0.name <= $1.name}
-        self.filteredItems = self.items
+        self.fetchItems()
+    }
+    
+    func fetchItems() {
+        self.items = Data.sharedData.inventoryItems
+        self.items.sort{$0.name <= $1.name}
+        self.filterFunction()
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,6 +106,9 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     }
 
     @IBAction func filter(_ sender: Any) {
+        self.filterFunction()
+    }
+    func filterFunction() {
         let str = self.searchBar.text
         if (str?.characters.count ?? 0) == 0{
             //Empty searchbar, show everything
@@ -136,18 +142,14 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         popUp.view.frame = self.view.frame
         self.view.addSubview(popUp.view)
         popUp.didMove(toParentViewController: self)
+        
+        popUp.parentView = self
     }
     
-    //initialize inventory entries
-    func initializeInventory() {
-        items.append(FoodItem(name: "Cheese", amount: "2 lbs", days: 1)!)
-        items.append(FoodItem(name: "Yogurt", amount: "0.5 gal", days: 3)!)
-        items.append(FoodItem(name: "Milk", amount: "1 gal", days: 2)!)
-        items.append(FoodItem(name: "Chicken", amount: "1.5 lbs", days: 4)!)
-        items.append(FoodItem(name: "Apples", amount: "5", days: 5)!)
-        items.append(FoodItem(name: "Oranges", amount: "8", days: 6)!)
-        items.append(FoodItem(name: "Ketchup", amount: "16 oz", days: 8)!)
-        items.append(FoodItem(name: "Mustard", amount: "10 oz", days: 14)!)
+    func addItem(item: FoodItem) {
+        Data.sharedData.inventoryItems.append(item)
+        self.fetchItems()
+        self.collectionView.reloadData()
     }
 }
 
