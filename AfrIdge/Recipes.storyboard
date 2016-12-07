@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TFD-1r-WPB">
-                                <rect key="frame" x="16" y="222" width="343" height="445"/>
+                                <rect key="frame" x="16" y="227" width="343" height="440"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recipeCell" id="kqv-wE-ERP" customClass="RecipeTableViewCell" customModule="AfrIdge" customModuleProvider="target">
@@ -110,12 +110,15 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="N55-EL-tIl">
                                 <rect key="frame" x="36" y="127" width="303" height="95"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qe-h5-96L">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qe-h5-96L">
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="Sbe-Bp-Ywg"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.26953428979999999" green="0.52200561759999997" blue="0.73868006470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="dropDownClicked:" destination="15m-ED-HZm" eventType="touchUpInside" id="adt-eW-eRg"/>
                                         </connections>
@@ -151,7 +154,7 @@
                             <constraint firstItem="hvj-Ob-KZv" firstAttribute="trailing" secondItem="h72-sR-0al" secondAttribute="trailingMargin" id="ITv-VK-Fb2"/>
                             <constraint firstItem="tDv-M6-rG5" firstAttribute="top" secondItem="h72-sR-0al" secondAttribute="top" id="OID-FT-XpG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N55-EL-tIl" secondAttribute="trailing" constant="20" id="Uv7-Pd-mhx"/>
-                            <constraint firstItem="TFD-1r-WPB" firstAttribute="top" secondItem="N55-EL-tIl" secondAttribute="bottom" id="W1p-V4-l1L"/>
+                            <constraint firstItem="TFD-1r-WPB" firstAttribute="top" secondItem="N55-EL-tIl" secondAttribute="bottom" constant="5" id="W1p-V4-l1L"/>
                             <constraint firstItem="hvj-Ob-KZv" firstAttribute="centerY" secondItem="Eax-mQ-ZTp" secondAttribute="centerY" id="dWd-PG-r76"/>
                             <constraint firstItem="lcX-c6-anU" firstAttribute="top" secondItem="TFD-1r-WPB" secondAttribute="bottom" id="gPF-Mp-1kI"/>
                             <constraint firstItem="N55-EL-tIl" firstAttribute="top" secondItem="hvH-Jf-PYt" secondAttribute="bottom" constant="15" id="gYM-TO-jqS"/>

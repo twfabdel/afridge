@@ -106,6 +106,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         recipeList.reloadData()
         favorites.sort{$0.name <= $1.name}
         dropDownTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
+        dropDownActive = false
     }
     
     @IBAction func recipeButtonClicked(_ sender: Any) {
@@ -122,6 +123,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         recipeList.reloadData()
         recipes.sort{$0.name <= $1.name}
         dropDownTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
+        dropDownActive = false
     }
 
     override func viewDidLoad() {
@@ -149,9 +151,14 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         recipes.sort{$0.name <= $1.name}
         
         dropDownButton.setTitle("Sort recipe by...", for: .normal)
+        dropDownButton.layer.cornerRadius = 7
+        dropDownButton.layer.masksToBounds = true
+        dropDownButton.layer.borderColor = UIColor.black.cgColor
+        dropDownButton.layer.borderWidth = 1
         
         dropDownTableView.isHidden = true
         dropDownTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
+        dropDownTableView.separatorColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
         print("In Recipes!")
     }
@@ -238,7 +245,13 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
             let cell = Bundle.main.loadNibNamed("DropDownTableViewCell", owner: self, options: nil)?.first as! DropDownTableViewCell
             cell.textLabel?.text = sortData[indexPath.row]
             cell.textLabel?.textAlignment = NSTextAlignment.center
-           // cell.sortLabel.text = sortData[indexPath.row]
+            cell.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            let bgView = UIView()
+            bgView.backgroundColor = #colorLiteral(red: 0.2695342898, green: 0.5220056176, blue: 0.7386800647, alpha: 1)
+            cell.selectedBackgroundView = bgView
+            cell.layer.borderColor = UIColor.black.cgColor
+            cell.layer.borderWidth = 1
+            
             return cell
             
         }
