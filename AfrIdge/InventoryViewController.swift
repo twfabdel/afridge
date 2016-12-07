@@ -60,18 +60,21 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
             cell.itemImageButton.setImage(UIImage(named:"add_inventory"), for: .normal)
             cell.name.text = "New Item"
             cell.itemImageButton.layer.borderWidth = 0
+            cell.isNewItemCell = true
             return cell
         }
         
+        let i = indexPath.row - 1
+        
+        let food = filteredItems[i]
+        cell.isNewItemCell = false
+        cell.food = food
+        cell.name.text = food.name
         
         cell.itemImageButton.setImage(UIImage(named: "spaghetti-pie"), for: .normal)
         
         cell.itemImageButton.layer.borderWidth = cell.itemImageButton.frame.size.width / 15
         cell.itemImageButton.layer.borderColor = getBorderColor()
-        
-        let i = indexPath.row - 1
-        
-        cell.name.text = filteredItems[i].name
 
         return cell
     }
@@ -100,18 +103,27 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         popUp.view.frame = self.view.frame
         self.view.addSubview(popUp.view)
         popUp.didMove(toParentViewController: self)
+        
+        let food = cell.food
+        popUp.itemName.text = food?.name
+        popUp.amountLeft.text = food?.amount
+        popUp.daysLeft.text = "\((food?.days)!) days"
+    }
+    
+    func showAddItemPopup() {
+        print("addItem")
     }
     
     //initialize inventory entries
     func initializeInventory() {
-        items.append(FoodItem(name: "Cheese", amount: 10)!)
-        items.append(FoodItem(name: "Yogurt", amount: 10)!)
-        items.append(FoodItem(name: "Milk", amount: 10)!)
-        items.append(FoodItem(name: "Chicken", amount: 10)!)
-        items.append(FoodItem(name: "Apples", amount: 10)!)
-        items.append(FoodItem(name: "Oranges", amount: 10)!)
-        items.append(FoodItem(name: "Ketchup", amount: 10)!)
-        items.append(FoodItem(name: "Mustard", amount: 10)!)
+        items.append(FoodItem(name: "Cheese", amount: "2 lbs", days: 15)!)
+        items.append(FoodItem(name: "Yogurt", amount: "0.5 gal", days: 10)!)
+        items.append(FoodItem(name: "Milk", amount: "1 gal", days: 2)!)
+        items.append(FoodItem(name: "Chicken", amount: "1.5 lbs", days: 4)!)
+        items.append(FoodItem(name: "Apples", amount: "5", days: 8)!)
+        items.append(FoodItem(name: "Oranges", amount: "8", days: 9)!)
+        items.append(FoodItem(name: "Ketchup", amount: "16 oz", days: 20)!)
+        items.append(FoodItem(name: "Mustard", amount: "10 oz", days: 30)!)
     }
 }
 
