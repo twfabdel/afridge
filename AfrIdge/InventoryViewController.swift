@@ -74,13 +74,32 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         cell.itemImageButton.setImage(UIImage(named: "spaghetti-pie"), for: .normal)
         
         cell.itemImageButton.layer.borderWidth = cell.itemImageButton.frame.size.width / 15
-        cell.itemImageButton.layer.borderColor = getBorderColor()
+        cell.itemImageButton.layer.borderColor = getBorderColor(food: food)
 
         return cell
     }
     
-    func getBorderColor() -> CGColor {
-        return UIColor.red.cgColor
+    func getBorderColor(food: FoodItem) -> CGColor {
+        switch(food.days) {
+            case 0, 1:
+                return #colorLiteral(red: 0.9805763364, green: 0.3403144777, blue: 0.1325740814, alpha: 1).cgColor
+            case 2:
+                return #colorLiteral(red: 0.9822408557, green: 0.4477022886, blue: 0.1524676085, alpha: 1).cgColor
+            case 3:
+                return #colorLiteral(red: 0.9860967994, green: 0.6185792685, blue: 0.1775469184, alpha: 1).cgColor
+            case 4:
+                return #colorLiteral(red: 0.9921967387, green: 0.806186378, blue: 0.2091829181, alpha: 1).cgColor
+            case 5:
+                return #colorLiteral(red: 0.996211946, green: 0.9041512609, blue: 0.2206585109, alpha: 1).cgColor
+            case 6, 7:
+                return #colorLiteral(red: 0.9446939826, green: 0.9233725071, blue: 0.244337827, alpha: 1).cgColor
+            case 8, 9:
+                return #colorLiteral(red: 0.8280895352, green: 0.8991128802, blue: 0.2609015703, alpha: 1).cgColor
+            case 10...12:
+                return #colorLiteral(red: 0.6154962182, green: 0.7919276357, blue: 0.2834175825, alpha: 1).cgColor
+            default:
+                return #colorLiteral(red: 0.3027163148, green: 0.6845176816, blue: 0.3139420152, alpha: 1).cgColor
+        }
     }
 
     @IBAction func filter(_ sender: Any) {
@@ -111,19 +130,24 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func showAddItemPopup() {
-        print("addItem")
+        let popUp = UIStoryboard(name: "Inventory", bundle: nil).instantiateViewController(withIdentifier: "addItemPopup") as! NewItemPopupViewController
+        
+        self.addChildViewController(popUp)
+        popUp.view.frame = self.view.frame
+        self.view.addSubview(popUp.view)
+        popUp.didMove(toParentViewController: self)
     }
     
     //initialize inventory entries
     func initializeInventory() {
-        items.append(FoodItem(name: "Cheese", amount: "2 lbs", days: 15)!)
-        items.append(FoodItem(name: "Yogurt", amount: "0.5 gal", days: 10)!)
+        items.append(FoodItem(name: "Cheese", amount: "2 lbs", days: 1)!)
+        items.append(FoodItem(name: "Yogurt", amount: "0.5 gal", days: 3)!)
         items.append(FoodItem(name: "Milk", amount: "1 gal", days: 2)!)
         items.append(FoodItem(name: "Chicken", amount: "1.5 lbs", days: 4)!)
-        items.append(FoodItem(name: "Apples", amount: "5", days: 8)!)
-        items.append(FoodItem(name: "Oranges", amount: "8", days: 9)!)
-        items.append(FoodItem(name: "Ketchup", amount: "16 oz", days: 20)!)
-        items.append(FoodItem(name: "Mustard", amount: "10 oz", days: 30)!)
+        items.append(FoodItem(name: "Apples", amount: "5", days: 5)!)
+        items.append(FoodItem(name: "Oranges", amount: "8", days: 6)!)
+        items.append(FoodItem(name: "Ketchup", amount: "16 oz", days: 8)!)
+        items.append(FoodItem(name: "Mustard", amount: "10 oz", days: 14)!)
     }
 }
 
