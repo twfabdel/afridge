@@ -13,9 +13,6 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
     
-    //view button currently not used
-    @IBOutlet weak var viewButton: UIButton!
-    
     var delegate: RecipesViewController?
     var recipe: Recipe!
     
@@ -33,10 +30,5 @@ class RecipeTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    //Called when view button is clicked
-    @IBAction func viewButtonClicked(_ sender: Any) {
-        //go to recipe view for this specific recipe
-        print(recipe.difficulty.rawValue)
-    }
+
 }
