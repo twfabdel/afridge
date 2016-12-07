@@ -65,6 +65,11 @@ class RecipeDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func videoClicked(_ sender: Any) {
+        let url = URL(string: curRecipe.videoLink)
+        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+    }
+    
     @IBAction func favoriteButtonClicked(_ sender: Any) {
         if (curRecipe.favorite) {
             //unfavoriting recipe

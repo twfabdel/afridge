@@ -229,6 +229,9 @@
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="videoClicked:" destination="ZfR-aj-CVI" eventType="touchUpInside" id="KnH-SL-oxd"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
