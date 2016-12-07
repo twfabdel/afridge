@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecipeDetailViewController: UIViewController {
+class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
     @IBOutlet weak var recipeImage: UIImageView!
@@ -19,6 +19,7 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var videoButton: UIButton!
     @IBOutlet weak var recipeScroll: UITextView!
     @IBOutlet weak var topNavigationBar: UINavigationItem!
+    @IBOutlet weak var ingredientListView: UITableView!
     
     var curRecipe: Recipe!
     
@@ -56,7 +57,7 @@ class RecipeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("In Recipe Controller!")
-        
+            
         // Do any additional setup after loading the view.
     }
     
@@ -107,6 +108,20 @@ class RecipeDetailViewController: UIViewController {
             Data.sharedData.favoritedRecipes.append(curRecipe)
             favoriteButton.setTitle("Unfavorite", for: .normal)
         }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(curRecipe.ingredients.count)
+        return curRecipe.ingredients.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = Bundle.main.loadNibNamed("IngredientsTableViewCell", owner: self, options: nil)?.first as! IngredientsTableViewCell
+        return cell
     }
 
     /*

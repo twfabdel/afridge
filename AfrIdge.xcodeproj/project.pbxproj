@@ -12,6 +12,8 @@
 		11CD471E1DF3A5DB0042B6DE /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD471D1DF3A5DB0042B6DE /* Data.swift */; };
 		230C17601DF7E2CE0077581A /* DropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230C175F1DF7E2CE0077581A /* DropDownTableViewCell.swift */; };
 		2328F65C1DF7E5C90093AB02 /* DropDownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2328F65B1DF7E5C90093AB02 /* DropDownTableViewCell.xib */; };
+		2328F6601DF802840093AB02 /* IngredientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2328F65F1DF802840093AB02 /* IngredientsTableViewCell.swift */; };
+		2328F6621DF802960093AB02 /* IngredientsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2328F6611DF802960093AB02 /* IngredientsTableViewCell.xib */; };
 		23297AED1DF66ECB0042E26C /* Progress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23297AEC1DF66ECB0042E26C /* Progress.storyboard */; };
 		23297AF41DF6748D0042E26C /* Inventory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23297AF31DF6748D0042E26C /* Inventory.storyboard */; };
 		23297AF61DF675D70042E26C /* GroceryList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23297AF51DF675D70042E26C /* GroceryList.storyboard */; };
@@ -42,6 +44,8 @@
 		11CD471D1DF3A5DB0042B6DE /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		230C175F1DF7E2CE0077581A /* DropDownTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownTableViewCell.swift; sourceTree = "<group>"; };
 		2328F65B1DF7E5C90093AB02 /* DropDownTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropDownTableViewCell.xib; sourceTree = "<group>"; };
+		2328F65F1DF802840093AB02 /* IngredientsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewCell.swift; sourceTree = "<group>"; };
+		2328F6611DF802960093AB02 /* IngredientsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IngredientsTableViewCell.xib; sourceTree = "<group>"; };
 		23297AEC1DF66ECB0042E26C /* Progress.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Progress.storyboard; sourceTree = "<group>"; };
 		23297AF31DF6748D0042E26C /* Inventory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Inventory.storyboard; sourceTree = "<group>"; };
 		23297AF51DF675D70042E26C /* GroceryList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GroceryList.storyboard; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 				B8E830991DE39A5D00A56B30 /* RecipeTableViewCell.xib */,
 				B8E8309C1DE39D0300A56B30 /* Recipe.swift */,
 				23297AF71DF676DF0042E26C /* Recipes.storyboard */,
+				2328F65F1DF802840093AB02 /* IngredientsTableViewCell.swift */,
+				2328F6611DF802960093AB02 /* IngredientsTableViewCell.xib */,
 			);
 			name = Recipes;
 			sourceTree = "<group>";
@@ -229,6 +235,7 @@
 				B83908C11DE7587600F69DEA /* InventoryCollectionViewCell.xib in Resources */,
 				23297AED1DF66ECB0042E26C /* Progress.storyboard in Resources */,
 				23297AF61DF675D70042E26C /* GroceryList.storyboard in Resources */,
+				2328F6621DF802960093AB02 /* IngredientsTableViewCell.xib in Resources */,
 				B8E8309B1DE39A5D00A56B30 /* RecipeTableViewCell.xib in Resources */,
 				B8A0B1CD1DDF8C6F0054796E /* Main.storyboard in Resources */,
 				2328F65C1DF7E5C90093AB02 /* DropDownTableViewCell.xib in Resources */,
@@ -257,6 +264,7 @@
 				B8A0B1C81DDF8C6E0054796E /* InventoryViewController.swift in Sources */,
 				B8E8309A1DE39A5D00A56B30 /* RecipeTableViewCell.swift in Sources */,
 				1125BF801DEE7DBE00CA4C67 /* RecipeDetailViewController.swift in Sources */,
+				2328F6601DF802840093AB02 /* IngredientsTableViewCell.swift in Sources */,
 				1125BF7A1DEE2BAF00CA4C67 /* FoodItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
