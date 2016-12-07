@@ -328,15 +328,19 @@
                                                 <rect key="frame" x="8" y="16" width="359" height="155"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="37" id="uWi-4F-0vR" customClass="IngredientsTableViewCell" customModule="AfrIdge" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="359" height="37"/>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="uWi-4F-0vR" customClass="IngredientsTableViewCell" customModule="AfrIdge" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28" width="359" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uWi-4F-0vR" id="CNb-g5-PQP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="49"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
                                                 </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="ZfR-aj-CVI" id="brM-or-x0Z"/>
+                                                    <outlet property="delegate" destination="ZfR-aj-CVI" id="hNN-ya-X1Z"/>
+                                                </connections>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

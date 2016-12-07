@@ -45,6 +45,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         topNavigationBar.title = curRecipe.name
         
+        ingredientListView.separatorStyle = .none
+        
+        
         
         //additional formatting of page
     }
@@ -116,11 +119,31 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(curRecipe.ingredients.count)
-        return curRecipe.ingredients.count
+        return ((curRecipe.ingredients.count + 1)/2)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let index = indexPath.row*2
+        
         let cell = Bundle.main.loadNibNamed("IngredientsTableViewCell", owner: self, options: nil)?.first as! IngredientsTableViewCell
+        
+        let text1 = curRecipe.ingredients[index].name + " " + String(curRecipe.ingredients[index].amount)
+        cell.ingredientLabel1.text = text1
+        cell.ingredientLabel1.layer.borderColor = UIColor.black.cgColor
+        cell.ingredientLabel1.layer.borderWidth = 1
+        cell.ingredientLabel1.textAlignment = NSTextAlignment.center
+        
+        if index + 1 < curRecipe.ingredients.count {
+            let text2 = curRecipe.ingredients[index + 1].name + " " + String(curRecipe.ingredients[index + 1].amount)
+            cell.ingredientLabel2.text = text2
+            cell.ingredientLabel2.layer.borderColor = UIColor.black.cgColor
+            cell.ingredientLabel2.layer.borderWidth = 1
+            cell.ingredientLabel2.textAlignment = NSTextAlignment.center
+        } else {
+            //odd number of ingredients, hide last label
+            cell.ingredientLabel2.isHidden = true
+        }
+        
         return cell
     }
 

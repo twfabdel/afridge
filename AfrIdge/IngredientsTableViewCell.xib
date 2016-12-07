@@ -19,21 +19,45 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOc-uD-P23">
-                        <rect key="frame" x="23" y="11" width="329" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6Kf-ZH-IeE">
+                        <rect key="frame" x="13" y="8" width="349" height="27.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOc-uD-P23">
+                                <rect key="frame" x="0.0" y="0.0" width="169.5" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UY3-xo-7S5">
+                                <rect key="frame" x="179.5" y="0.0" width="169.5" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="UY3-xo-7S5" secondAttribute="bottom" id="4Px-K7-luh"/>
+                            <constraint firstAttribute="trailing" secondItem="UY3-xo-7S5" secondAttribute="trailing" id="Hlc-ij-oAd"/>
+                            <constraint firstItem="QOc-uD-P23" firstAttribute="leading" secondItem="6Kf-ZH-IeE" secondAttribute="leading" id="Mct-MG-Zeb"/>
+                            <constraint firstItem="UY3-xo-7S5" firstAttribute="top" secondItem="6Kf-ZH-IeE" secondAttribute="top" id="c6P-bU-DNF"/>
+                            <constraint firstItem="UY3-xo-7S5" firstAttribute="width" secondItem="QOc-uD-P23" secondAttribute="width" id="cad-XH-kdS"/>
+                            <constraint firstItem="UY3-xo-7S5" firstAttribute="height" secondItem="QOc-uD-P23" secondAttribute="height" id="pMP-gI-HnA"/>
+                            <constraint firstItem="QOc-uD-P23" firstAttribute="top" secondItem="6Kf-ZH-IeE" secondAttribute="top" id="ry3-a7-kjI"/>
+                            <constraint firstAttribute="bottom" secondItem="QOc-uD-P23" secondAttribute="bottom" id="wqb-CN-LiQ"/>
+                        </constraints>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="QOc-uD-P23" secondAttribute="bottom" constant="3" id="MEj-47-jkW"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="QOc-uD-P23" secondAttribute="bottom" constant="3" id="Os6-Pl-RkE"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="QOc-uD-P23" secondAttribute="trailing" constant="15" id="gk0-Ba-0xt"/>
-                    <constraint firstItem="QOc-uD-P23" firstAttribute="leading" secondItem="Cra-4W-hUh" secondAttribute="leadingMargin" constant="15" id="iqZ-Lz-VGa"/>
-                    <constraint firstItem="QOc-uD-P23" firstAttribute="top" secondItem="Cra-4W-hUh" secondAttribute="topMargin" constant="3" id="wWw-kc-qtJ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="6Kf-ZH-IeE" secondAttribute="trailing" constant="5" id="EN8-Sw-6HZ"/>
+                    <constraint firstItem="6Kf-ZH-IeE" firstAttribute="top" secondItem="Cra-4W-hUh" secondAttribute="topMargin" id="fT4-Rt-txE"/>
+                    <constraint firstItem="6Kf-ZH-IeE" firstAttribute="leading" secondItem="Cra-4W-hUh" secondAttribute="leadingMargin" constant="5" id="grT-kC-jzu"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="6Kf-ZH-IeE" secondAttribute="bottom" id="na8-0i-fTr"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="ingredientLabel1" destination="QOc-uD-P23" id="H6e-5g-Ebn"/>
+                <outlet property="ingredientLabel2" destination="UY3-xo-7S5" id="tvj-gs-Uxc"/>
+            </connections>
             <point key="canvasLocation" x="15.5" y="116"/>
         </tableViewCell>
     </objects>
