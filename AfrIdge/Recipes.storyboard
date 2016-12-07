@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TFD-1r-WPB">
-                                <rect key="frame" x="16" y="242" width="343" height="425"/>
+                                <rect key="frame" x="16" y="222" width="343" height="445"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recipeCell" id="kqv-wE-ERP" customClass="RecipeTableViewCell" customModule="AfrIdge" customModuleProvider="target">
@@ -46,7 +46,7 @@
                                 </connections>
                             </tableView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0n-0A-Hkz">
-                                <rect key="frame" x="36" y="140" width="303" height="80"/>
+                                <rect key="frame" x="36" y="132" width="303" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="YM0-ZG-xqX"/>
                                 </constraints>
@@ -120,7 +120,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="e0n-0A-Hkz" firstAttribute="top" secondItem="hvH-Jf-PYt" secondAttribute="bottom" constant="28" id="1EU-5T-qd0"/>
+                            <constraint firstItem="e0n-0A-Hkz" firstAttribute="top" secondItem="hvH-Jf-PYt" secondAttribute="bottom" constant="20" id="1EU-5T-qd0"/>
                             <constraint firstItem="Eax-mQ-ZTp" firstAttribute="top" secondItem="h72-sR-0al" secondAttribute="topMargin" constant="12" id="1PG-xz-rQV"/>
                             <constraint firstItem="Eax-mQ-ZTp" firstAttribute="leading" secondItem="h72-sR-0al" secondAttribute="leadingMargin" id="5ON-WP-9Be"/>
                             <constraint firstItem="hvH-Jf-PYt" firstAttribute="leading" secondItem="h72-sR-0al" secondAttribute="leadingMargin" id="8HN-qA-A3m"/>
@@ -131,7 +131,7 @@
                             <constraint firstItem="hvj-Ob-KZv" firstAttribute="centerY" secondItem="Eax-mQ-ZTp" secondAttribute="centerY" id="dWd-PG-r76"/>
                             <constraint firstItem="lcX-c6-anU" firstAttribute="top" secondItem="TFD-1r-WPB" secondAttribute="bottom" id="gPF-Mp-1kI"/>
                             <constraint firstAttribute="trailing" secondItem="tDv-M6-rG5" secondAttribute="trailing" id="hJ8-MX-x8H"/>
-                            <constraint firstItem="TFD-1r-WPB" firstAttribute="top" secondItem="e0n-0A-Hkz" secondAttribute="bottom" constant="22" id="maz-Kr-gw9"/>
+                            <constraint firstItem="TFD-1r-WPB" firstAttribute="top" secondItem="e0n-0A-Hkz" secondAttribute="bottom" constant="10" id="maz-Kr-gw9"/>
                             <constraint firstItem="e0n-0A-Hkz" firstAttribute="leading" secondItem="h72-sR-0al" secondAttribute="leadingMargin" constant="20" id="nO1-xF-WKs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TFD-1r-WPB" secondAttribute="trailing" id="s2N-Fy-OeI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="e0n-0A-Hkz" secondAttribute="trailing" constant="20" id="u9y-a3-xP2"/>
