@@ -115,23 +115,27 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    //Return number of rows
+    //Return number of rows per section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
-//        if(index == 0) {
-//            return(favorites.count)
-//        }
-//        return(recipes.count)
+
     }
     
+    //return spacing between cells in table view
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return cellSpacingHeight
     }
     
+    //set background for spacing between cells in table view
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         headerView.backgroundColor = UIColor.clear
         return headerView
+    }
+    
+    //set height for cells in table view
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
     }
     
     
@@ -146,8 +150,11 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
             tempList = recipes
         }
         
-        recipeCell.recipeName.text = tempList[indexPath.section].name
-        recipeCell.recipe = tempList[indexPath.section]
+        let curRecipe = tempList[indexPath.section]
+        
+        recipeCell.recipeName.text = curRecipe.name
+        recipeCell.recipe = curRecipe
+        recipeCell.recipeImage.image = UIImage(named: curRecipe.imageString)
         
         recipeCell.layer.cornerRadius = 12
         recipeCell.layer.masksToBounds = true

@@ -11,6 +11,7 @@ import UIKit
 class RecipeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var recipeName: UILabel!
+    @IBOutlet weak var recipeImage: UIImageView!
     
     //view button currently not used
     @IBOutlet weak var viewButton: UIButton!
@@ -22,7 +23,6 @@ class RecipeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         
         
         // Initialization code

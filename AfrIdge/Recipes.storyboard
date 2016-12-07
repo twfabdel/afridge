@@ -23,14 +23,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TFD-1r-WPB">
-                                <rect key="frame" x="36" y="242" width="303" height="425"/>
+                                <rect key="frame" x="16" y="242" width="343" height="425"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recipeCell" id="kqv-wE-ERP" customClass="RecipeTableViewCell" customModule="AfrIdge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="303" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kqv-wE-ERP" id="qGG-fu-weo">
-                                            <rect key="frame" x="0.0" y="0.0" width="303" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -124,7 +124,7 @@
                             <constraint firstItem="Eax-mQ-ZTp" firstAttribute="top" secondItem="h72-sR-0al" secondAttribute="topMargin" constant="12" id="1PG-xz-rQV"/>
                             <constraint firstItem="Eax-mQ-ZTp" firstAttribute="leading" secondItem="h72-sR-0al" secondAttribute="leadingMargin" id="5ON-WP-9Be"/>
                             <constraint firstItem="hvH-Jf-PYt" firstAttribute="leading" secondItem="h72-sR-0al" secondAttribute="leadingMargin" id="8HN-qA-A3m"/>
-                            <constraint firstItem="TFD-1r-WPB" firstAttribute="leading" secondItem="h72-sR-0al" secondAttribute="leadingMargin" constant="20" id="9Bc-zH-SZQ"/>
+                            <constraint firstItem="TFD-1r-WPB" firstAttribute="leading" secondItem="h72-sR-0al" secondAttribute="leadingMargin" id="9Bc-zH-SZQ"/>
                             <constraint firstItem="tDv-M6-rG5" firstAttribute="leading" secondItem="h72-sR-0al" secondAttribute="leading" id="9c8-h6-awi"/>
                             <constraint firstItem="hvj-Ob-KZv" firstAttribute="trailing" secondItem="h72-sR-0al" secondAttribute="trailingMargin" id="ITv-VK-Fb2"/>
                             <constraint firstItem="tDv-M6-rG5" firstAttribute="top" secondItem="h72-sR-0al" secondAttribute="top" id="OID-FT-XpG"/>
@@ -133,7 +133,7 @@
                             <constraint firstAttribute="trailing" secondItem="tDv-M6-rG5" secondAttribute="trailing" id="hJ8-MX-x8H"/>
                             <constraint firstItem="TFD-1r-WPB" firstAttribute="top" secondItem="e0n-0A-Hkz" secondAttribute="bottom" constant="22" id="maz-Kr-gw9"/>
                             <constraint firstItem="e0n-0A-Hkz" firstAttribute="leading" secondItem="h72-sR-0al" secondAttribute="leadingMargin" constant="20" id="nO1-xF-WKs"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="TFD-1r-WPB" secondAttribute="trailing" constant="20" id="s2N-Fy-OeI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TFD-1r-WPB" secondAttribute="trailing" id="s2N-Fy-OeI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="e0n-0A-Hkz" secondAttribute="trailing" constant="20" id="u9y-a3-xP2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hvH-Jf-PYt" secondAttribute="trailing" id="vSz-D2-1IK"/>
                             <constraint firstItem="hvH-Jf-PYt" firstAttribute="top" secondItem="h72-sR-0al" secondAttribute="topMargin" constant="75" id="zR2-YV-hCq"/>
@@ -260,14 +260,14 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeE-1M-eNr">
-                                                                <rect key="frame" x="0.0" y="41" width="98.5" height="22.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeE-1M-eNr">
+                                                                <rect key="frame" x="0.0" y="41" width="98.5" height="23.5"/>
                                                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idv-4y-ATZ">
-                                                                <rect key="frame" x="0.0" y="83.5" width="98.5" height="23.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idv-4y-ATZ">
+                                                                <rect key="frame" x="0.0" y="84.5" width="98.5" height="22.5"/>
                                                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
