@@ -137,7 +137,7 @@
                                         <rect key="frame" x="0.0" y="10" width="375" height="405"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Cart:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPR-YZ-Ouf">
-                                                <rect key="frame" x="141" y="0.0" width="94" height="30"/>
+                                                <rect key="frame" x="141" y="0.0" width="93.5" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="83a-So-mL6"/>
                                                 </constraints>
@@ -145,8 +145,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DLa-bf-TOa">
-                                                <rect key="frame" x="0.0" y="40" width="375" height="325"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Euk-uG-yp9">
+                                                <rect key="frame" x="33.5" y="40" width="308" height="64"/>
+                                            </imageView>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DLa-bf-TOa">
+                                                <rect key="frame" x="0.0" y="114" width="375" height="251"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="c" id="caL-yJ-hxF" customClass="ListItemTableViewCell" customModule="AfrIdge" customModuleProvider="target">

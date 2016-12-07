@@ -51,14 +51,41 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="D6q-CM-JZ6">
                                 <rect key="frame" x="0.0" y="84" width="375" height="583"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="color-strip" translatesAutoresizingMaskIntoConstraints="NO" id="sPa-J3-ppB">
-                                        <rect key="frame" x="40" y="0.0" width="295" height="30"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8nx-hW-3ub">
+                                        <rect key="frame" x="40" y="0.0" width="295" height="25"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="color-strip" translatesAutoresizingMaskIntoConstraints="NO" id="P9n-IV-LfL">
+                                                <rect key="frame" x="0.0" y="0.0" width="295" height="25"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expired" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPc-x1-4cw">
+                                                <rect key="frame" x="10" y="0.0" width="54" height="25"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fresh" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqe-IK-Pgw">
+                                                <rect key="frame" x="246" y="0.0" width="39" height="25"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="I1x-bt-FqP"/>
+                                            <constraint firstItem="P9n-IV-LfL" firstAttribute="leading" secondItem="8nx-hW-3ub" secondAttribute="leading" id="3ZW-X5-DcZ"/>
+                                            <constraint firstItem="cPc-x1-4cw" firstAttribute="top" secondItem="8nx-hW-3ub" secondAttribute="top" id="8Z6-Iw-2tS"/>
+                                            <constraint firstAttribute="bottom" secondItem="P9n-IV-LfL" secondAttribute="bottom" id="8ms-LF-4cS"/>
+                                            <constraint firstItem="P9n-IV-LfL" firstAttribute="top" secondItem="8nx-hW-3ub" secondAttribute="top" id="CWa-9C-mTX"/>
+                                            <constraint firstAttribute="trailing" secondItem="Eqe-IK-Pgw" secondAttribute="trailing" constant="10" id="WSK-Nw-bIr"/>
+                                            <constraint firstItem="Eqe-IK-Pgw" firstAttribute="top" secondItem="8nx-hW-3ub" secondAttribute="top" id="WWV-Hq-E1j"/>
+                                            <constraint firstItem="cPc-x1-4cw" firstAttribute="leading" secondItem="8nx-hW-3ub" secondAttribute="leading" constant="10" id="aPf-0D-czd"/>
+                                            <constraint firstAttribute="bottom" secondItem="Eqe-IK-Pgw" secondAttribute="bottom" id="cqC-Fu-hdf"/>
+                                            <constraint firstAttribute="bottom" secondItem="cPc-x1-4cw" secondAttribute="bottom" id="lML-hD-952"/>
+                                            <constraint firstAttribute="height" constant="25" id="nzL-CG-qTr"/>
+                                            <constraint firstAttribute="trailing" secondItem="P9n-IV-LfL" secondAttribute="trailing" id="oCW-yG-g5I"/>
                                         </constraints>
-                                    </imageView>
+                                    </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="myx-z0-Ftu">
-                                        <rect key="frame" x="10" y="50" width="355" height="533"/>
+                                        <rect key="frame" x="10" y="45" width="355" height="538"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eUl-fz-MXQ">
                                             <size key="itemSize" width="90" height="120"/>
@@ -110,9 +137,9 @@
                                     </collectionView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="sPa-J3-ppB" firstAttribute="leading" secondItem="D6q-CM-JZ6" secondAttribute="leading" constant="40" id="O6d-k9-8Er"/>
                                     <constraint firstAttribute="trailing" secondItem="myx-z0-Ftu" secondAttribute="trailing" constant="10" id="Zb6-7G-JHo"/>
-                                    <constraint firstAttribute="trailing" secondItem="sPa-J3-ppB" secondAttribute="trailing" constant="40" id="rYd-vx-x3K"/>
+                                    <constraint firstItem="8nx-hW-3ub" firstAttribute="leading" secondItem="D6q-CM-JZ6" secondAttribute="leading" constant="40" id="fCn-lW-nxV"/>
+                                    <constraint firstAttribute="trailing" secondItem="8nx-hW-3ub" secondAttribute="trailing" constant="40" id="kCL-Yg-7Fp"/>
                                     <constraint firstAttribute="bottom" secondItem="myx-z0-Ftu" secondAttribute="bottom" id="rjk-jX-5Bc"/>
                                     <constraint firstItem="myx-z0-Ftu" firstAttribute="leading" secondItem="D6q-CM-JZ6" secondAttribute="leading" constant="10" id="xuX-tu-waa"/>
                                 </constraints>
@@ -136,6 +163,7 @@
                     <tabBarItem key="tabBarItem" title="Inventory" image="first" id="61b-Rb-U5b"/>
                     <connections>
                         <outlet property="collectionView" destination="myx-z0-Ftu" id="Z9y-F9-2F6"/>
+                        <outlet property="colorStrip" destination="P9n-IV-LfL" id="l4C-uf-yc5"/>
                         <outlet property="searchBar" destination="uCO-RX-SUe" id="rJz-mk-2WO"/>
                     </connections>
                 </viewController>

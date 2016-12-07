@@ -15,10 +15,13 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UITextField!
+    @IBOutlet weak var colorStrip: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.colorStrip.layer.cornerRadius = 10
+        self.colorStrip.layer.masksToBounds = true
         self.navigationController?.isNavigationBarHidden = true
         
         self.collectionView.delegate = self
