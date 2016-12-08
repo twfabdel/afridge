@@ -11,12 +11,13 @@ import Foundation
 class FoodItem {
     
     var name: String
-    //what to make amount type?
-    var amount: Int
+    var amount: String
+    var days: Int
     
-    init?(name: String, amount: Int) {
+    init?(name: String, amount: String, days: Int) {
         self.name = name
         self.amount = amount
+        self.days = days
         
         if name.isEmpty {
             return nil;

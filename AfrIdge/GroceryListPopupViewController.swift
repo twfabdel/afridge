@@ -56,6 +56,7 @@ class GroceryListPopupViewController: UIViewController {
 
     @IBAction func cancel(_ sender: UIButton) {
         self.view.removeFromSuperview()
+        self.parentView?.list.reloadData()
     }
     
     @IBAction func done(_ sender: Any) {

@@ -133,7 +133,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             }
             
             
-            let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "groceryPopUp") as! GroceryListPopupViewController
+            let popUp = UIStoryboard(name: "GroceryList", bundle: nil).instantiateViewController(withIdentifier: "groceryPopUp") as! GroceryListPopupViewController
             popUp.add = false
             
             self.addChildViewController(popUp)
@@ -153,7 +153,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func showDoneShoppingPopUp(_ sender: UIButton) {
-        let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "doneShoppingPopUp") as! DoneShoppingViewController
+        let popUp = UIStoryboard(name: "GroceryList", bundle: nil).instantiateViewController(withIdentifier: "doneShoppingPopUp") as! DoneShoppingViewController
         
         self.addChildViewController(popUp)
         popUp.view.frame = self.view.frame
@@ -165,7 +165,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func showAddItemPopup(_ sender: UIButton) {
         
-        let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "groceryPopUp") as! GroceryListPopupViewController
+        let popUp = UIStoryboard(name: "GroceryList", bundle: nil).instantiateViewController(withIdentifier: "groceryPopUp") as! GroceryListPopupViewController
         popUp.add = true
         
         self.addChildViewController(popUp)
@@ -227,6 +227,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         loadInitialCells()
         self.toBuyBtn.adjustsImageWhenHighlighted = false
         self.boughtBtn.adjustsImageWhenHighlighted = false
