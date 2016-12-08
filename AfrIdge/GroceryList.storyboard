@@ -385,7 +385,6 @@
                             <constraint firstAttribute="trailing" secondItem="xKm-Vf-20F" secondAttribute="trailing" constant="20" id="lxl-rk-7Vl"/>
                             <constraint firstItem="ox2-l1-mkJ" firstAttribute="leading" secondItem="lae-BV-e3S" secondAttribute="leading" id="n1U-ar-Bs7"/>
                             <constraint firstItem="tUw-XJ-MtL" firstAttribute="top" secondItem="ox2-l1-mkJ" secondAttribute="bottom" id="s0G-BW-OtL"/>
-                            <constraint firstItem="ox2-l1-mkJ" firstAttribute="top" secondItem="WE4-qW-bDD" secondAttribute="bottom" constant="10" id="tDk-7W-UIF"/>
                             <constraint firstItem="ox2-l1-mkJ" firstAttribute="top" secondItem="WE4-qW-bDD" secondAttribute="bottom" constant="10" id="v0w-lC-faF"/>
                             <constraint firstItem="xKm-Vf-20F" firstAttribute="top" secondItem="evD-P2-xdL" secondAttribute="bottom" id="wK1-34-ZGa"/>
                             <constraint firstItem="WE4-qW-bDD" firstAttribute="leading" secondItem="lae-BV-e3S" secondAttribute="leading" id="y9k-Yn-BdF"/>
