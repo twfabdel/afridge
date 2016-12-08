@@ -84,7 +84,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         print("In Recipe Controller!")
-            
+        
         // Do any additional setup after loading the view.
     }
     
@@ -141,6 +141,17 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastRowIndex = tableView.numberOfRows(inSection: 0) - 1
+        if indexPath.row == lastRowIndex {
+            if missingIngredients.count == 0 {
+                addToGroceryListButton.setTitle("You have all of the ingredients!", for: .normal)
+                addToGroceryListButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+                addToGroceryListButton.isEnabled = false
+            }
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -194,7 +205,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         for i in 0 ..< Data.sharedData.inventoryItems.count {
             if Data.sharedData.inventoryItems[i].name == item.name {
                 //check if we have enough of item left for this recipe (how do we compare the string?
-                if Data.sharedData.inventoryItems[i].amount > item.amount {
+                if Data.sharedData.inventoryItems[i].amount >= item.amount {
                     return false
                 } else {
                     //add to missing list
