@@ -33,7 +33,11 @@ class Data {
                 let split1 = amount.components(separatedBy: " ")
                 let split2 = self.toBuy[i].amount.components(separatedBy: " ")
                 
-                let newAmt = "\((split1[0] as NSString).floatValue + (split2[0] as NSString).floatValue)"
+                let floatAmt = (split1[0] as NSString).floatValue + (split2[0] as NSString).floatValue
+                var newAmt = "\(floatAmt)"
+                if floatAmt.truncatingRemainder(dividingBy: 1.0) == 0 {
+                    newAmt = "\(Int(floatAmt))"
+                }
                 
                 if split1.count > 1 {
                     self.toBuy[i].amount = newAmt + " " + split1[1]
