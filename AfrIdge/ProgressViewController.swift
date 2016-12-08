@@ -11,6 +11,7 @@ import UIKit
 class ProgressViewController: UIViewController {
 
     override func viewDidLoad() {
+        self.navigationController?.isNavigationBarHidden = true
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -22,7 +23,7 @@ class ProgressViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("In Progress!")
+        
     }
     
 

@@ -25,7 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearance.titleTextAttributes = [NSFontAttributeName: UIFont(name: "American Typewriter", size: 22)!, NSForegroundColorAttributeName: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), NSBaselineOffsetAttributeName: NSNumber(value: 7)]
         
         
-
+        UITabBar.appearance().barTintColor = #colorLiteral(red: 0.2867610455, green: 0.544103384, blue: 0.758836031, alpha: 1)
+        UITabBar.appearance().tintColor = UIColor.black
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.black], for: .selected)
 //        UITabBar.appearance().layer.backgroundColor = UIColor(colorLiteralRed: 69.0/255.0, green: 133.0/255.0, blue: 189.0/255.0, alpha: 1.0).cgColor
 
         return true
@@ -64,6 +67,16 @@ extension UIViewController {
     
     func closeKeyboard() {
         view.endEditing(true)
+    }
+}
+
+extension UITabBarController {
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tabBar.items?.forEach({ (item) -> () in
+            item.image = item.selectedImage?.withRenderingMode(.alwaysOriginal)
+        })
     }
 }
 

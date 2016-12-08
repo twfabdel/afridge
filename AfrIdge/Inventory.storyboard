@@ -84,10 +84,10 @@
                                             <constraint firstAttribute="trailing" secondItem="P9n-IV-LfL" secondAttribute="trailing" id="oCW-yG-g5I"/>
                                         </constraints>
                                     </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="myx-z0-Ftu">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="myx-z0-Ftu">
                                         <rect key="frame" x="10" y="45" width="355" height="538"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eUl-fz-MXQ">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eUl-fz-MXQ">
                                             <size key="itemSize" width="90" height="120"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -161,7 +161,6 @@
                             <constraint firstItem="D6q-CM-JZ6" firstAttribute="leading" secondItem="raI-UQ-KTw" secondAttribute="leading" id="6hE-nt-Izm"/>
                             <constraint firstItem="5oK-h6-j43" firstAttribute="leading" secondItem="raI-UQ-KTw" secondAttribute="leadingMargin" constant="5" id="ARR-Ow-VJA"/>
                             <constraint firstItem="D6q-CM-JZ6" firstAttribute="top" secondItem="yG1-ZE-ofM" secondAttribute="bottom" constant="35" id="Iko-lu-cwZ"/>
-                            <constraint firstItem="fTT-nm-PTi" firstAttribute="top" secondItem="D6q-CM-JZ6" secondAttribute="bottom" id="JEN-Ox-HuB"/>
                             <constraint firstItem="D6q-CM-JZ6" firstAttribute="top" secondItem="F1p-vB-jJt" secondAttribute="bottom" constant="20" id="LlL-KB-wyb"/>
                             <constraint firstAttribute="trailing" secondItem="D6q-CM-JZ6" secondAttribute="trailing" id="ULS-yx-ApA"/>
                             <constraint firstAttribute="trailing" secondItem="F1p-vB-jJt" secondAttribute="trailing" id="Xa0-pn-zjx"/>
