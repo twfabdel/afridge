@@ -211,6 +211,9 @@
                                                 <state key="normal" title="Add Items to Inventory">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addItemsToInventory:" destination="Qs4-9t-67i" eventType="touchUpInside" id="Pvl-Wc-0TS"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

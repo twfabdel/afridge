@@ -153,7 +153,18 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         self.view.addSubview(popUp.view)
         popUp.didMove(toParentViewController: self)
         
+        popUp.parentView = self
         popUp.boughtItems = self.checked
+    }
+    
+    func addItemsToInventory() {
+        for listItem in self.checked {
+            let foodItem = FoodItem(name: listItem.food, amount: listItem.amount, days: 10)!
+            Data.sharedData.addInventoryItem(item: foodItem)
+        }
+        Data.sharedData.bought = []
+        self.doneBtn.isHidden = true
+        self.fetchData()
     }
     
     @IBAction func showAddItemPopup(_ sender: UIButton) {
@@ -181,7 +192,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func addItem(food: String, amount: String) {
         let newItem = GroceryListItem(food: food, amount: amount, isChecked: false)
-        Data.sharedData.addItem(item: newItem!)
+        Data.sharedData.addGroceryItem(item: newItem!)
         self.fetchData()
     }
     

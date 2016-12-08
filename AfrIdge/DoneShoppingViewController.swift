@@ -16,6 +16,7 @@ class DoneShoppingViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var list: UITableView!
     
+    var parentView: GroceryListViewController?
     var boughtItems: [GroceryListItem] = []
     
     override func viewDidLoad() {
@@ -66,4 +67,8 @@ class DoneShoppingViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
 
+    @IBAction func addItemsToInventory(_ sender: UIButton) {
+        self.parentView?.addItemsToInventory()
+        self.view.removeFromSuperview()
+    }
 }
