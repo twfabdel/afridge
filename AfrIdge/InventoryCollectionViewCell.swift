@@ -15,6 +15,8 @@ class InventoryCollectionViewCell: UICollectionViewCell {
     //@IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemImageButton: UIButton!
     var delegate: InventoryViewController?
+    var food: FoodItem?
+    var isNewItemCell: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +28,10 @@ class InventoryCollectionViewCell: UICollectionViewCell {
     }
 
     @IBAction func foodClicked(_ sender: UIButton) {
-        self.delegate?.showPopup(cell: self)
+        if self.isNewItemCell {
+            self.delegate?.showAddItemPopup()
+        } else {
+            self.delegate?.showDetailPopup(cell: self)
+        }
     }
 }
