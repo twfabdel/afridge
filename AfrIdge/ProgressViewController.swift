@@ -23,7 +23,7 @@ class ProgressViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("In Progress!")
+        
     }
     
 

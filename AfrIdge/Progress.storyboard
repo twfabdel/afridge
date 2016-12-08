@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Progress View Controller-->
         <scene sceneID="aJs-gV-gCS">
             <objects>
-                <viewController id="JKt-7I-Wuh" sceneMemberID="viewController">
+                <viewController id="JKt-7I-Wuh" customClass="ProgressViewController" customModule="AfrIdge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uHR-9c-ve6"/>
                         <viewControllerLayoutGuide type="bottom" id="WCh-lt-gpc"/>
