@@ -136,10 +136,16 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         self.view.addSubview(popUp.view)
         popUp.didMove(toParentViewController: self)
         
+        popUp.parentView = self
+        
         let food = cell.food
         popUp.itemName.text = food?.name
         popUp.amountLeft.text = food?.amount
         popUp.daysLeft.text = "\((food?.days)!) days"
+    }
+    
+    func addItemToGrocery(name: String, amount: String) {
+        Data.sharedData.addInventoryItemToGrocery(name: name, amount: amount)
     }
     
     func showAddItemPopup() {

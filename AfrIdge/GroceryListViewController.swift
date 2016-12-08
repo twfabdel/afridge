@@ -94,8 +94,6 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         let indexPath = self.list.indexPathForRow(at: pressLocation)
         let cell = self.list.cellForRow(at: indexPath!) as! ListItemTableViewCell
         print(cell.ListItemLabel.text!)
-        
-        
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -104,10 +102,8 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             
             if self.index == 0 {
                 Data.sharedData.deleteItem(index: indexPath.row, isChecked: false)
-//                self.unchecked.remove(at: indexPath.row)
             } else {
                 Data.sharedData.deleteItem(index: indexPath.row, isChecked: true)
-//                self.checked.remove(at: indexPath.row)
                 if self.checked.count == 0 {
                     self.doneBtn.isHidden = true
                 }
@@ -157,7 +153,18 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         self.view.addSubview(popUp.view)
         popUp.didMove(toParentViewController: self)
         
+        popUp.parentView = self
         popUp.boughtItems = self.checked
+    }
+    
+    func addItemsToInventory() {
+        for listItem in self.checked {
+            let foodItem = FoodItem(name: listItem.food, amount: listItem.amount, days: 10)!
+            Data.sharedData.addInventoryItem(item: foodItem)
+        }
+        Data.sharedData.bought = []
+        self.doneBtn.isHidden = true
+        self.fetchData()
     }
     
     @IBAction func showAddItemPopup(_ sender: UIButton) {
@@ -179,36 +186,44 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             Data.sharedData.editItem(index: index, isChecked: false, food: food, amount: amount)
         } else {
             Data.sharedData.editItem(index: index, isChecked: true, food: food, amount: amount)
-//            self.checked[index].food = food
-//            self.checked[index].amount = amount
         }
         self.fetchData()
     }
     
     func addItem(food: String, amount: String) {
         let newItem = GroceryListItem(food: food, amount: amount, isChecked: false)
-        Data.sharedData.addItem(item: newItem!)
+        Data.sharedData.addGroceryItem(item: newItem!)
         self.fetchData()
     }
     
     func boxClicked(cell: ListItemTableViewCell) {
         let index = self.list.indexPath(for: cell)!.row
         
+        var endingPoint = 500
         if(cell.isChecked) {
+            endingPoint = -500
             Data.sharedData.uncheckItem(index: index)
-//            let listItem = checked[index]
-//            checked.remove(at: index)
-//            unchecked.insert(listItem, at: 0)
+            cell.checkbox.setImage(#imageLiteral(resourceName: "checkbox_f"), for: .normal)
         } else {
             Data.sharedData.checkItem(index: index)
-//            let listItem = unchecked[index]
-//            unchecked.remove(at: index)
-//            checked.insert(listItem, at: 0)
+            cell.checkbox.setImage(#imageLiteral(resourceName: "checkbox_t"), for: .normal)
         }
-        self.fetchData()
-        if self.checked.count == 0 {
-            self.doneBtn.isHidden = true
+        
+        let rot = CATransform3DTranslate(CATransform3DIdentity, CGFloat(endingPoint), 0, 0)
+        cell.layer.transform = CATransform3DIdentity
+        
+        UIView.animate(withDuration:0.5, animations: {
+            cell.layer.transform = rot
+        }) { _ in
+            self.fetchData()
+            if self.checked.count == 0 {
+                self.doneBtn.isHidden = true
+            }
         }
+//        self.fetchData()
+//        if self.checked.count == 0 {
+//            self.doneBtn.isHidden = true
+//        }
     }
     
     func fetchData() {
