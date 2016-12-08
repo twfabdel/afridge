@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AfrIdge/RecipeDetailViewController.swift"
-            timestampString = "502869304.553928"
+            timestampString = "502870579.336272"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "notInInventory(item:)"
             landmarkType = "7">
          </BreakpointContent>

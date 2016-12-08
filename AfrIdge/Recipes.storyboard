@@ -324,15 +324,32 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="www-Mb-EbR">
                                         <rect key="frame" x="0.0" y="216.5" width="375" height="214"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVD-Wx-W7T">
+                                                <rect key="frame" x="20" y="170" width="335" height="34"/>
+                                                <color key="backgroundColor" red="0.26953428979999999" green="0.52200561759999997" blue="0.73868006470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="19"/>
+                                                <state key="normal" title="Add missing items to grocery list ">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addToGroceryList:" destination="ZfR-aj-CVI" eventType="touchUpInside" id="EIR-5n-cY1"/>
+                                                </connections>
+                                            </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="37" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pkA-aG-Vve">
-                                                <rect key="frame" x="8" y="16" width="359" height="155"/>
+                                                <rect key="frame" x="15" y="5" width="345" height="160"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="uWi-4F-0vR" customClass="IngredientsTableViewCell" customModule="AfrIdge" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="359" height="50"/>
+                                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="uWi-4F-0vR" customClass="IngredientsTableViewCell" customModule="AfrIdge" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28" width="345" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uWi-4F-0vR" id="CNb-g5-PQP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="49"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="49"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
@@ -345,10 +362,13 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="pkA-aG-Vve" secondAttribute="bottom" constant="43" id="AYG-sI-Aec"/>
-                                            <constraint firstItem="pkA-aG-Vve" firstAttribute="leading" secondItem="www-Mb-EbR" secondAttribute="leading" constant="8" id="Eq4-OL-ekZ"/>
-                                            <constraint firstAttribute="trailing" secondItem="pkA-aG-Vve" secondAttribute="trailing" constant="8" id="FFF-TR-rj9"/>
-                                            <constraint firstItem="pkA-aG-Vve" firstAttribute="top" secondItem="www-Mb-EbR" secondAttribute="top" constant="16" id="rvB-Av-qnG"/>
+                                            <constraint firstItem="pkA-aG-Vve" firstAttribute="leading" secondItem="www-Mb-EbR" secondAttribute="leading" constant="15" id="2jt-y8-aEW"/>
+                                            <constraint firstItem="yVD-Wx-W7T" firstAttribute="leading" secondItem="www-Mb-EbR" secondAttribute="leading" constant="20" id="DOz-Ul-BKI"/>
+                                            <constraint firstItem="pkA-aG-Vve" firstAttribute="top" secondItem="www-Mb-EbR" secondAttribute="top" constant="5" id="UnZ-Gh-j6m"/>
+                                            <constraint firstAttribute="trailing" secondItem="pkA-aG-Vve" secondAttribute="trailing" constant="15" id="bBg-XC-67X"/>
+                                            <constraint firstAttribute="trailing" secondItem="yVD-Wx-W7T" secondAttribute="trailing" constant="20" id="hvY-TY-osu"/>
+                                            <constraint firstAttribute="bottom" secondItem="yVD-Wx-W7T" secondAttribute="bottom" constant="10" id="rc7-Fc-UVR"/>
+                                            <constraint firstItem="yVD-Wx-W7T" firstAttribute="top" secondItem="pkA-aG-Vve" secondAttribute="bottom" constant="5" id="xwJ-7s-Aop"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5o7-yx-JXZ">
@@ -418,6 +438,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ewT-AE-vNx"/>
                     <connections>
+                        <outlet property="addToGroceryListButton" destination="yVD-Wx-W7T" id="Mc4-Fy-HKz"/>
                         <outlet property="favoriteButton" destination="8NE-SO-X1d" id="i4W-Hh-toW"/>
                         <outlet property="ingredientListView" destination="pkA-aG-Vve" id="u4G-gU-mhw"/>
                         <outlet property="recipeCookTime" destination="idv-4y-ATZ" id="e7f-vc-cyh"/>

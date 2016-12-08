@@ -20,6 +20,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var recipeScroll: UITextView!
     @IBOutlet weak var topNavigationBar: UINavigationItem!
     @IBOutlet weak var ingredientListView: UITableView!
+    @IBOutlet weak var addToGroceryListButton: UIButton!
     
     var curRecipe: Recipe!
     var missingIngredients = [FoodItem]()
@@ -140,7 +141,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         if notInInventory(item: curRecipe.ingredients[index]) {
             //style cell to be highlighted as missing from inventory
-            cell.ingredientLabel1.backgroundColor = #colorLiteral(red: 0.8459790349, green: 0.2873021364, blue: 0.2579272389, alpha: 1)
+            cell.ingredientLabel1.backgroundColor = #colorLiteral(red: 0.8459790349, green: 0.2873021364, blue: 0.2579272389, alpha: 0.7360338185)
             cell.ingredientLabel1.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             cell.ingredientLabel1.layer.borderColor = UIColor.black.cgColor
         }
@@ -155,7 +156,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             
             if notInInventory(item: curRecipe.ingredients[index + 1]) {
                 //style cell to be highlighted as missing from inventory
-                cell.ingredientLabel2.backgroundColor = #colorLiteral(red: 0.8459790349, green: 0.2873021364, blue: 0.2579272389, alpha: 1)
+                cell.ingredientLabel2.backgroundColor = #colorLiteral(red: 0.8459790349, green: 0.2873021364, blue: 0.2579272389, alpha: 0.7360338185)
                 cell.ingredientLabel2.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 cell.ingredientLabel2.layer.borderColor = UIColor.black.cgColor
             }
@@ -185,6 +186,55 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         return true
     }
 
+    @IBAction func addToGroceryList(_ sender: Any) {
+        if !addToGroceryListButton.isEnabled {
+            return
+        }
+        
+        addToGroceryListButton.setTitle("Missing items added to grocery list!", for: .normal)
+        addToGroceryListButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        addToGroceryListButton.isEnabled = false
+        
+        for i in 0 ..< missingIngredients.count {
+            let curFoodItem = missingIngredients[i]
+            let newGroceryItem = GroceryListItem(food: curFoodItem.name, amount: curFoodItem.amount, isChecked: false)
+            var needToAdd = true
+            
+            for i in 0 ..< Data.sharedData.toBuy.count {
+                //check if already in to buy list so as to not add dups
+                if Data.sharedData.toBuy[i].food == newGroceryItem?.food {
+                    needToAdd = false
+                    if Data.sharedData.toBuy[i].amount < (newGroceryItem?.amount)! {
+                        //edit item in groceryList
+                        Data.sharedData.editItem(index: i, isChecked: false, food: (newGroceryItem?.food)!, amount: (newGroceryItem?.amount)!)
+                    }
+                    break
+                }
+            }
+            
+            for i in 0 ..< Data.sharedData.bought.count {
+                //check if already in uncleared bought list so as to not add dups
+                if Data.sharedData.bought[i].food == newGroceryItem?.food {
+                    if Data.sharedData.bought[i].amount >= (newGroceryItem?.amount)! {
+                        //no need to add to "to buy" grocery list
+                        needToAdd = false
+                        break
+                    }
+                }
+            }
+            
+            
+            if needToAdd {
+                //did not already exist in grocery list
+                Data.sharedData.addItem(item: newGroceryItem!)
+            }
+        }
+        
+        missingIngredients.removeAll()
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 
