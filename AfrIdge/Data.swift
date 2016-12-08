@@ -19,9 +19,38 @@ class Data {
     
     var inventoryItems = [FoodItem(name: "Cheese", amount: "2 lbs", days: 1)!, FoodItem(name: "Yogurt", amount: "0.5 gal", days: 3)!, FoodItem(name: "Milk", amount: "1 gal", days: 2)!, FoodItem(name: "Chicken", amount: "1.5 lbs", days: 4)!, FoodItem(name: "Apples", amount: "5", days: 5)!, FoodItem(name: "Oranges", amount: "8", days: 6)!, FoodItem(name: "Ketchup", amount: "16 oz", days: 8)!, FoodItem(name: "Mustard", amount: "10 oz", days: 14)!]
     
+    func addInventoryItem(item: FoodItem) {
+        self.inventoryItems.append(item)
+    }
+    
     var toBuy = [GroceryListItem(food: "whole milk", amount: "1 gal", isChecked: false)!,GroceryListItem(food: "eggs", amount: "1 doz", isChecked: false)!, GroceryListItem(food: "swiss cheese", amount: "0.5 lbs", isChecked: false)!, GroceryListItem(food: "red apples", amount: "6", isChecked: false)!,GroceryListItem(food: "chicken legs", amount: "2.5 lbs", isChecked: false)!, GroceryListItem(food: "pears", amount: "5", isChecked: true)!]
     
     var bought = [GroceryListItem]()
+    
+    func addInventoryItemToGrocery(name: String, amount: String) {
+        for i in 0...self.toBuy.count - 1 {
+            if self.toBuy[i].food.lowercased() == name.lowercased() {
+                let split1 = amount.components(separatedBy: " ")
+                let split2 = self.toBuy[i].amount.components(separatedBy: " ")
+                
+                let floatAmt = (split1[0] as NSString).floatValue + (split2[0] as NSString).floatValue
+                var newAmt = "\(floatAmt)"
+                if floatAmt.truncatingRemainder(dividingBy: 1.0) == 0 {
+                    newAmt = "\(Int(floatAmt))"
+                }
+                
+                if split1.count > 1 {
+                    self.toBuy[i].amount = newAmt + " " + split1[1]
+                } else if split2.count > 1 {
+                    self.toBuy[i].amount = newAmt + " " + split2[1]
+                } else {
+                    self.toBuy[i].amount = newAmt
+                }
+                return
+            }
+        }
+        self.toBuy.insert(GroceryListItem(food: name, amount: amount, isChecked: false)!, at: 0)
+    }
     
     func uncheckItem(index: Int) {
         let item = self.bought[index]
@@ -35,7 +64,7 @@ class Data {
         self.bought.insert(item, at:0)
     }
     
-    func addItem(item: GroceryListItem) {
+    func addGroceryItem(item: GroceryListItem) {
         self.toBuy.insert(item, at:0)
     }
     

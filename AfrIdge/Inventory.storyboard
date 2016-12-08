@@ -297,6 +297,9 @@
                                                 <state key="normal" title="Add To Grocery List">
                                                     <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addToGrocery:" destination="SdS-Os-hac" eventType="touchUpInside" id="hof-ye-afz"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
