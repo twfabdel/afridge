@@ -19,4 +19,42 @@ class Data {
     
     var inventoryItems = [FoodItem(name: "Cheese", amount: "2 lbs", days: 1)!, FoodItem(name: "Yogurt", amount: "0.5 gal", days: 3)!, FoodItem(name: "Milk", amount: "1 gal", days: 2)!, FoodItem(name: "Chicken", amount: "1.5 lbs", days: 4)!, FoodItem(name: "Apples", amount: "5", days: 5)!, FoodItem(name: "Oranges", amount: "8", days: 6)!, FoodItem(name: "Ketchup", amount: "16 oz", days: 8)!, FoodItem(name: "Mustard", amount: "10 oz", days: 14)!]
     
+    var toBuy = [GroceryListItem(food: "whole milk", amount: "1 gal", isChecked: false)!,GroceryListItem(food: "eggs", amount: "1 doz", isChecked: false)!, GroceryListItem(food: "swiss cheese", amount: "0.5 lbs", isChecked: false)!, GroceryListItem(food: "red apples", amount: "6", isChecked: false)!,GroceryListItem(food: "chicken legs", amount: "2.5 lbs", isChecked: false)!, GroceryListItem(food: "pears", amount: "5", isChecked: true)!]
+    
+    var bought = [GroceryListItem]()
+    
+    func uncheckItem(index: Int) {
+        let item = self.bought[index]
+        self.bought.remove(at: index)
+        self.toBuy.insert(item, at:0)
+    }
+    
+    func checkItem(index: Int) {
+        let item = self.toBuy[index]
+        self.toBuy.remove(at: index)
+        self.bought.insert(item, at:0)
+    }
+    
+    func addItem(item: GroceryListItem) {
+        self.toBuy.insert(item, at:0)
+    }
+    
+    func editItem(index: Int, isChecked: Bool, food: String, amount: String){
+        if isChecked {
+            self.bought[index].food = food
+            self.bought[index].amount = amount
+        } else {
+            self.toBuy[index].food = food
+            self.toBuy[index].amount = amount
+        }
+    }
+    
+    func deleteItem(index: Int, isChecked: Bool) {
+        if isChecked {
+            self.bought.remove(at: index)
+        } else {
+            self.toBuy.remove(at: index)
+        }
+    }
+    
 }
