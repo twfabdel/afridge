@@ -144,11 +144,23 @@
                                     <constraint firstItem="myx-z0-Ftu" firstAttribute="leading" secondItem="D6q-CM-JZ6" secondAttribute="leading" constant="10" id="xuX-tu-waa"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yG1-ZE-ofM">
+                                <rect key="frame" x="336" y="31" width="18" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="KSs-QY-lsn"/>
+                                    <constraint firstAttribute="width" constant="18" id="pAb-yu-fht"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="x-icon"/>
+                                <connections>
+                                    <action selector="clearSearch:" destination="XPh-DC-1QI" eventType="touchUpInside" id="LyN-Il-k3E"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="D6q-CM-JZ6" firstAttribute="leading" secondItem="raI-UQ-KTw" secondAttribute="leading" id="6hE-nt-Izm"/>
                             <constraint firstItem="5oK-h6-j43" firstAttribute="leading" secondItem="raI-UQ-KTw" secondAttribute="leadingMargin" constant="5" id="ARR-Ow-VJA"/>
+                            <constraint firstItem="D6q-CM-JZ6" firstAttribute="top" secondItem="yG1-ZE-ofM" secondAttribute="bottom" constant="35" id="Iko-lu-cwZ"/>
                             <constraint firstItem="fTT-nm-PTi" firstAttribute="top" secondItem="D6q-CM-JZ6" secondAttribute="bottom" id="JEN-Ox-HuB"/>
                             <constraint firstItem="D6q-CM-JZ6" firstAttribute="top" secondItem="F1p-vB-jJt" secondAttribute="bottom" constant="20" id="LlL-KB-wyb"/>
                             <constraint firstAttribute="trailing" secondItem="D6q-CM-JZ6" secondAttribute="trailing" id="ULS-yx-ApA"/>
@@ -156,8 +168,10 @@
                             <constraint firstItem="5oK-h6-j43" firstAttribute="top" secondItem="QRU-J0-c9L" secondAttribute="bottom" id="a1N-yv-i09"/>
                             <constraint firstAttribute="bottom" secondItem="D6q-CM-JZ6" secondAttribute="bottom" id="bG4-w0-Zxv"/>
                             <constraint firstItem="F1p-vB-jJt" firstAttribute="top" secondItem="raI-UQ-KTw" secondAttribute="top" id="dEs-hm-Oiv"/>
+                            <constraint firstItem="yG1-ZE-ofM" firstAttribute="trailing" secondItem="raI-UQ-KTw" secondAttribute="trailingMargin" constant="-5" id="lxH-QJ-Wvz"/>
                             <constraint firstItem="uCO-RX-SUe" firstAttribute="top" secondItem="QRU-J0-c9L" secondAttribute="bottom" constant="5" id="nK7-Dz-6Fv"/>
                             <constraint firstItem="uCO-RX-SUe" firstAttribute="trailing" secondItem="raI-UQ-KTw" secondAttribute="trailingMargin" id="qfw-Mw-kLN"/>
+                            <constraint firstItem="yG1-ZE-ofM" firstAttribute="top" secondItem="QRU-J0-c9L" secondAttribute="bottom" constant="11" id="xgL-Sb-Bex"/>
                             <constraint firstItem="F1p-vB-jJt" firstAttribute="leading" secondItem="raI-UQ-KTw" secondAttribute="leading" id="ysq-LL-HA2"/>
                         </constraints>
                     </view>
@@ -258,7 +272,7 @@
                                             <constraint firstAttribute="width" constant="30" id="y9E-qF-gmH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <state key="normal" title="x">
+                                        <state key="normal" backgroundImage="x-icon">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -329,7 +343,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fjy-n8-FbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1480.8" y="-405.24737631184411"/>
+            <point key="canvasLocation" x="1458" y="-405"/>
         </scene>
         <!--New Item Popup View Controller-->
         <scene sceneID="k19-5Q-Sx5">
@@ -452,7 +466,7 @@ Expiration:</string>
                                             <constraint firstAttribute="height" constant="30" id="Q4K-4b-6Tg"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <state key="normal" title="x">
+                                        <state key="normal" backgroundImage="x-icon">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -515,5 +529,6 @@ Expiration:</string>
         <image name="first" width="30" height="30"/>
         <image name="question_mark" width="256" height="256"/>
         <image name="title-nav-background" width="375" height="78"/>
+        <image name="x-icon" width="2400" height="2400"/>
     </resources>
 </document>

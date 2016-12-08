@@ -27,7 +27,7 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
-        self.fetchItems()
+        self.hideKeyboard()
     }
     
     func fetchItems() {
@@ -42,7 +42,14 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("In Inventory!")
+        self.searchBar.text = ""
+        self.fetchItems()
+    }
+    
+    @IBAction func clearSearch(_ sender: UIButton) {
+        self.searchBar.text = ""
+        self.filteredItems = items
+        self.collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

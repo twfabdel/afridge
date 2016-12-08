@@ -56,3 +56,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension UIViewController {
+    func hideKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.closeKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func closeKeyboard() {
+        view.endEditing(true)
+    }
+}
+
