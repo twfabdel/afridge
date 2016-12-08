@@ -12,6 +12,7 @@ class DoneShoppingViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var popUp: UIView!
     @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet weak var backgroundBtn: UIButton!
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var list: UITableView!
     
@@ -22,7 +23,10 @@ class DoneShoppingViewController: UIViewController, UITableViewDelegate, UITable
 
         self.view.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 0.5, alpha: 0.5)
         self.popUp.layer.cornerRadius = 20
+        self.popUp.layer.masksToBounds = true
         
+        self.addBtn.layer.cornerRadius = 10
+        self.addBtn.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +34,9 @@ class DoneShoppingViewController: UIViewController, UITableViewDelegate, UITable
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func backgroundCancel(_ sender: UIButton) {
+        self.view.removeFromSuperview()
+    }
     @IBAction func cancel(_ sender: Any) {
         self.view.removeFromSuperview()
     }

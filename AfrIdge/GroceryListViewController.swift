@@ -94,8 +94,6 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         let indexPath = self.list.indexPathForRow(at: pressLocation)
         let cell = self.list.cellForRow(at: indexPath!) as! ListItemTableViewCell
         print(cell.ListItemLabel.text!)
-        
-        
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -104,10 +102,8 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             
             if self.index == 0 {
                 Data.sharedData.deleteItem(index: indexPath.row, isChecked: false)
-//                self.unchecked.remove(at: indexPath.row)
             } else {
                 Data.sharedData.deleteItem(index: indexPath.row, isChecked: true)
-//                self.checked.remove(at: indexPath.row)
                 if self.checked.count == 0 {
                     self.doneBtn.isHidden = true
                 }
@@ -179,8 +175,6 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             Data.sharedData.editItem(index: index, isChecked: false, food: food, amount: amount)
         } else {
             Data.sharedData.editItem(index: index, isChecked: true, food: food, amount: amount)
-//            self.checked[index].food = food
-//            self.checked[index].amount = amount
         }
         self.fetchData()
     }
@@ -196,14 +190,8 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         
         if(cell.isChecked) {
             Data.sharedData.uncheckItem(index: index)
-//            let listItem = checked[index]
-//            checked.remove(at: index)
-//            unchecked.insert(listItem, at: 0)
         } else {
             Data.sharedData.checkItem(index: index)
-//            let listItem = unchecked[index]
-//            unchecked.remove(at: index)
-//            checked.insert(listItem, at: 0)
         }
         self.fetchData()
         if self.checked.count == 0 {
