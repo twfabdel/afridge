@@ -15,6 +15,8 @@ class InventoryDetailPopupViewController: UIViewController {
     @IBOutlet weak var daysLeft: UILabel!
     @IBOutlet weak var recipesBtn: UIButton!
     @IBOutlet weak var addToGroceryBtn: UIButton!
+    
+    var parentView: InventoryViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,18 @@ class InventoryDetailPopupViewController: UIViewController {
         self.view.removeFromSuperview()
     }
    
+    @IBAction func addToGrocery(_ sender: UIButton) {
+        self.parentView?.addItemToGrocery(name: self.itemName.text!, amount: self.amountLeft.text!)
+        //self.addToGroceryBtn = CGAffineTransformMakeScale(-1, 1)
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.addToGroceryBtn.transform = CGAffineTransform.identity.scaledBy(x: 0.5, y: 0.5)
+            }, completion: { (finish) in
+            UIView.animate(withDuration: 0.5, animations: {
+                self.addToGroceryBtn.transform = CGAffineTransform.identity
+            })
+        })
+    }
     
     
 

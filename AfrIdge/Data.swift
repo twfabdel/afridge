@@ -27,6 +27,27 @@ class Data {
     
     var bought = [GroceryListItem]()
     
+    func addInventoryItemToGrocery(name: String, amount: String) {
+        for i in 0...self.toBuy.count - 1 {
+            if self.toBuy[i].food.lowercased() == name.lowercased() {
+                let split1 = amount.components(separatedBy: " ")
+                let split2 = self.toBuy[i].amount.components(separatedBy: " ")
+                
+                let newAmt = "\((split1[0] as NSString).floatValue + (split2[0] as NSString).floatValue)"
+                
+                if split1.count > 1 {
+                    self.toBuy[i].amount = newAmt + " " + split1[1]
+                } else if split2.count > 1 {
+                    self.toBuy[i].amount = newAmt + " " + split2[1]
+                } else {
+                    self.toBuy[i].amount = newAmt
+                }
+                return
+            }
+        }
+        self.toBuy.insert(GroceryListItem(food: name, amount: amount, isChecked: false)!, at: 0)
+    }
+    
     func uncheckItem(index: Int) {
         let item = self.bought[index]
         self.bought.remove(at: index)
