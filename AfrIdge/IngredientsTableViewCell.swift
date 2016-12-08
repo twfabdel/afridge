@@ -10,6 +10,8 @@ import UIKit
 
 class IngredientsTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var ingredientLabel1: UILabel!
+    @IBOutlet weak var ingredientLabel2: UILabel!
     var delegate: RecipeDetailViewController?
     
     override func prepareForReuse() {
