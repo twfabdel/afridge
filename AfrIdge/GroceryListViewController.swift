@@ -31,9 +31,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         index = 0
         self.toBuyBtn.setBackgroundImage(selectedTabImg, for: .normal)
         self.boughtBtn.setBackgroundImage(unselectedTabImg, for: .normal)
-        if self.unchecked.count > 0 {
-            self.doneBtn.isHidden = true
-        }
+        self.doneBtn.isHidden = true
         list.reloadData()
     }
     
@@ -105,17 +103,16 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             (action, indexPath) -> Void in
             
             if self.index == 0 {
-                self.unchecked.remove(at: indexPath.row)
-                if self.unchecked.count == 0 && self.checked.count > 0 {
-                    self.doneBtn.isHidden = false
-                }
+                Data.sharedData.deleteItem(index: indexPath.row, isChecked: false)
+//                self.unchecked.remove(at: indexPath.row)
             } else {
-                self.checked.remove(at: indexPath.row)
+                Data.sharedData.deleteItem(index: indexPath.row, isChecked: true)
+//                self.checked.remove(at: indexPath.row)
                 if self.checked.count == 0 {
                     self.doneBtn.isHidden = true
                 }
             }
-            self.list.reloadData()
+            self.fetchData()
         }
         
         let edit = UITableViewRowAction(style: .normal, title: "Edit") {
@@ -133,7 +130,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             }
             
             
-            let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "groceryPopUp") as! GroceryListPopupViewController
+            let popUp = UIStoryboard(name: "GroceryList", bundle: nil).instantiateViewController(withIdentifier: "groceryPopUp") as! GroceryListPopupViewController
             popUp.add = false
             
             self.addChildViewController(popUp)
@@ -153,7 +150,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func showDoneShoppingPopUp(_ sender: UIButton) {
-        let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "doneShoppingPopUp") as! DoneShoppingViewController
+        let popUp = UIStoryboard(name: "GroceryList", bundle: nil).instantiateViewController(withIdentifier: "doneShoppingPopUp") as! DoneShoppingViewController
         
         self.addChildViewController(popUp)
         popUp.view.frame = self.view.frame
@@ -165,7 +162,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func showAddItemPopup(_ sender: UIButton) {
         
-        let popUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "groceryPopUp") as! GroceryListPopupViewController
+        let popUp = UIStoryboard(name: "GroceryList", bundle: nil).instantiateViewController(withIdentifier: "groceryPopUp") as! GroceryListPopupViewController
         popUp.add = true
         
         self.addChildViewController(popUp)
@@ -179,61 +176,56 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     func editItem(itemID: [Int], food: String, amount: String) {
         let index = itemID[1]
         if itemID[0] == 0 {
-            self.unchecked[index].food = food
-            self.unchecked[index].amount = amount
+            Data.sharedData.editItem(index: index, isChecked: false, food: food, amount: amount)
         } else {
-            self.checked[index].food = food
-            self.checked[index].amount = amount
+            Data.sharedData.editItem(index: index, isChecked: true, food: food, amount: amount)
+//            self.checked[index].food = food
+//            self.checked[index].amount = amount
         }
-        self.list.reloadData()
+        self.fetchData()
     }
     
     func addItem(food: String, amount: String) {
         let newItem = GroceryListItem(food: food, amount: amount, isChecked: false)
-        self.unchecked.insert(newItem!, at: 0)
-        self.list.reloadData()
+        Data.sharedData.addItem(item: newItem!)
+        self.fetchData()
     }
     
     func boxClicked(cell: ListItemTableViewCell) {
         let index = self.list.indexPath(for: cell)!.row
         
         if(cell.isChecked) {
-            let listItem = checked[index]
-            checked.remove(at: index)
-            unchecked.insert(listItem, at: 0)
-            if self.checked.count == 0 {
-                self.doneBtn.isHidden = true
-            }
+            Data.sharedData.uncheckItem(index: index)
+//            let listItem = checked[index]
+//            checked.remove(at: index)
+//            unchecked.insert(listItem, at: 0)
         } else {
-            let listItem = unchecked[index]
-            unchecked.remove(at: index)
-            checked.insert(listItem, at: 0)
-            if self.unchecked.count == 0 {
-                self.doneBtn.isHidden = false
-            }
+            Data.sharedData.checkItem(index: index)
+//            let listItem = unchecked[index]
+//            unchecked.remove(at: index)
+//            checked.insert(listItem, at: 0)
         }
-        list.reloadData()
+        self.fetchData()
+        if self.checked.count == 0 {
+            self.doneBtn.isHidden = true
+        }
     }
     
-    //Load hardcoded data
-    func loadInitialCells() {
-        unchecked.append(GroceryListItem(food: "whole milk", amount: "1 gal", isChecked: false)!)
-        unchecked.append(GroceryListItem(food: "eggs", amount: "1 doz", isChecked: false)!)
-        unchecked.append(GroceryListItem(food: "swiss cheese", amount: "0.5 lbs", isChecked: false)!)
-        unchecked.append(GroceryListItem(food: "red apples", amount: "6", isChecked: false)!)
-        unchecked.append(GroceryListItem(food: "chicken legs", amount: "2.5 lbs", isChecked: false)!)
-        checked.append(GroceryListItem(food: "pears", amount: "5", isChecked: true)!)
+    func fetchData() {
+        self.unchecked = Data.sharedData.toBuy
+        self.checked = Data.sharedData.bought
+        self.list.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadInitialCells()
+        self.navigationController?.isNavigationBarHidden = true
+        
         self.toBuyBtn.adjustsImageWhenHighlighted = false
         self.boughtBtn.adjustsImageWhenHighlighted = false
         self.doneBtn.layer.cornerRadius = 15
-        if self.unchecked.count > 0 || self.checked.count == 0 {
-            self.doneBtn.isHidden = true
-        }
+
+        self.doneBtn.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -242,9 +234,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        print("In Grocery List!")
+        self.fetchData()
     }
-    
-    
 }
 
