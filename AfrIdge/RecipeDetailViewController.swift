@@ -13,7 +13,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeDifficulty: UILabel!
-    @IBOutlet weak var recipeRating: UILabel!
+    @IBOutlet weak var ratingImageView: UIImageView!
+    //@IBOutlet weak var recipeRating: UILabel!
     @IBOutlet weak var recipeCookTime: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var videoButton: UIButton!
@@ -31,7 +32,11 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         recipeImage.image = newImage
         recipeDifficulty.text = curRecipe.difficulty.rawValue
-        recipeRating.text = String(curRecipe.rating)
+        
+        let ratingImage = getRatingImage()
+        ratingImageView.image = ratingImage
+        
+        //recipeRating.text = String(curRecipe.rating)
         
         recipeCookTime.text = String(curRecipe.cookTime) + " mins"
         
@@ -52,6 +57,23 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         
         //additional formatting of page
+    }
+    
+    func getRatingImage() -> UIImage {
+        let rating = curRecipe.rating
+        
+        if rating >= 4.5 {
+            return UIImage(named: "five-star")!
+        } else if rating >= 3.5 {
+            return UIImage(named: "four-star")!
+        } else if rating >= 2.5 {
+            return UIImage(named: "three-star")!
+        } else if rating >= 1.5 {
+            return UIImage(named: "two-star")!
+        } else if rating >= 0.5 {
+            return UIImage(named: "one-star")!
+        }
+        return UIImage(named: "zero-star")!
     }
     
     override func viewDidLayoutSubviews() {

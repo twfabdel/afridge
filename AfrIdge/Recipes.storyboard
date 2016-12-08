@@ -240,16 +240,16 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4RC-Ad-FmK">
-                                                <rect key="frame" x="20" y="15" width="335" height="107"/>
+                                                <rect key="frame" x="20" y="15" width="345" height="107"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="89Q-N0-ewG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="98.5" height="107"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="101.5" height="107"/>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2jN-HI-teG">
-                                                        <rect key="frame" x="118.5" y="0.0" width="98" height="107"/>
+                                                        <rect key="frame" x="121.5" y="0.0" width="102" height="107"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6S-lg-XtR">
-                                                                <rect key="frame" x="0.0" y="0.0" width="98" height="19"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="102" height="19"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="19" id="vQX-Ti-6sY"/>
                                                                 </constraints>
@@ -258,7 +258,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nv-xA-FrM">
-                                                                <rect key="frame" x="0.0" y="39" width="98" height="24"/>
+                                                                <rect key="frame" x="0.0" y="39" width="102" height="24"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="24" id="SHS-D6-F3O"/>
                                                                 </constraints>
@@ -267,7 +267,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cook time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfY-eR-Lh0">
-                                                                <rect key="frame" x="0.0" y="83" width="98" height="24"/>
+                                                                <rect key="frame" x="0.0" y="83" width="102" height="24"/>
                                                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
                                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                 <nil key="highlightedColor"/>
@@ -278,30 +278,30 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wRe-jt-yDn">
-                                                        <rect key="frame" x="236.5" y="0.0" width="98.5" height="107"/>
+                                                        <rect key="frame" x="243.5" y="0.0" width="101.5" height="107"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZn-bb-zmU">
-                                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="21"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="21" id="HQ5-1R-oIT"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="22.5"/>
                                                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeE-1M-eNr">
-                                                                <rect key="frame" x="0.0" y="41" width="98.5" height="23.5"/>
-                                                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ott-zP-X7P">
+                                                                <rect key="frame" x="0.0" y="42.5" width="101.5" height="22"/>
+                                                            </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idv-4y-ATZ">
-                                                                <rect key="frame" x="0.0" y="84.5" width="98.5" height="22.5"/>
+                                                                <rect key="frame" x="0.0" y="84.5" width="101.5" height="22.5"/>
                                                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="ott-zP-X7P" firstAttribute="height" secondItem="PZn-bb-zmU" secondAttribute="height" id="CFX-Gy-8Wx"/>
+                                                            <constraint firstItem="ott-zP-X7P" firstAttribute="width" secondItem="PZn-bb-zmU" secondAttribute="width" id="P7J-n3-x2k"/>
+                                                            <constraint firstItem="idv-4y-ATZ" firstAttribute="width" secondItem="PZn-bb-zmU" secondAttribute="width" id="fIn-P5-GOL"/>
+                                                            <constraint firstItem="idv-4y-ATZ" firstAttribute="height" secondItem="PZn-bb-zmU" secondAttribute="height" id="pY8-TH-SWZ"/>
+                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
@@ -317,7 +317,7 @@
                                             <constraint firstAttribute="trailing" secondItem="U38-P5-CRe" secondAttribute="trailing" constant="20" id="DPU-gF-L89"/>
                                             <constraint firstItem="U38-P5-CRe" firstAttribute="leading" secondItem="74g-do-vqo" secondAttribute="leading" constant="20" id="Jlb-OV-n9o"/>
                                             <constraint firstItem="4RC-Ad-FmK" firstAttribute="leading" secondItem="74g-do-vqo" secondAttribute="leading" constant="20" id="Rr5-bU-rxT"/>
-                                            <constraint firstAttribute="trailing" secondItem="4RC-Ad-FmK" secondAttribute="trailing" constant="20" id="tOu-Vi-Zaw"/>
+                                            <constraint firstAttribute="trailing" secondItem="4RC-Ad-FmK" secondAttribute="trailing" constant="10" id="tOu-Vi-Zaw"/>
                                             <constraint firstItem="4RC-Ad-FmK" firstAttribute="top" secondItem="74g-do-vqo" secondAttribute="top" constant="15" id="ybh-Qr-LAi"/>
                                         </constraints>
                                     </view>
@@ -441,10 +441,10 @@
                         <outlet property="addToGroceryListButton" destination="yVD-Wx-W7T" id="Mc4-Fy-HKz"/>
                         <outlet property="favoriteButton" destination="8NE-SO-X1d" id="i4W-Hh-toW"/>
                         <outlet property="ingredientListView" destination="pkA-aG-Vve" id="u4G-gU-mhw"/>
+                        <outlet property="ratingImageView" destination="ott-zP-X7P" id="Ixh-is-ofJ"/>
                         <outlet property="recipeCookTime" destination="idv-4y-ATZ" id="e7f-vc-cyh"/>
                         <outlet property="recipeDifficulty" destination="PZn-bb-zmU" id="xqL-Mp-ipI"/>
                         <outlet property="recipeImage" destination="89Q-N0-ewG" id="cxq-fM-NEU"/>
-                        <outlet property="recipeRating" destination="IeE-1M-eNr" id="GgP-iq-Psd"/>
                         <outlet property="recipeScroll" destination="1Ci-OO-Qe2" id="6tu-eH-rUF"/>
                         <outlet property="topNavigationBar" destination="ewT-AE-vNx" id="Eou-Kc-6Qe"/>
                         <outlet property="videoButton" destination="f5S-QK-NMd" id="hY3-45-v19"/>
