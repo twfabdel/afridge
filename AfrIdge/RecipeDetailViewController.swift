@@ -22,6 +22,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var ingredientListView: UITableView!
     
     var curRecipe: Recipe!
+    var missingIngredients = [FoodItem]()
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
@@ -71,7 +72,11 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func videoClicked(_ sender: Any) {
         let url = URL(string: curRecipe.videoLink)
-        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url!)
+        }
     }
     
     @IBAction func favoriteButtonClicked(_ sender: Any) {
@@ -129,22 +134,55 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         let text1 = curRecipe.ingredients[index].name + " " + String(curRecipe.ingredients[index].amount)
         cell.ingredientLabel1.text = text1
-        cell.ingredientLabel1.layer.borderColor = UIColor.black.cgColor
+        cell.ingredientLabel1.layer.borderColor = UIColor.gray.cgColor
         cell.ingredientLabel1.layer.borderWidth = 1
         cell.ingredientLabel1.textAlignment = NSTextAlignment.center
         
+        if notInInventory(item: curRecipe.ingredients[index]) {
+            //style cell to be highlighted as missing from inventory
+            cell.ingredientLabel1.backgroundColor = #colorLiteral(red: 0.8459790349, green: 0.2873021364, blue: 0.2579272389, alpha: 1)
+            cell.ingredientLabel1.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            cell.ingredientLabel1.layer.borderColor = UIColor.black.cgColor
+        }
+        
         if index + 1 < curRecipe.ingredients.count {
             let text2 = curRecipe.ingredients[index + 1].name + " " + String(curRecipe.ingredients[index + 1].amount)
+            
             cell.ingredientLabel2.text = text2
-            cell.ingredientLabel2.layer.borderColor = UIColor.black.cgColor
+            cell.ingredientLabel2.layer.borderColor = UIColor.gray.cgColor
             cell.ingredientLabel2.layer.borderWidth = 1
             cell.ingredientLabel2.textAlignment = NSTextAlignment.center
+            
+            if notInInventory(item: curRecipe.ingredients[index + 1]) {
+                //style cell to be highlighted as missing from inventory
+                cell.ingredientLabel2.backgroundColor = #colorLiteral(red: 0.8459790349, green: 0.2873021364, blue: 0.2579272389, alpha: 1)
+                cell.ingredientLabel2.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                cell.ingredientLabel2.layer.borderColor = UIColor.black.cgColor
+            }
         } else {
             //odd number of ingredients, hide last label
             cell.ingredientLabel2.isHidden = true
         }
         
         return cell
+    }
+    
+    func notInInventory(item: FoodItem) -> Bool {
+        for i in 0 ..< Data.sharedData.inventoryItems.count {
+            if Data.sharedData.inventoryItems[i].name == item.name {
+                //check if we have enough of item left for this recipe (how do we compare the string?
+                if Data.sharedData.inventoryItems[i].amount > item.amount {
+                    return false
+                } else {
+                    //add to missing list
+                    missingIngredients.append(item)
+                    return true
+                }
+            }
+        }
+        //add to missing list
+        missingIngredients.append(item)
+        return true
     }
 
     /*
