@@ -248,7 +248,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             
             if needToAdd {
                 //did not already exist in grocery list
-                Data.sharedData.addItem(item: newGroceryItem!)
+                Data.sharedData.addGroceryItem(item: newGroceryItem!)
             }
         }
         
