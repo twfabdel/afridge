@@ -192,7 +192,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hcL-Tv-NXL">
-                                <rect key="frame" x="10" y="224" width="355" height="220"/>
+                                <rect key="frame" x="10" y="214" width="355" height="240"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title-nav-background" translatesAutoresizingMaskIntoConstraints="NO" id="Qxl-aI-LcK">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="64"/>
@@ -265,11 +265,35 @@
                                             <action selector="closePopup:" destination="SdS-Os-hac" eventType="touchUpInside" id="Bua-2Q-tYK"/>
                                         </connections>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="KTA-ux-mZu">
+                                        <rect key="frame" x="15" y="190" width="325" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgT-yc-VPo">
+                                                <rect key="frame" x="0.0" y="0.0" width="123" height="40"/>
+                                                <color key="backgroundColor" red="0.28676104545593262" green="0.54410338401794434" blue="0.75883603096008301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="View Recipes">
+                                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHM-pn-uEP">
+                                                <rect key="frame" x="138" y="0.0" width="187" height="40"/>
+                                                <color key="backgroundColor" red="0.28676104545593262" green="0.54410338401794434" blue="0.75883603096008301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Add To Grocery List">
+                                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="jxD-uy-Qxc"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="P1g-wb-fdA" firstAttribute="centerY" secondItem="hcL-Tv-NXL" secondAttribute="centerY" constant="10" id="00A-Id-peV"/>
-                                    <constraint firstAttribute="height" constant="220" id="5RX-oc-Rqo"/>
+                                    <constraint firstItem="P1g-wb-fdA" firstAttribute="centerY" secondItem="hcL-Tv-NXL" secondAttribute="centerY" id="00A-Id-peV"/>
+                                    <constraint firstAttribute="height" constant="240" id="5RX-oc-Rqo"/>
                                     <constraint firstItem="Qxl-aI-LcK" firstAttribute="leading" secondItem="hcL-Tv-NXL" secondAttribute="leading" id="6w3-Ea-1E9"/>
                                     <constraint firstItem="Qxl-aI-LcK" firstAttribute="top" secondItem="hcL-Tv-NXL" secondAttribute="top" id="778-bh-LyR"/>
                                     <constraint firstItem="P1g-wb-fdA" firstAttribute="leading" secondItem="hcL-Tv-NXL" secondAttribute="leading" constant="15" id="8tU-Y1-E0k"/>
@@ -277,9 +301,12 @@
                                     <constraint firstItem="iLn-3p-wRN" firstAttribute="top" secondItem="hcL-Tv-NXL" secondAttribute="top" constant="5" id="Ff9-p9-Ndi"/>
                                     <constraint firstAttribute="trailing" secondItem="Qxl-aI-LcK" secondAttribute="trailing" id="Ofi-s0-sn7"/>
                                     <constraint firstAttribute="trailing" secondItem="j7Q-Br-tS2" secondAttribute="trailing" id="POa-9G-mzC"/>
+                                    <constraint firstAttribute="bottom" secondItem="KTA-ux-mZu" secondAttribute="bottom" constant="10" id="QAb-tp-mV9"/>
+                                    <constraint firstAttribute="trailing" secondItem="KTA-ux-mZu" secondAttribute="trailing" constant="15" id="civ-j5-kca"/>
                                     <constraint firstItem="j7Q-Br-tS2" firstAttribute="top" secondItem="hcL-Tv-NXL" secondAttribute="top" id="cvE-KO-Zc5"/>
                                     <constraint firstItem="j7Q-Br-tS2" firstAttribute="leading" secondItem="hcL-Tv-NXL" secondAttribute="leading" id="iAb-RX-lHk"/>
                                     <constraint firstItem="iLn-3p-wRN" firstAttribute="leading" secondItem="hcL-Tv-NXL" secondAttribute="leading" constant="5" id="m1v-M3-LAj"/>
+                                    <constraint firstItem="KTA-ux-mZu" firstAttribute="leading" secondItem="hcL-Tv-NXL" secondAttribute="leading" constant="15" id="skT-wH-Qgk"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -292,10 +319,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addToGroceryBtn" destination="IHM-pn-uEP" id="DBQ-SY-hja"/>
                         <outlet property="amountLeft" destination="9zJ-j6-hCx" id="WGN-cF-6WN"/>
                         <outlet property="daysLeft" destination="sgq-XL-knV" id="bsS-0Z-7dH"/>
                         <outlet property="itemName" destination="j7Q-Br-tS2" id="4Ir-u1-zfE"/>
                         <outlet property="popUp" destination="hcL-Tv-NXL" id="VAS-mw-yRS"/>
+                        <outlet property="recipesBtn" destination="lgT-yc-VPo" id="3Qu-cs-bOd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fjy-n8-FbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -321,11 +350,15 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Llu-KB-XKt">
-                                <rect key="frame" x="10" y="194" width="355" height="280"/>
+                                <rect key="frame" x="10" y="184" width="355" height="300"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKk-AG-r8L">
-                                        <rect key="frame" x="40" y="240" width="275" height="30"/>
+                                        <rect key="frame" x="40" y="255" width="275" height="35"/>
                                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="Rgv-DH-jTB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Add To Inventory">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -442,7 +475,7 @@ Expiration:</string>
                                     <constraint firstItem="Rz8-rE-BnS" firstAttribute="leading" secondItem="uAf-rC-B5a" secondAttribute="trailing" constant="15" id="aDr-WD-4y8"/>
                                     <constraint firstItem="SCL-4c-sz5" firstAttribute="top" secondItem="Llu-KB-XKt" secondAttribute="top" id="bb0-XV-MFB"/>
                                     <constraint firstItem="WQs-Gr-TCh" firstAttribute="top" secondItem="Llu-KB-XKt" secondAttribute="top" constant="5" id="c6s-pd-ZBC"/>
-                                    <constraint firstAttribute="height" constant="280" id="eST-jC-ZV2"/>
+                                    <constraint firstAttribute="height" constant="300" id="eST-jC-ZV2"/>
                                     <constraint firstItem="yKk-AG-r8L" firstAttribute="leading" secondItem="Llu-KB-XKt" secondAttribute="leading" constant="40" id="edh-a9-Ux7"/>
                                     <constraint firstAttribute="trailing" secondItem="9gg-QG-941" secondAttribute="trailing" constant="15" id="gNZ-WW-JtN"/>
                                     <constraint firstAttribute="trailing" secondItem="Rz8-rE-BnS" secondAttribute="trailing" constant="15" id="hcA-QU-wWk"/>

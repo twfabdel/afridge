@@ -13,6 +13,8 @@ class InventoryDetailPopupViewController: UIViewController {
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var amountLeft: UILabel!
     @IBOutlet weak var daysLeft: UILabel!
+    @IBOutlet weak var recipesBtn: UIButton!
+    @IBOutlet weak var addToGroceryBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,12 @@ class InventoryDetailPopupViewController: UIViewController {
         self.view.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 0.5, alpha: 0.5)
         self.popUp.layer.cornerRadius = 20
         self.popUp.layer.masksToBounds = true
+        
+        self.recipesBtn.layer.cornerRadius = 10
+        self.recipesBtn.layer.masksToBounds = true
+        
+        self.addToGroceryBtn.layer.cornerRadius = 10
+        self.addToGroceryBtn.layer.masksToBounds = true
 
         // Do any additional setup after loading the view.
     }
