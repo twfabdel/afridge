@@ -216,49 +216,52 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="zyO-6M-rBO"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="P1g-wb-fdA">
-                                        <rect key="frame" x="15" y="86" width="325" height="68"/>
+                                        <rect key="frame" x="15" y="80" width="325" height="80"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aO0-Ij-CFn">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="68"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xer-Mh-W91">
+                                                <rect key="frame" x="0.0" y="0.0" width="250" height="80"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount Left:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dI5-gn-PAj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zJ-j6-hCx">
+                                                        <rect key="frame" x="0.0" y="0.0" width="250" height="36.5"/>
+                                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
+                                                        <color key="textColor" red="0.45172002866183436" green="0.45172002866183436" blue="0.45172002866183436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiring in: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0W9-t6-Xr9">
-                                                        <rect key="frame" x="0.0" y="44" width="120" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiring" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgq-XL-knV">
+                                                        <rect key="frame" x="0.0" y="56.5" width="250" height="23.5"/>
+                                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
+                                                        <color key="textColor" red="0.45172002866183436" green="0.45172002866183436" blue="0.45172002866183436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aO0-Ij-CFn">
+                                                <rect key="frame" x="265" y="0.0" width="60" height="80"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwu-Uc-wIN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                                                        <state key="normal" title="Edit">
+                                                            <color key="titleColor" red="0.28676104549999998" green="0.54410338400000002" blue="0.75883603099999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="showEditItemPopup:" destination="SdS-Os-hac" eventType="touchUpInside" id="81T-ge-Krv"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gL6-nr-2cx">
+                                                        <rect key="frame" x="0.0" y="50" width="60" height="30"/>
+                                                        <state key="normal" title="Delete">
+                                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="120" id="xhG-6e-F6J"/>
+                                                    <constraint firstAttribute="width" constant="60" id="xhG-6e-F6J"/>
                                                 </constraints>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xer-Mh-W91">
-                                                <rect key="frame" x="135" y="0.0" width="190" height="68"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zJ-j6-hCx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="190" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgq-XL-knV">
-                                                        <rect key="frame" x="0.0" y="44" width="190" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
                                             </stackView>
                                         </subviews>
                                     </stackView>
@@ -280,17 +283,17 @@
                                         <rect key="frame" x="15" y="190" width="325" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgT-yc-VPo">
-                                                <rect key="frame" x="0.0" y="0.0" width="123" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="122.5" height="40"/>
                                                 <color key="backgroundColor" red="0.28676104545593262" green="0.54410338401794434" blue="0.75883603096008301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                                 <state key="normal" title="View Recipes">
                                                     <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHM-pn-uEP">
-                                                <rect key="frame" x="138" y="0.0" width="187" height="40"/>
+                                                <rect key="frame" x="137.5" y="0.0" width="187.5" height="40"/>
                                                 <color key="backgroundColor" red="0.28676104545593262" green="0.54410338401794434" blue="0.75883603096008301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                                 <state key="normal" title="Add To Grocery List">
                                                     <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                 </state>
@@ -336,6 +339,8 @@
                         <outlet property="addToGroceryBtn" destination="IHM-pn-uEP" id="DBQ-SY-hja"/>
                         <outlet property="amountLeft" destination="9zJ-j6-hCx" id="WGN-cF-6WN"/>
                         <outlet property="daysLeft" destination="sgq-XL-knV" id="bsS-0Z-7dH"/>
+                        <outlet property="deleteBtn" destination="gL6-nr-2cx" id="o8P-hl-ZTH"/>
+                        <outlet property="editBtn" destination="Dwu-Uc-wIN" id="fmF-zH-8TR"/>
                         <outlet property="itemName" destination="j7Q-Br-tS2" id="4Ir-u1-zfE"/>
                         <outlet property="popUp" destination="hcL-Tv-NXL" id="VAS-mw-yRS"/>
                         <outlet property="recipesBtn" destination="lgT-yc-VPo" id="3Qu-cs-bOd"/>
@@ -391,7 +396,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="a5n-12-ipD"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>

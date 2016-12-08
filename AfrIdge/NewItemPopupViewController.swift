@@ -17,6 +17,7 @@ class NewItemPopupViewController: UIViewController {
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var expirationTextField: UITextField!
     
+    var editItem = false
     var parentView: InventoryViewController?
     
     override func viewDidLoad() {
@@ -26,6 +27,11 @@ class NewItemPopupViewController: UIViewController {
         self.popUp.layer.masksToBounds = true
         self.addBtn.layer.cornerRadius = 10
         self.addBtn.layer.masksToBounds = true
+        
+        if editItem {
+            self.addBtn.layer.backgroundColor = #colorLiteral(red: 0.2867610455, green: 0.544103384, blue: 0.758836031, alpha: 1).cgColor
+            self.addBtn.setTitle("Done", for: .normal)
+        }
 
     }
 

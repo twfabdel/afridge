@@ -131,17 +131,17 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         
         let popUp = UIStoryboard(name: "Inventory", bundle: nil).instantiateViewController(withIdentifier: "inventoryDetailPopup") as! InventoryDetailPopupViewController
         
+        popUp.foodItem = cell.food
         self.addChildViewController(popUp)
         popUp.view.frame = self.view.frame
         self.view.addSubview(popUp.view)
         popUp.didMove(toParentViewController: self)
         
         popUp.parentView = self
-        
-        let food = cell.food
-        popUp.itemName.text = food?.name
-        popUp.amountLeft.text = food?.amount
-        popUp.daysLeft.text = "\((food?.days)!) days"
+//        let food = cell.food
+//        popUp.itemName.text = food?.name
+//        popUp.amountLeft.text = (food?.amount)! + " remaining"
+//        popUp.daysLeft.text = "Expiring in \((food?.days)!) days"
     }
     
     func addItemToGrocery(name: String, amount: String) {

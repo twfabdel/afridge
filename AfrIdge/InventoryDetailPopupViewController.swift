@@ -16,6 +16,10 @@ class InventoryDetailPopupViewController: UIViewController {
     @IBOutlet weak var recipesBtn: UIButton!
     @IBOutlet weak var addToGroceryBtn: UIButton!
     
+    @IBOutlet weak var editBtn: UIButton!
+    @IBOutlet weak var deleteBtn: UIButton!
+    
+    var foodItem: FoodItem?
     var parentView: InventoryViewController?
 
     override func viewDidLoad() {
@@ -30,8 +34,25 @@ class InventoryDetailPopupViewController: UIViewController {
         
         self.addToGroceryBtn.layer.cornerRadius = 10
         self.addToGroceryBtn.layer.masksToBounds = true
+        
+        self.editBtn.layer.cornerRadius = 10
+        self.deleteBtn.layer.cornerRadius = 10
+        self.editBtn.layer.borderWidth = 2
+        self.deleteBtn.layer.borderWidth = 2
+        self.editBtn.layer.borderColor = #colorLiteral(red: 0.2867610455, green: 0.544103384, blue: 0.758836031, alpha: 1).cgColor
+        self.deleteBtn.layer.borderColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1).cgColor
+        
+        self.editBtn.layer.masksToBounds = true
+        self.deleteBtn.layer.masksToBounds = true
+        
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.itemName.text = self.foodItem?.name
+        self.amountLeft.text = (self.foodItem?.amount)! + " remaining"
+        self.daysLeft.text = "Expiring in \((self.foodItem?.days)!) days"
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,6 +80,19 @@ class InventoryDetailPopupViewController: UIViewController {
         })
     }
     
+    @IBAction func showEditItemPopup(_ sender: UIButton) {
+        
+        let popUp = UIStoryboard(name: "Inventory", bundle: nil).instantiateViewController(withIdentifier: "addItemPopup") as! NewItemPopupViewController
+        
+        self.addChildViewController(popUp)
+        popUp.view.frame = self.view.frame
+        self.view.addSubview(popUp.view)
+        popUp.didMove(toParentViewController: self)
+        
+        popUp.editItem = true
+
+        popUp.parentView = self.parentView
+    }
     
 
     /*
