@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,34 +15,46 @@
             <rect key="frame" x="0.0" y="0.0" width="370" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="370" height="99"/>
+                <rect key="frame" x="0.0" y="0.0" width="370" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4Z-sb-pLf">
-                        <rect key="frame" x="135" y="11" width="227" height="77.5"/>
-                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
-                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="POs-Db-sqJ">
+                        <rect key="frame" x="135" y="11" width="235" height="80.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4Z-sb-pLf">
+                                <rect key="frame" x="0.0" y="0.0" width="65.5" height="50.5"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="25"/>
+                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e8e-Ou-7zU">
+                                <rect key="frame" x="0.0" y="50.5" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="CI9-Kt-QiD"/>
+                                    <constraint firstAttribute="height" constant="30" id="Ffn-uI-MON"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                    </stackView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wkN-aY-9Np">
-                        <rect key="frame" x="0.0" y="0.0" width="120" height="99.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="cEb-87-MC4"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="r4Z-sb-pLf" firstAttribute="leading" secondItem="wkN-aY-9Np" secondAttribute="trailing" constant="15" id="ASG-bS-Es1"/>
+                    <constraint firstItem="POs-Db-sqJ" firstAttribute="leading" secondItem="wkN-aY-9Np" secondAttribute="trailing" constant="15" id="FZZ-8y-aCH"/>
                     <constraint firstItem="wkN-aY-9Np" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="PrB-M0-d6m"/>
-                    <constraint firstItem="r4Z-sb-pLf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="bPz-zK-APZ"/>
+                    <constraint firstAttribute="bottom" secondItem="POs-Db-sqJ" secondAttribute="bottom" constant="8" id="Ybt-gh-oQ5"/>
+                    <constraint firstAttribute="trailing" secondItem="POs-Db-sqJ" secondAttribute="trailing" id="gmK-hX-k4b"/>
                     <constraint firstAttribute="bottom" secondItem="wkN-aY-9Np" secondAttribute="bottom" id="ho3-Yw-cfj"/>
-                    <constraint firstItem="r4Z-sb-pLf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nhg-YT-Da8"/>
                     <constraint firstItem="wkN-aY-9Np" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="sof-Ws-neH"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="r4Z-sb-pLf" secondAttribute="trailing" id="txk-gQ-gct"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="r4Z-sb-pLf" secondAttribute="bottom" constant="3" id="woy-Nv-GDM"/>
+                    <constraint firstItem="POs-Db-sqJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="yjK-EB-4jL"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="ratingImage" destination="e8e-Ou-7zU" id="kD3-az-C5w"/>
                 <outlet property="recipeImage" destination="wkN-aY-9Np" id="0if-Z0-Qgq"/>
                 <outlet property="recipeName" destination="r4Z-sb-pLf" id="Ky4-K2-Tmh"/>
             </connections>
