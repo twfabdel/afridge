@@ -92,6 +92,7 @@ class InventoryDetailPopupViewController: UIViewController {
         let popUp = UIStoryboard(name: "Inventory", bundle: nil).instantiateViewController(withIdentifier: "deletePopup") as! DeletePopupViewController
         
         popUp.parentView = self
+        popUp.item = self.itemName.text
         self.addChildViewController(popUp)
         popUp.view.frame = self.view.frame
         self.view.addSubview(popUp.view)

@@ -97,7 +97,7 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="myx-z0-Ftu">
                                         <rect key="frame" x="10" y="45" width="355" height="518"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="15" id="eUl-fz-MXQ">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="15" minimumInteritemSpacing="15" id="eUl-fz-MXQ">
                                             <size key="itemSize" width="95" height="141"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -111,8 +111,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="95" height="141"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lc6-uE-EvB">
-                                                            <rect key="frame" x="0.0" y="119" width="95" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lc6-uE-EvB">
+                                                            <rect key="frame" x="0.0" y="98" width="95" height="43"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -131,12 +131,13 @@
                                                 </view>
                                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="Lc6-uE-EvB" firstAttribute="leading" secondItem="Ae2-6U-nTx" secondAttribute="leading" id="3gQ-ov-Wbv"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Lc6-uE-EvB" secondAttribute="bottom" id="2AZ-TS-Rbq"/>
                                                     <constraint firstItem="Ccc-5s-ozf" firstAttribute="top" secondItem="Ae2-6U-nTx" secondAttribute="top" id="9C7-TA-1pb"/>
+                                                    <constraint firstItem="Lc6-uE-EvB" firstAttribute="top" secondItem="Ccc-5s-ozf" secondAttribute="bottom" constant="3" id="C9h-zt-xOF"/>
                                                     <constraint firstAttribute="trailing" secondItem="Ccc-5s-ozf" secondAttribute="trailing" id="Hcq-gp-9U7"/>
                                                     <constraint firstItem="Ccc-5s-ozf" firstAttribute="leading" secondItem="Ae2-6U-nTx" secondAttribute="leading" id="JqO-xd-WqE"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Lc6-uE-EvB" secondAttribute="trailing" id="px6-uj-Y33"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Lc6-uE-EvB" secondAttribute="bottom" id="spH-tk-q3p"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Lc6-uE-EvB" secondAttribute="trailing" id="q8r-12-pOn"/>
+                                                    <constraint firstItem="Lc6-uE-EvB" firstAttribute="leading" secondItem="Ae2-6U-nTx" secondAttribute="leading" id="vEJ-N3-e4U"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="itemImageButton" destination="Ccc-5s-ozf" id="pV7-mo-6Av"/>
@@ -426,6 +427,7 @@
                     <connections>
                         <outlet property="cancelBtn" destination="Snr-GO-BT3" id="trx-q6-BSU"/>
                         <outlet property="deleteBtn" destination="HmT-e1-RT9" id="ly6-uI-3vb"/>
+                        <outlet property="label" destination="A0a-Zw-nca" id="Lub-xd-K0K"/>
                         <outlet property="popUp" destination="ZTQ-5r-ytg" id="6Bx-3d-3d8"/>
                     </connections>
                 </viewController>

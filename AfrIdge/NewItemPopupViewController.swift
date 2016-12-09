@@ -74,6 +74,11 @@ class NewItemPopupViewController: UIViewController {
             return
         }
         
+        if Int(days!) == nil {
+            print("Days not an int")
+            return
+        }
+        
         let newItem = FoodItem(name: item!, amount: amount!, days: Int(days!)!)
         
         if editItem {

@@ -13,7 +13,9 @@ class DeletePopupViewController: UIViewController {
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var popUp: UIView!
+    @IBOutlet weak var label: UILabel!
     
+    var item: String?
     var parentView: InventoryDetailPopupViewController?
     
     override func viewDidLoad() {
@@ -27,6 +29,8 @@ class DeletePopupViewController: UIViewController {
         self.deleteBtn.layer.cornerRadius = 10
         self.cancelBtn.layer.masksToBounds = true
         self.deleteBtn.layer.masksToBounds = true
+        
+        self.label.text = "Are you sure you want to remove " + (self.item)! + " from your inventory?"
     }
 
     override func didReceiveMemoryWarning() {
