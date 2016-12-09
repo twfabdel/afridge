@@ -10,11 +10,15 @@ import UIKit
 
 class GroceryListPopupViewController: UIViewController {
 
+    @IBOutlet weak var header: UILabel!
     @IBOutlet weak var popUp: UIView!
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var doneBtn: UIButton!
     @IBOutlet weak var itemTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
+    
+    @IBOutlet weak var itemError: UILabel!
+    @IBOutlet weak var amountError: UILabel!
     
     var itemID: [Int] = []
     var parentView: GroceryListViewController?
@@ -25,27 +29,24 @@ class GroceryListPopupViewController: UIViewController {
         setup()
         
         if add {
+            self.header.text = "Add Item"
             self.doneBtn.setTitle("Add", for: .normal)
+            self.doneBtn.layer.backgroundColor = #colorLiteral(red: 0.1224516258, green: 0.5630977154, blue: 0.009584950283, alpha: 1).cgColor
         }
+        self.hideErrors()
+    }
+    
+    func hideErrors() {
+        self.itemError.isHidden = true
+        self.amountError.isHidden = true
     }
     
     func setup() {
        self.view.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 0.5, alpha: 0.5)
         self.popUp.layer.cornerRadius = 20
-        
-        let lineColor = UIColor.gray
-
-        let line1 = UIView(frame: CGRect(x: 0, y: 0, width: cancelBtn.frame.size.width, height: 0.5))
-        line1.backgroundColor = lineColor
-        doneBtn.addSubview(line1)
-        
-        let line2 = UIView(frame: CGRect(x: 0, y: 0, width: doneBtn.frame.size.width, height: 0.5))
-        line2.backgroundColor = lineColor
-        cancelBtn.addSubview(line2)
-        
-        let line3 = UIView(frame: CGRect(x: 0, y: 0, width: 0.5, height: doneBtn.frame.size.height))
-        line3.backgroundColor = lineColor
-        doneBtn.addSubview(line3)
+        self.popUp.layer.masksToBounds = true
+        self.doneBtn.layer.cornerRadius = 10
+        self.doneBtn.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,8 +59,30 @@ class GroceryListPopupViewController: UIViewController {
         self.view.removeFromSuperview()
         self.parentView?.list.reloadData()
     }
+    @IBAction func backgroundClose(_ sender: UIButton) {
+        self.view.removeFromSuperview()
+        self.parentView?.list.reloadData()
+    }
+
     
     @IBAction func done(_ sender: Any) {
+        self.hideErrors()
+        let item = self.itemTextField.text
+        let amount = self.amountTextField.text
+        
+        var errors = false
+        if (item?.characters.count ?? 0) == 0 {
+            self.itemError.isHidden = false
+            errors = true
+        }
+        if (amount?.characters.count ?? 0) == 0 {
+            self.amountError.isHidden = false
+            errors = true
+        }
+        if errors {
+            return
+        }
+        
         if add {
             self.parentView?.addItem(food: self.itemTextField.text!, amount: self.amountTextField.text!)
         } else {

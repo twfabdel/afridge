@@ -25,10 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearance.titleTextAttributes = [NSFontAttributeName: UIFont(name: "American Typewriter", size: 22)!, NSForegroundColorAttributeName: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), NSBaselineOffsetAttributeName: NSNumber(value: 7)]
         
         
-        UITabBar.appearance().barTintColor = #colorLiteral(red: 0.2867610455, green: 0.544103384, blue: 0.758836031, alpha: 1)
-        UITabBar.appearance().tintColor = UIColor.black
+        UITabBar.appearance().barTintColor = #colorLiteral(red: 0.09019607843, green: 0.431372549, blue: 0.7019607843, alpha: 1)
+        UITabBar.appearance().tintColor = #colorLiteral(red: 1, green: 0.8144705816, blue: 0.1871252418, alpha: 1)
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.black], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: #colorLiteral(red: 1, green: 0.8144705816, blue: 0.1871252418, alpha: 1)], for: .selected)
 //        UITabBar.appearance().layer.backgroundColor = UIColor(colorLiteralRed: 69.0/255.0, green: 133.0/255.0, blue: 189.0/255.0, alpha: 1.0).cgColor
 
         return true
