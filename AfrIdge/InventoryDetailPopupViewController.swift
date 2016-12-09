@@ -64,14 +64,6 @@ class InventoryDetailPopupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let destination = segue.destination as! RecipesViewController
-//        //let food = sender as! FoodItem
-//        destination.searchStr = (self.foodItem?.name)!
-//        destination.comingFromInventory = true
-//        
-//    }
-    
     @IBAction func navigateToRecipes(_ sender: Any) {
         let nav = tabBarController?.viewControllers?[2] as! UINavigationController
         let rvc = nav.viewControllers[0] as! RecipesViewController

@@ -40,6 +40,11 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     let cellSpacingHeight: CGFloat = 7
     
     
+    @IBAction func clearSearch(_ sender: UIButton) {
+        self.searchBar.text = ""
+        self.fliter()
+    }
+    
     @IBAction func filterRecipes(_ sender: Any) {
         filter()
     }
