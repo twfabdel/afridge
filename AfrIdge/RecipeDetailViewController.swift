@@ -203,7 +203,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     func notInInventory(item: FoodItem) -> Bool {
         for i in 0 ..< Data.sharedData.inventoryItems.count {
-            if Data.sharedData.inventoryItems[i].name == item.name {
+            if Data.sharedData.inventoryItems[i].name.lowercased() == item.name.lowercased() {
                 //check if we have enough of item left for this recipe (how do we compare the string?
                 if Data.sharedData.inventoryItems[i].amount >= item.amount {
                     return false
@@ -235,7 +235,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             
             for i in 0 ..< Data.sharedData.toBuy.count {
                 //check if already in to buy list so as to not add dups
-                if Data.sharedData.toBuy[i].food == newGroceryItem?.food {
+                if Data.sharedData.toBuy[i].food.lowercased() == newGroceryItem?.food.lowercased() {
                     needToAdd = false
                     if Data.sharedData.toBuy[i].amount < (newGroceryItem?.amount)! {
                         //edit item in groceryList
@@ -247,7 +247,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             
             for i in 0 ..< Data.sharedData.bought.count {
                 //check if already in uncleared bought list so as to not add dups
-                if Data.sharedData.bought[i].food == newGroceryItem?.food {
+                if Data.sharedData.bought[i].food.lowercased() == newGroceryItem?.food.lowercased() {
                     if Data.sharedData.bought[i].amount >= (newGroceryItem?.amount)! {
                         //no need to add to "to buy" grocery list
                         needToAdd = false
