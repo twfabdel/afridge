@@ -64,6 +64,17 @@ class InventoryDetailPopupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! RecipesViewController
+        //let food = sender as! FoodItem
+        destination.searchStr = (self.foodItem?.name)!
+    }
+    
+    
+//    @IBAction func viewRecipes(_ sender: Any) {
+//        performSegue(withIdentifier: segueToRecipes, sender: self.foodItem.name)
+//    }
+    
     @IBAction func backgroundClose(_ sender: UIButton) {
         self.view.removeFromSuperview()
     }
