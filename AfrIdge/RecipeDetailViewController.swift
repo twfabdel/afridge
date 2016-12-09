@@ -14,7 +14,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeDifficulty: UILabel!
     @IBOutlet weak var ratingImageView: UIImageView!
-    //@IBOutlet weak var recipeRating: UILabel!
     @IBOutlet weak var recipeCookTime: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var videoButton: UIButton!
@@ -27,6 +26,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     var missingIngredients = [FoodItem]()
     
     override func viewWillAppear(_ animated: Bool) {
+        
         self.navigationController?.isNavigationBarHidden = false
         let newImage = UIImage(named: curRecipe.imageString)
         
@@ -35,8 +35,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         let ratingImage = getRatingImage()
         ratingImageView.image = ratingImage
-        
-        //recipeRating.text = String(curRecipe.rating)
         
         recipeCookTime.text = String(curRecipe.cookTime) + " mins"
         
@@ -83,7 +81,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("In Recipe Controller!")
+        print("In Recipe Detail Controller!")
         
         // Do any additional setup after loading the view.
     }
@@ -157,7 +155,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(curRecipe.ingredients.count)
         return ((curRecipe.ingredients.count + 1)/2)
     }
     
@@ -165,6 +162,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         let index = indexPath.row*2
         
         let cell = Bundle.main.loadNibNamed("IngredientsTableViewCell", owner: self, options: nil)?.first as! IngredientsTableViewCell
+        
+        cell.isUserInteractionEnabled = false
         
         let text1 = curRecipe.ingredients[index].name + " " + String(curRecipe.ingredients[index].amount)
         cell.ingredientLabel1.text = text1
@@ -197,6 +196,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             //odd number of ingredients, hide last label
             cell.ingredientLabel2.isHidden = true
         }
+        
         
         return cell
     }
