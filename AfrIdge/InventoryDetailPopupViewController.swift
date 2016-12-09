@@ -69,6 +69,7 @@ class InventoryDetailPopupViewController: UIViewController {
         let rvc = nav.viewControllers[0] as! RecipesViewController
         rvc.searchStr = (self.foodItem?.name)!
         rvc.comingFromInventory = true
+        self.view.removeFromSuperview()
         tabBarController?.selectedIndex = 2
     }
     

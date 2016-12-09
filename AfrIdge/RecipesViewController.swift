@@ -209,9 +209,11 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         recipeList.reloadData()
         
+        self.searchBar.text = ""
         if comingFromInventory {
             searchBar.text = searchStr
             self.switchToAll()
+            comingFromInventory = false
         }
         
         filter()
