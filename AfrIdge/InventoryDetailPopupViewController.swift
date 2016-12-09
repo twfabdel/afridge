@@ -16,6 +16,12 @@ class InventoryDetailPopupViewController: UIViewController {
     @IBOutlet weak var recipesBtn: UIButton!
     @IBOutlet weak var addToGroceryBtn: UIButton!
     
+    @IBOutlet weak var editBtn: UIButton!
+    @IBOutlet weak var deleteBtn: UIButton!
+    
+//    var foodItem: FoodItem?
+//    var listIndex: Int?
+    var foodItem: FoodItem?
     var parentView: InventoryViewController?
 
     override func viewDidLoad() {
@@ -30,8 +36,24 @@ class InventoryDetailPopupViewController: UIViewController {
         
         self.addToGroceryBtn.layer.cornerRadius = 10
         self.addToGroceryBtn.layer.masksToBounds = true
-
-        // Do any additional setup after loading the view.
+        
+        self.editBtn.layer.cornerRadius = 10
+        self.deleteBtn.layer.cornerRadius = 10
+        self.editBtn.layer.borderWidth = 2
+        self.deleteBtn.layer.borderWidth = 2
+        self.editBtn.layer.borderColor = #colorLiteral(red: 0.2867610455, green: 0.544103384, blue: 0.758836031, alpha: 1).cgColor
+        self.deleteBtn.layer.borderColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1).cgColor
+        
+        self.editBtn.layer.masksToBounds = true
+        self.deleteBtn.layer.masksToBounds = true
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let foodItem = self.foodItem!
+        self.itemName.text = foodItem.name
+        self.amountLeft.text = foodItem.amount + " remaining"
+        self.daysLeft.text = "Expiring in \(foodItem.days) days"
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,11 +66,11 @@ class InventoryDetailPopupViewController: UIViewController {
     }
     @IBAction func closePopup(_ sender: UIButton) {
         self.view.removeFromSuperview()
+        print("close")
     }
    
     @IBAction func addToGrocery(_ sender: UIButton) {
         self.parentView?.addItemToGrocery(name: self.itemName.text!, amount: self.amountLeft.text!)
-        //self.addToGroceryBtn = CGAffineTransformMakeScale(-1, 1)
         
         UIView.animate(withDuration: 0.5, animations: {
             self.addToGroceryBtn.transform = CGAffineTransform.identity.scaledBy(x: 0.5, y: 0.5)
@@ -59,8 +81,29 @@ class InventoryDetailPopupViewController: UIViewController {
         })
     }
     
+    @IBAction func showEditItemPopup(_ sender: UIButton) {
+        self.view.removeFromSuperview()
+        print(self.foodItem!.name + " in detail edit")
+        self.parentView?.showEditItemPopup(foodItem: self.foodItem!)
+    }
     
-
+    @IBAction func showDeletePopup(_ sender: UIButton) {
+        
+        let popUp = UIStoryboard(name: "Inventory", bundle: nil).instantiateViewController(withIdentifier: "deletePopup") as! DeletePopupViewController
+        
+        popUp.parentView = self
+        popUp.item = self.itemName.text
+        self.addChildViewController(popUp)
+        popUp.view.frame = self.view.frame
+        self.view.addSubview(popUp.view)
+        popUp.didMove(toParentViewController: self)
+    }
+    
+    func deleteItem() {
+        self.parentView?.deleteItem(foodItem: self.foodItem!)
+        self.view.removeFromSuperview()
+    }
+    
     /*
     // MARK: - Navigation
 

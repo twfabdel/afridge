@@ -23,6 +23,25 @@ class Data {
         self.inventoryItems.append(item)
     }
     
+    func deleteInventoryItem(item: FoodItem) {
+        for i in 0...self.inventoryItems.count - 1 {
+            if self.inventoryItems[i] == item {
+                print(self.inventoryItems[i].name + " and " + item.name + " to be removed")
+                self.inventoryItems.remove(at: i)
+                return
+            }
+        }
+    }
+    
+    func editInventoryItem(newItem: FoodItem, oldItem: FoodItem) {
+        for i in 0...self.inventoryItems.count - 1 {
+            if self.inventoryItems[i] == oldItem {
+                self.inventoryItems[i] = newItem
+                return
+            }
+        }
+    }
+    
     var toBuy = [GroceryListItem(food: "whole milk", amount: "1 gal", isChecked: false)!,GroceryListItem(food: "eggs", amount: "1 doz", isChecked: false)!, GroceryListItem(food: "swiss cheese", amount: "0.5 lbs", isChecked: false)!, GroceryListItem(food: "red apples", amount: "6", isChecked: false)!,GroceryListItem(food: "chicken legs", amount: "2.5 lbs", isChecked: false)!, GroceryListItem(food: "pears", amount: "5", isChecked: true)!]
     
     var bought = [GroceryListItem]()
@@ -86,4 +105,10 @@ class Data {
         }
     }
     
+}
+
+extension FoodItem {
+    static func == (left: FoodItem, right: FoodItem) -> Bool {
+        return left.amount == right.amount && left.days == right.days && left.name == right.name
+    }
 }
