@@ -19,8 +19,7 @@ class InventoryDetailPopupViewController: UIViewController {
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var deleteBtn: UIButton!
     
-//    var foodItem: FoodItem?
-//    var listIndex: Int?
+    @IBOutlet weak var confirmationPopup: UIView!
     var foodItem: FoodItem?
     var parentView: InventoryViewController?
 
@@ -37,6 +36,10 @@ class InventoryDetailPopupViewController: UIViewController {
         self.addToGroceryBtn.layer.cornerRadius = 10
         self.addToGroceryBtn.layer.masksToBounds = true
         
+        self.confirmationPopup.layer.cornerRadius = 10
+        self.confirmationPopup.layer.masksToBounds = true
+        self.confirmationPopup.isHidden = true
+        
         self.editBtn.layer.cornerRadius = 10
         self.deleteBtn.layer.cornerRadius = 10
         self.editBtn.layer.borderWidth = 2
@@ -52,8 +55,8 @@ class InventoryDetailPopupViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         let foodItem = self.foodItem!
         self.itemName.text = foodItem.name
-        self.amountLeft.text = foodItem.amount + " remaining"
-        self.daysLeft.text = "Expiring in \(foodItem.days) days"
+        self.amountLeft.text = foodItem.amount
+        self.daysLeft.text = "\(foodItem.days)"
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,11 +75,14 @@ class InventoryDetailPopupViewController: UIViewController {
     @IBAction func addToGrocery(_ sender: UIButton) {
         self.parentView?.addItemToGrocery(name: self.itemName.text!, amount: self.amountLeft.text!)
         
-        UIView.animate(withDuration: 0.5, animations: {
-            self.addToGroceryBtn.transform = CGAffineTransform.identity.scaledBy(x: 0.5, y: 0.5)
+        self.confirmationPopup.isHidden = false
+        self.confirmationPopup.alpha = 1
+        
+        UIView.animate(withDuration: 2.5, animations: {
+            self.confirmationPopup.alpha = 0
             }, completion: { (finish) in
             UIView.animate(withDuration: 0.5, animations: {
-                self.addToGroceryBtn.transform = CGAffineTransform.identity
+                self.confirmationPopup.isHidden = true
             })
         })
     }
