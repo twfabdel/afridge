@@ -393,6 +393,9 @@
                                                 <state key="normal" title="Delete">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="deleteItem:" destination="W0F-dl-oDp" eventType="touchUpInside" id="yJB-wX-6gP"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -423,7 +426,7 @@
                     <connections>
                         <outlet property="cancelBtn" destination="Snr-GO-BT3" id="trx-q6-BSU"/>
                         <outlet property="deleteBtn" destination="HmT-e1-RT9" id="ly6-uI-3vb"/>
-                        <outlet property="popUp" destination="j2e-VB-ZN6" id="Q5A-3T-LWj"/>
+                        <outlet property="popUp" destination="ZTQ-5r-ytg" id="6Bx-3d-3d8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RLE-ZT-5Pd" userLabel="First Responder" sceneMemberID="firstResponder"/>

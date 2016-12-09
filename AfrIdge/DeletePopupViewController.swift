@@ -12,7 +12,7 @@ class DeletePopupViewController: UIViewController {
 
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var deleteBtn: UIButton!
-    @IBOutlet var popUp: UIView!
+    @IBOutlet weak var popUp: UIView!
     
     var parentView: InventoryDetailPopupViewController?
     
@@ -38,6 +38,10 @@ class DeletePopupViewController: UIViewController {
         self.view.removeFromSuperview()
     }
 
+    @IBAction func deleteItem(_ sender: UIButton) {
+        self.parentView?.deleteItem()
+        self.view.removeFromSuperview()
+    }
     /*
     // MARK: - Navigation
 

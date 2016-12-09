@@ -96,6 +96,12 @@ class InventoryDetailPopupViewController: UIViewController {
         self.view.addSubview(popUp.view)
         popUp.didMove(toParentViewController: self)
     }
+    
+    func deleteItem() {
+        self.parentView?.deleteItem(cell: self.cell!)
+        self.view.removeFromSuperview()
+    }
+    
     /*
     // MARK: - Navigation
 

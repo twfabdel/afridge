@@ -179,5 +179,11 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         self.fetchItems()
         self.collectionView.reloadData()
     }
+    
+    func deleteItem(cell: InventoryCollectionViewCell) {
+        Data.sharedData.deleteInventoryItem(item: cell.food!)
+        self.fetchItems()
+        self.collectionView.reloadData()
+    }
 }
 
