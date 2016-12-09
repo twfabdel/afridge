@@ -26,13 +26,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AfrIdge/RecipeDetailViewController.swift"
-            timestampString = "502873067.76483"
+            timestampString = "502961270.143782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
             landmarkName = "notInInventory(item:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AfrIdge/Data.swift"
+            timestampString = "502969553.305859"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "Data"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AfrIdge.Data.init () -&gt; AfrIdge.Data"
+                  moduleName = "AfrIdge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brossi/Documents/Development/afridge/AfrIdge/Data.swift"
+                  timestampString = "502969553.758775"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "2980">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AfrIdge.Data.allRecipes.getter : Swift.Array&lt;AfrIdge.Recipe&gt;"
+                  moduleName = "AfrIdge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brossi/Documents/Development/afridge/AfrIdge/Data.swift"
+                  timestampString = "502969553.763155"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "25">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AfrIdge.Data.allRecipes.setter : Swift.Array&lt;AfrIdge.Recipe&gt;"
+                  moduleName = "AfrIdge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brossi/Documents/Development/afridge/AfrIdge/Data.swift"
+                  timestampString = "502969553.764568"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "54">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
