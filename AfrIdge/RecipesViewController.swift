@@ -20,7 +20,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var dropDownButton: UIButton!
     @IBOutlet weak var dropDownTableView: UITableView!
-    
+    @IBOutlet weak var dropDownIcon: UIImageView!
     
     var favorites = [Recipe]()
     var recipes = [Recipe]()
@@ -28,6 +28,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     var filteredFavorites = [Recipe]()
     var index = 0
     var dropDownActive = false
+    var searchStr = ""
     
     let sortData = ["Alphabetical", "Rating", "Cook Time", "Difficulty"]
     let recipeSegueIdentifier = "ShowRecipeDetailSegue"
@@ -76,6 +77,10 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
      }
     
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        dropDownTableView.cellForRow(at: indexPath)?.textLabel?.textColor = UIColor.black
+    }
+    
     //used to force a segue to recipe detail view or to sort list depending on which table is selected
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == recipeList {
@@ -92,18 +97,22 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
                 //sort list by alphabetical
                 tempRecipeList.sort{$0.name <= $1.name}
                 dropDownButton.setTitle("Sorted Alphabeticaly", for: .normal)
+                dropDownTableView.cellForRow(at: indexPath)?.textLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             } else if (row == 1) {
                 //sort list by rating
                 tempRecipeList.sort{$0.rating >= $1.rating}
                 dropDownButton.setTitle("Sorted by Rating", for: .normal)
+                dropDownTableView.cellForRow(at: indexPath)?.textLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             } else if (row == 2) {
                 //sort list by cook time
                 tempRecipeList.sort{$0.cookTime <= $1.cookTime}
                 dropDownButton.setTitle("Sorted by Cook Time", for: .normal)
+                dropDownTableView.cellForRow(at: indexPath)?.textLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             } else {
                 //sort list by difficulty
                 tempRecipeList.sort{$0.difficulty.toSort() <= $1.difficulty.toSort()}
                 dropDownButton.setTitle("Sorted by Difficulty", for: .normal)
+                dropDownTableView.cellForRow(at: indexPath)?.textLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             }
             
             dropDownTableView.isHidden = true
@@ -131,6 +140,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         dropDownButton.setTitle("Sort recipe by...", for: .normal)
         dropDownTableView.isHidden = true
         recipeList.reloadData()
+        filter()
         filteredFavorites.sort{$0.name <= $1.name}
         dropDownTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
         dropDownActive = false
@@ -147,6 +157,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         //defaults dial back to alphabetical
         dropDownButton.setTitle("Sort recipe by...", for: .normal)
         dropDownTableView.isHidden = true
+        filter()
         recipeList.reloadData()
         filteredRecipes.sort{$0.name <= $1.name}
         dropDownTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
@@ -177,6 +188,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         recipeList.reloadData()
         
+        searchBar.text = searchStr
         filter()
         
         filteredFavorites.sort{$0.name <= $1.name}
@@ -186,12 +198,22 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         dropDownButton.setTitle("Sort recipe by...", for: .normal)
         dropDownButton.layer.cornerRadius = 7
         dropDownButton.layer.masksToBounds = true
-        dropDownButton.layer.borderColor = UIColor.black.cgColor
+        dropDownButton.layer.borderColor = UIColor.gray.cgColor
         dropDownButton.layer.borderWidth = 1
+        dropDownButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.init(rawValue: 5)!
         
         dropDownTableView.isHidden = true
         dropDownTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
-        dropDownTableView.separatorColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        dropDownTableView.separatorStyle = .none
+        dropDownTableView.layer.cornerRadius = 12
+        dropDownTableView.layer.masksToBounds = true
+        dropDownTableView.layer.borderColor = UIColor.black.cgColor
+        dropDownTableView.layer.borderWidth = 1
+        
+        dropDownIcon.layer.borderWidth = 1
+        dropDownIcon.layer.borderColor = UIColor.black.cgColor
+        dropDownIcon.layer.cornerRadius = 12
+        dropDownIcon.layer.masksToBounds = true
         
         print("In Recipes!")
     }
@@ -273,17 +295,23 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
             return recipeCell
         } else {
-            // TODO!!! DropDownTableViewCell
             
             let cell = Bundle.main.loadNibNamed("DropDownTableViewCell", owner: self, options: nil)?.first as! DropDownTableViewCell
             cell.textLabel?.text = sortData[indexPath.row]
             cell.textLabel?.textAlignment = NSTextAlignment.center
-            cell.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            cell.textLabel?.font = UIFont(name: "American Typewriter", size: 15)
+            cell.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             let bgView = UIView()
             bgView.backgroundColor = #colorLiteral(red: 0.2695342898, green: 0.5220056176, blue: 0.7386800647, alpha: 1)
             cell.selectedBackgroundView = bgView
-            cell.layer.borderColor = UIColor.black.cgColor
+            let cellBorderColor = #colorLiteral(red: 0.2527815998, green: 0.480304122, blue: 0.6649092436, alpha: 1)
+            cell.layer.borderColor = cellBorderColor.cgColor
             cell.layer.borderWidth = 1
+            if indexPath.row == 0 {
+                cell.textLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            } else {
+                cell.textLabel?.textColor = UIColor.black
+            }
             
             return cell
             
