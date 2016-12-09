@@ -181,8 +181,8 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.recipeList.separatorStyle = .none
         
-        favorites = Data.sharedData.favoritedRecipes
-        recipes = Data.sharedData.allRecipes
+        favorites = Data.sharedData.favoritedRecipes as! [Recipe]
+        recipes = Data.sharedData.allRecipes as! [Recipe]
         filteredFavorites = favorites
         filteredRecipes = recipes
         

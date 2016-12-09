@@ -105,7 +105,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             //unfavoriting recipe
             
             for i in 0 ..< Data.sharedData.favoritedRecipes.count {
-                if Data.sharedData.favoritedRecipes[i].name == curRecipe.name {
+                if Data.sharedData.favoritedRecipes[i]?.name == curRecipe.name {
                     Data.sharedData.favoritedRecipes.remove(at: i)
                     break
                 }
@@ -115,8 +115,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             
             //need to make sure duplicate in allRecipes is unfavorited
             for i in 0 ..< Data.sharedData.allRecipes.count {
-                if Data.sharedData.allRecipes[i].name == curRecipe.name {
-                    Data.sharedData.allRecipes[i].favorite = false
+                if Data.sharedData.allRecipes[i]?.name == curRecipe.name {
+                    Data.sharedData.allRecipes[i]?.favorite = false
                     break
                 }
             }
@@ -127,8 +127,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             
             //need to make sure duplicate in allRecipes is favorited
             for i in 0 ..< Data.sharedData.allRecipes.count {
-                if Data.sharedData.allRecipes[i].name == curRecipe.name {
-                    Data.sharedData.allRecipes[i].favorite = true
+                if Data.sharedData.allRecipes[i]?.name == curRecipe.name {
+                    Data.sharedData.allRecipes[i]?.favorite = true
                     break
                 }
             }
