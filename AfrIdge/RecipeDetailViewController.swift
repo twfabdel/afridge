@@ -14,7 +14,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeDifficulty: UILabel!
     @IBOutlet weak var ratingImageView: UIImageView!
-    //@IBOutlet weak var recipeRating: UILabel!
     @IBOutlet weak var recipeCookTime: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var videoButton: UIButton!
@@ -27,6 +26,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     var missingIngredients = [FoodItem]()
     
     override func viewWillAppear(_ animated: Bool) {
+        
         self.navigationController?.isNavigationBarHidden = false
         let newImage = UIImage(named: curRecipe.imageString)
         
@@ -35,8 +35,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         let ratingImage = getRatingImage()
         ratingImageView.image = ratingImage
-        
-        //recipeRating.text = String(curRecipe.rating)
         
         recipeCookTime.text = String(curRecipe.cookTime) + " mins"
         
@@ -83,7 +81,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("In Recipe Controller!")
+        print("In Recipe Detail Controller!")
         
         // Do any additional setup after loading the view.
     }
@@ -157,7 +155,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(curRecipe.ingredients.count)
         return ((curRecipe.ingredients.count + 1)/2)
     }
     
@@ -165,6 +162,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         let index = indexPath.row*2
         
         let cell = Bundle.main.loadNibNamed("IngredientsTableViewCell", owner: self, options: nil)?.first as! IngredientsTableViewCell
+        
+        cell.isUserInteractionEnabled = false
         
         let text1 = curRecipe.ingredients[index].name + " " + String(curRecipe.ingredients[index].amount)
         cell.ingredientLabel1.text = text1
@@ -198,12 +197,13 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             cell.ingredientLabel2.isHidden = true
         }
         
+        
         return cell
     }
     
     func notInInventory(item: FoodItem) -> Bool {
         for i in 0 ..< Data.sharedData.inventoryItems.count {
-            if Data.sharedData.inventoryItems[i].name == item.name {
+            if Data.sharedData.inventoryItems[i].name.lowercased() == item.name.lowercased() {
                 //check if we have enough of item left for this recipe (how do we compare the string?
                 if Data.sharedData.inventoryItems[i].amount >= item.amount {
                     return false
@@ -235,7 +235,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             
             for i in 0 ..< Data.sharedData.toBuy.count {
                 //check if already in to buy list so as to not add dups
-                if Data.sharedData.toBuy[i].food == newGroceryItem?.food {
+                if Data.sharedData.toBuy[i].food.lowercased() == newGroceryItem?.food.lowercased() {
                     needToAdd = false
                     if Data.sharedData.toBuy[i].amount < (newGroceryItem?.amount)! {
                         //edit item in groceryList
@@ -247,7 +247,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             
             for i in 0 ..< Data.sharedData.bought.count {
                 //check if already in uncleared bought list so as to not add dups
-                if Data.sharedData.bought[i].food == newGroceryItem?.food {
+                if Data.sharedData.bought[i].food.lowercased() == newGroceryItem?.food.lowercased() {
                     if Data.sharedData.bought[i].amount >= (newGroceryItem?.amount)! {
                         //no need to add to "to buy" grocery list
                         needToAdd = false

@@ -103,8 +103,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="searchRecipes:" destination="15m-ED-HZm" eventType="editingDidEnd" id="4uj-2O-YBe"/>
-                                    <action selector="searchRecipes:" destination="15m-ED-HZm" eventType="valueChanged" id="viG-8D-HMm"/>
+                                    <action selector="filterRecipes:" destination="15m-ED-HZm" eventType="editingChanged" id="B81-Gg-lyF"/>
                                 </connections>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="N55-EL-tIl">
