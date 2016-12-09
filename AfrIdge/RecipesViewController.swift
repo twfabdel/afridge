@@ -28,6 +28,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     var filteredFavorites = [Recipe]()
     var index = 0
     var dropDownActive = false
+    var searchStr = ""
     
     let sortData = ["Alphabetical", "Rating", "Cook Time", "Difficulty"]
     let recipeSegueIdentifier = "ShowRecipeDetailSegue"
@@ -139,6 +140,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         dropDownButton.setTitle("Sort recipe by...", for: .normal)
         dropDownTableView.isHidden = true
         recipeList.reloadData()
+        filter()
         filteredFavorites.sort{$0.name <= $1.name}
         dropDownTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
         dropDownActive = false
@@ -155,6 +157,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         //defaults dial back to alphabetical
         dropDownButton.setTitle("Sort recipe by...", for: .normal)
         dropDownTableView.isHidden = true
+        filter()
         recipeList.reloadData()
         filteredRecipes.sort{$0.name <= $1.name}
         dropDownTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
@@ -185,6 +188,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         recipeList.reloadData()
         
+        searchBar.text = searchStr
         filter()
         
         filteredFavorites.sort{$0.name <= $1.name}
