@@ -60,9 +60,9 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         } else {
             if index == 0 {
-                self.filteredFavorites = self.favorites.filter({$0.name.lowercased().range(of: str!.lowercased()) != nil})
+                self.filteredFavorites = self.favorites.filter({self.containsItem(recipe: $0, str: str!)})
             } else {
-                self.filteredRecipes = self.recipes.filter({$0.name.lowercased().range(of: str!.lowercased()) != nil})
+                self.filteredRecipes = self.recipes.filter({ self.containsItem(recipe: $0, str: str!)})
             }
             
         }
@@ -70,6 +70,17 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         recipeList.reloadData()
     }
     
+    func containsItem(recipe: Recipe, str: String) -> Bool {
+        if recipe.name.lowercased().range(of: str.lowercased()) != nil {
+            return true
+        }
+        for item in recipe.ingredients {
+            if item.name.lowercased().range(of: str.lowercased()) != nil {
+                return true
+            }
+        }
+        return false
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == recipeSegueIdentifier) {
