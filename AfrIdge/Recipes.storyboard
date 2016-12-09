@@ -22,29 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TFD-1r-WPB">
-                                <rect key="frame" x="16" y="227" width="343" height="440"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recipeCell" id="kqv-wE-ERP" customClass="RecipeTableViewCell" customModule="AfrIdge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kqv-wE-ERP" id="qGG-fu-weo">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="ZfR-aj-CVI" kind="show" identifier="ShowRecipeDetailSegue" id="GRU-3u-5Oe">
-                                                <nil key="action"/>
-                                            </segue>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="15m-ED-HZm" id="odv-XG-hCl"/>
-                                    <outlet property="delegate" destination="15m-ED-HZm" id="D8o-CL-QdK"/>
-                                </connections>
-                            </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hvH-Jf-PYt">
                                 <rect key="frame" x="16" y="75" width="343" height="37"/>
                                 <subviews>
@@ -107,7 +84,7 @@
                                 </connections>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="N55-EL-tIl">
-                                <rect key="frame" x="36" y="127" width="303" height="95"/>
+                                <rect key="frame" x="36" y="127" width="303" height="35"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qe-h5-96L">
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="35"/>
@@ -115,57 +92,95 @@
                                             <constraint firstAttribute="height" constant="35" id="Sbe-Bp-Ywg"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Button">
-                                            <color key="titleColor" red="0.26953428979999999" green="0.52200561759999997" blue="0.73868006470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="dropDownClicked:" destination="15m-ED-HZm" eventType="touchUpInside" id="adt-eW-eRg"/>
                                         </connections>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PYO-vJ-xme">
-                                        <rect key="frame" x="0.0" y="35" width="303" height="60"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="9kU-OT-cZo"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="dataSource" destination="15m-ED-HZm" id="Tpz-DG-o96"/>
-                                            <outlet property="delegate" destination="15m-ED-HZm" id="HFG-fd-Vm8"/>
-                                        </connections>
-                                    </tableView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="PYO-vJ-xme" firstAttribute="leading" secondItem="N55-EL-tIl" secondAttribute="leading" id="Be5-LP-ecT"/>
-                                    <constraint firstItem="8Qe-h5-96L" firstAttribute="width" secondItem="PYO-vJ-xme" secondAttribute="width" id="HZo-YO-Oqs"/>
-                                    <constraint firstAttribute="trailing" secondItem="PYO-vJ-xme" secondAttribute="trailing" id="XHv-Sb-bKq"/>
-                                    <constraint firstItem="PYO-vJ-xme" firstAttribute="centerX" secondItem="N55-EL-tIl" secondAttribute="centerX" id="dIu-x0-yYc"/>
+                                    <constraint firstItem="8Qe-h5-96L" firstAttribute="leading" secondItem="N55-EL-tIl" secondAttribute="leading" id="hyt-ip-VTp"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Qe-h5-96L" secondAttribute="trailing" id="jEL-bH-iax"/>
                                 </constraints>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TFD-1r-WPB">
+                                <rect key="frame" x="16" y="197" width="343" height="470"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recipeCell" id="kqv-wE-ERP" customClass="RecipeTableViewCell" customModule="AfrIdge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kqv-wE-ERP" id="qGG-fu-weo">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ZfR-aj-CVI" kind="show" identifier="ShowRecipeDetailSegue" id="GRU-3u-5Oe">
+                                                <nil key="action"/>
+                                            </segue>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="15m-ED-HZm" id="odv-XG-hCl"/>
+                                    <outlet property="delegate" destination="15m-ED-HZm" id="D8o-CL-QdK"/>
+                                </connections>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PYO-vJ-xme">
+                                <rect key="frame" x="36" y="162" width="303" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="9kU-OT-cZo"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="15m-ED-HZm" id="Tpz-DG-o96"/>
+                                    <outlet property="delegate" destination="15m-ED-HZm" id="HFG-fd-Vm8"/>
+                                </connections>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropdown-icon2" translatesAutoresizingMaskIntoConstraints="NO" id="9G1-Ak-Cbn">
+                                <rect key="frame" x="309" y="132" width="23" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="8ba-Hp-k9V"/>
+                                    <constraint firstAttribute="width" constant="23" id="m2e-BY-fRw"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9G1-Ak-Cbn" firstAttribute="leading" secondItem="h72-sR-0al" secondAttribute="leadingMargin" constant="293" id="19C-DV-Q2o"/>
                             <constraint firstItem="Eax-mQ-ZTp" firstAttribute="top" secondItem="h72-sR-0al" secondAttribute="topMargin" constant="12" id="1PG-xz-rQV"/>
                             <constraint firstItem="Eax-mQ-ZTp" firstAttribute="leading" secondItem="h72-sR-0al" secondAttribute="leadingMargin" id="5ON-WP-9Be"/>
                             <constraint firstItem="hvH-Jf-PYt" firstAttribute="leading" secondItem="h72-sR-0al" secondAttribute="leadingMargin" id="8HN-qA-A3m"/>
+                            <constraint firstItem="PYO-vJ-xme" firstAttribute="top" secondItem="N55-EL-tIl" secondAttribute="bottom" id="95k-72-3ks"/>
                             <constraint firstItem="TFD-1r-WPB" firstAttribute="leading" secondItem="h72-sR-0al" secondAttribute="leadingMargin" id="9Bc-zH-SZQ"/>
                             <constraint firstItem="tDv-M6-rG5" firstAttribute="leading" secondItem="h72-sR-0al" secondAttribute="leading" id="9c8-h6-awi"/>
+                            <constraint firstItem="PYO-vJ-xme" firstAttribute="top" secondItem="9G1-Ak-Cbn" secondAttribute="bottom" constant="7" id="B1g-oB-Do0"/>
                             <constraint firstItem="N55-EL-tIl" firstAttribute="leading" secondItem="h72-sR-0al" secondAttribute="leadingMargin" constant="20" id="CHj-KI-MTa"/>
                             <constraint firstItem="hvj-Ob-KZv" firstAttribute="trailing" secondItem="h72-sR-0al" secondAttribute="trailingMargin" id="ITv-VK-Fb2"/>
+                            <constraint firstItem="TFD-1r-WPB" firstAttribute="top" secondItem="N55-EL-tIl" secondAttribute="bottom" constant="35" id="Lf7-DV-FFc"/>
                             <constraint firstItem="tDv-M6-rG5" firstAttribute="top" secondItem="h72-sR-0al" secondAttribute="top" id="OID-FT-XpG"/>
+                            <constraint firstItem="PYO-vJ-xme" firstAttribute="trailing" secondItem="N55-EL-tIl" secondAttribute="trailing" id="Pfb-47-x63"/>
+                            <constraint firstItem="PYO-vJ-xme" firstAttribute="width" secondItem="N55-EL-tIl" secondAttribute="width" id="SKz-Wl-KAG"/>
+                            <constraint firstItem="PYO-vJ-xme" firstAttribute="leading" secondItem="N55-EL-tIl" secondAttribute="leading" id="THp-fE-IiS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N55-EL-tIl" secondAttribute="trailing" constant="20" id="Uv7-Pd-mhx"/>
-                            <constraint firstItem="TFD-1r-WPB" firstAttribute="top" secondItem="N55-EL-tIl" secondAttribute="bottom" constant="5" id="W1p-V4-l1L"/>
                             <constraint firstItem="hvj-Ob-KZv" firstAttribute="centerY" secondItem="Eax-mQ-ZTp" secondAttribute="centerY" id="dWd-PG-r76"/>
                             <constraint firstItem="lcX-c6-anU" firstAttribute="top" secondItem="TFD-1r-WPB" secondAttribute="bottom" id="gPF-Mp-1kI"/>
                             <constraint firstItem="N55-EL-tIl" firstAttribute="top" secondItem="hvH-Jf-PYt" secondAttribute="bottom" constant="15" id="gYM-TO-jqS"/>
                             <constraint firstAttribute="trailing" secondItem="tDv-M6-rG5" secondAttribute="trailing" id="hJ8-MX-x8H"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TFD-1r-WPB" secondAttribute="trailing" id="s2N-Fy-OeI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hvH-Jf-PYt" secondAttribute="trailing" id="vSz-D2-1IK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9G1-Ak-Cbn" secondAttribute="trailing" constant="27" id="wfw-3E-PyG"/>
+                            <constraint firstItem="9G1-Ak-Cbn" firstAttribute="top" secondItem="hvH-Jf-PYt" secondAttribute="bottom" constant="20" id="xgx-Gs-6me"/>
                             <constraint firstItem="hvH-Jf-PYt" firstAttribute="top" secondItem="h72-sR-0al" secondAttribute="topMargin" constant="75" id="zR2-YV-hCq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pzG-cW-p6n"/>
                     <connections>
                         <outlet property="dropDownButton" destination="8Qe-h5-96L" id="s8J-0f-fIp"/>
+                        <outlet property="dropDownIcon" destination="9G1-Ak-Cbn" id="mek-dw-IrA"/>
                         <outlet property="dropDownTableView" destination="PYO-vJ-xme" id="Kkd-8I-VIL"/>
                         <outlet property="favoriteButton" destination="C6r-bs-FG0" id="j5L-hV-jtO"/>
                         <outlet property="recipeButton" destination="d3W-Hf-cQG" id="dNf-xf-P9Z"/>
@@ -455,6 +470,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="dropdown-icon2" width="241" height="241"/>
         <image name="tab selected" width="151" height="37"/>
         <image name="tab unselected" width="151" height="37"/>
         <image name="title-nav-background" width="375" height="78"/>
