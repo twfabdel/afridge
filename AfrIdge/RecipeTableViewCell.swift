@@ -12,6 +12,7 @@ class RecipeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
+    @IBOutlet weak var ratingImage: UIImageView!
     
     var delegate: RecipesViewController?
     var recipe: Recipe!

@@ -284,6 +284,22 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    func getRatingImage(rating: Double) -> UIImage {
+        
+        if rating >= 4.5 {
+            return UIImage(named: "five-star")!
+        } else if rating >= 3.5 {
+            return UIImage(named: "four-star")!
+        } else if rating >= 2.5 {
+            return UIImage(named: "three-star")!
+        } else if rating >= 1.5 {
+            return UIImage(named: "two-star")!
+        } else if rating >= 0.5 {
+            return UIImage(named: "one-star")!
+        }
+        return UIImage(named: "zero-star")!
+    }
+    
     
     //Format and return cell for given row indexPath.row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -301,6 +317,8 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
             recipeCell.recipeName.text = curRecipe.name
             recipeCell.recipe = curRecipe
             recipeCell.recipeImage.image = UIImage(named: curRecipe.imageString)
+            let ratingImg = getRatingImage(rating: curRecipe.rating)
+            recipeCell.ratingImage.image = ratingImg
         
             recipeCell.layer.cornerRadius = 12
             recipeCell.layer.masksToBounds = true
