@@ -128,8 +128,9 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         
         let popUp = UIStoryboard(name: "Inventory", bundle: nil).instantiateViewController(withIdentifier: "inventoryDetailPopup") as! InventoryDetailPopupViewController
         
-        popUp.foodItem = cell.food
-        popUp.listIndex = cell.listIndex
+//        popUp.foodItem = cell.food
+//        popUp.listIndex = cell.listIndex
+        popUp.cell = cell
         self.addChildViewController(popUp)
         popUp.view.frame = self.view.frame
         self.view.addSubview(popUp.view)
@@ -157,6 +158,20 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         Data.sharedData.inventoryItems.append(item)
         self.fetchItems()
         self.collectionView.reloadData()
+    }
+    
+    func showEditItemPopup(cell: InventoryCollectionViewCell) {
+        let popUp = UIStoryboard(name: "Inventory", bundle: nil).instantiateViewController(withIdentifier: "addItemPopup") as! NewItemPopupViewController
+        
+        popUp.editItem = true
+        popUp.cell = cell
+        popUp.parentView = self
+        self.addChildViewController(popUp)
+        popUp.view.frame = self.view.frame
+        self.view.addSubview(popUp.view)
+        popUp.didMove(toParentViewController: self)
+        
+        popUp.setTextBoxes(food: (cell.food)!)
     }
     
     func editItem(item: FoodItem, index: Int) {

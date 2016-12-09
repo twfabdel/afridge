@@ -20,7 +20,8 @@ class NewItemPopupViewController: UIViewController {
     @IBOutlet weak var header: UILabel!
     
     var editItem = false
-    var listIndex: Int?
+//    var listIndex: Int?
+    var cell: InventoryCollectionViewCell?
     var parentView: InventoryViewController?
     
     override func viewDidLoad() {
@@ -52,9 +53,15 @@ class NewItemPopupViewController: UIViewController {
     
     @IBAction func backgroundClose(_ sender: UIButton) {
         self.view.removeFromSuperview()
+        if self.editItem {
+            self.parentView?.showDetailPopup(cell: self.cell!)
+        }
     }
     @IBAction func close(_ sender: UIButton) {
         self.view.removeFromSuperview()
+        if self.editItem {
+            self.parentView?.showDetailPopup(cell: self.cell!)
+        }
     }
     
     @IBAction func addItem(_ sender: UIButton) {
@@ -70,11 +77,16 @@ class NewItemPopupViewController: UIViewController {
         let newItem = FoodItem(name: item!, amount: amount!, days: Int(days!)!)
         
         if editItem {
-            self.parentView?.editItem(item: newItem!, index: self.listIndex!)
+            self.parentView?.editItem(item: newItem!, index: self.cell!.listIndex!)
         } else {
             self.parentView?.addItem(item: newItem!)
         }
         self.view.removeFromSuperview()
+        if editItem {
+            let newCell = self.cell!
+            newCell.food = newItem
+            self.parentView?.showDetailPopup(cell: newCell)
+        }
     }
 
 }

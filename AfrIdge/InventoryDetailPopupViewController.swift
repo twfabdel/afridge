@@ -19,8 +19,9 @@ class InventoryDetailPopupViewController: UIViewController {
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var deleteBtn: UIButton!
     
-    var foodItem: FoodItem?
-    var listIndex: Int?
+//    var foodItem: FoodItem?
+//    var listIndex: Int?
+    var cell: InventoryCollectionViewCell?
     var parentView: InventoryViewController?
 
     override func viewDidLoad() {
@@ -49,9 +50,10 @@ class InventoryDetailPopupViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.itemName.text = self.foodItem?.name
-        self.amountLeft.text = (self.foodItem?.amount)! + " remaining"
-        self.daysLeft.text = "Expiring in \((self.foodItem?.days)!) days"
+        let foodItem = self.cell!.food!
+        self.itemName.text = foodItem.name
+        self.amountLeft.text = foodItem.amount + " remaining"
+        self.daysLeft.text = "Expiring in \(foodItem.days) days"
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,6 +66,7 @@ class InventoryDetailPopupViewController: UIViewController {
     }
     @IBAction func closePopup(_ sender: UIButton) {
         self.view.removeFromSuperview()
+        print("close")
     }
    
     @IBAction func addToGrocery(_ sender: UIButton) {
@@ -79,19 +82,8 @@ class InventoryDetailPopupViewController: UIViewController {
     }
     
     @IBAction func showEditItemPopup(_ sender: UIButton) {
-        
-        let popUp = UIStoryboard(name: "Inventory", bundle: nil).instantiateViewController(withIdentifier: "addItemPopup") as! NewItemPopupViewController
-        
-        popUp.editItem = true
-        popUp.listIndex = self.listIndex
-        popUp.parentView = self.parentView
-        
-        self.addChildViewController(popUp)
-        popUp.view.frame = self.view.frame
-        self.view.addSubview(popUp.view)
-        popUp.didMove(toParentViewController: self)
-        
-        popUp.setTextBoxes(food: self.foodItem!)
+        self.view.removeFromSuperview()
+        self.parentView?.showEditItemPopup(cell: self.cell!)
     }
     
 
