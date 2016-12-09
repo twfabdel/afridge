@@ -122,7 +122,10 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Ccc-5s-ozf" secondAttribute="height" multiplier="1:1" id="evU-yy-73K"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="question_mark"/>
+                                                            <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="60"/>
+                                                            <state key="normal" title="A" image="question_mark">
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
                                                             <connections>
                                                                 <action selector="foodClicked:" destination="Ae2-6U-nTx" eventType="touchUpInside" id="8IE-K3-hPv"/>
                                                             </connections>

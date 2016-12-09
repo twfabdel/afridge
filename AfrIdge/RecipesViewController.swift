@@ -42,7 +42,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func clearSearch(_ sender: UIButton) {
         self.searchBar.text = ""
-        self.fliter()
+        self.filter()
     }
     
     @IBAction func filterRecipes(_ sender: Any) {

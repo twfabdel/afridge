@@ -32,7 +32,10 @@ class InventoryCollectionViewCell: UICollectionViewCell {
         if img != nil {
             self.itemImageButton.setImage(img, for: .normal)
         } else {
-            self.itemImageButton.setImage(#imageLiteral(resourceName: "question_mark"), for: .normal)
+            self.itemImageButton.setImage(nil, for: .normal)
+            let str = self.food!.name
+            let i = str.index(str.startIndex, offsetBy: 1)
+            self.itemImageButton.setTitle(str.substring(to: i), for:.normal)
         }
         
     }
