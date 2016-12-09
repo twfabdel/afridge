@@ -29,6 +29,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     var index = 0
     var dropDownActive = false
     var searchStr = ""
+    var comingFromInventory = false
     
     let sortData = ["Alphabetical", "Rating", "Cook Time", "Difficulty"]
     let recipeSegueIdentifier = "ShowRecipeDetailSegue"
@@ -38,6 +39,11 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     let cellReuseIdentifier = "cell"
     let cellSpacingHeight: CGFloat = 7
     
+    
+    @IBAction func clearSearch(_ sender: UIButton) {
+        self.searchBar.text = ""
+        self.filter()
+    }
     
     @IBAction func filterRecipes(_ sender: Any) {
         filter()
@@ -147,6 +153,10 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func recipeButtonClicked(_ sender: Any) {
+        self.switchToAll()
+    }
+    
+    func switchToAll() {
         if index == 1 {
             return
         }
@@ -188,7 +198,11 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         recipeList.reloadData()
         
-        searchBar.text = searchStr
+        if comingFromInventory {
+            searchBar.text = searchStr
+            self.switchToAll()
+        }
+        
         filter()
         
         filteredFavorites.sort{$0.name <= $1.name}
