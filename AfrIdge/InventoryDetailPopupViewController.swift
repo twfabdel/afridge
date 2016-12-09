@@ -86,7 +86,16 @@ class InventoryDetailPopupViewController: UIViewController {
         self.parentView?.showEditItemPopup(cell: self.cell!)
     }
     
-
+    @IBAction func showDeletePopup(_ sender: UIButton) {
+        
+        let popUp = UIStoryboard(name: "Inventory", bundle: nil).instantiateViewController(withIdentifier: "deletePopup") as! DeletePopupViewController
+        
+        popUp.parentView = self
+        self.addChildViewController(popUp)
+        popUp.view.frame = self.view.frame
+        self.view.addSubview(popUp.view)
+        popUp.didMove(toParentViewController: self)
+    }
     /*
     // MARK: - Navigation
 

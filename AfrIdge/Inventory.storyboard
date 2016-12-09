@@ -257,6 +257,9 @@
                                                         <state key="normal" title="Delete">
                                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="showDeletePopup:" destination="SdS-Os-hac" eventType="touchUpInside" id="vA7-lZ-pAv"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -349,6 +352,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fjy-n8-FbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1458" y="-405"/>
+        </scene>
+        <!--Delete Popup View Controller-->
+        <scene sceneID="bDm-G3-9cT">
+            <objects>
+                <viewController storyboardIdentifier="deletePopup" id="W0F-dl-oDp" customClass="DeletePopupViewController" customModule="AfrIdge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ujf-sR-xrm"/>
+                        <viewControllerLayoutGuide type="bottom" id="xtq-tX-qIe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j2e-VB-ZN6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTQ-5r-ytg">
+                                <rect key="frame" x="56" y="249" width="263" height="170"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to remove _________ from your inventory?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0a-Zw-nca">
+                                        <rect key="frame" x="15" y="10" width="233" height="69.5"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UdM-c0-dXm">
+                                        <rect key="frame" x="15" y="125" width="233" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snr-GO-BT3">
+                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="30"/>
+                                                <color key="backgroundColor" red="0.28676104549999998" green="0.54410338400000002" blue="0.75883603099999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancel:" destination="W0F-dl-oDp" eventType="touchUpInside" id="exV-Xz-yML"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HmT-e1-RT9">
+                                                <rect key="frame" x="121.5" y="0.0" width="111.5" height="30"/>
+                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Delete">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="jHz-CX-Ooc"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="UdM-c0-dXm" firstAttribute="leading" secondItem="ZTQ-5r-ytg" secondAttribute="leading" constant="15" id="Fz8-dX-YUJ"/>
+                                    <constraint firstAttribute="height" constant="170" id="OFg-Kn-xeo"/>
+                                    <constraint firstAttribute="bottom" secondItem="UdM-c0-dXm" secondAttribute="bottom" constant="15" id="Reb-vJ-SsH"/>
+                                    <constraint firstAttribute="trailing" secondItem="UdM-c0-dXm" secondAttribute="trailing" constant="15" id="SxI-oD-Tfi"/>
+                                    <constraint firstItem="A0a-Zw-nca" firstAttribute="top" secondItem="ZTQ-5r-ytg" secondAttribute="top" constant="10" id="TMd-qe-Qrb"/>
+                                    <constraint firstAttribute="trailing" secondItem="A0a-Zw-nca" secondAttribute="trailing" constant="15" id="co8-Vc-GYe"/>
+                                    <constraint firstItem="A0a-Zw-nca" firstAttribute="leading" secondItem="ZTQ-5r-ytg" secondAttribute="leading" constant="15" id="h3Q-QD-XXR"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZTQ-5r-ytg" firstAttribute="centerY" secondItem="j2e-VB-ZN6" secondAttribute="centerY" id="2b0-Gt-Yoz"/>
+                            <constraint firstItem="ZTQ-5r-ytg" firstAttribute="centerX" secondItem="j2e-VB-ZN6" secondAttribute="centerX" id="AU9-t9-7Uw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZTQ-5r-ytg" secondAttribute="trailing" constant="40" id="C60-jC-zv1"/>
+                            <constraint firstItem="ZTQ-5r-ytg" firstAttribute="leading" secondItem="j2e-VB-ZN6" secondAttribute="leadingMargin" constant="40" id="Kdk-9j-8zD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="Snr-GO-BT3" id="trx-q6-BSU"/>
+                        <outlet property="deleteBtn" destination="HmT-e1-RT9" id="ly6-uI-3vb"/>
+                        <outlet property="popUp" destination="j2e-VB-ZN6" id="Q5A-3T-LWj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RLE-ZT-5Pd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1456.8" y="273.91304347826087"/>
         </scene>
         <!--New Item Popup View Controller-->
         <scene sceneID="k19-5Q-Sx5">
