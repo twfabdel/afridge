@@ -19,6 +19,10 @@ class NewItemPopupViewController: UIViewController {
     
     @IBOutlet weak var header: UILabel!
     
+    @IBOutlet weak var itemError: UILabel!
+    @IBOutlet weak var amountError: UILabel!
+    @IBOutlet weak var expirationError: UILabel!
+    
     var editItem = false
 //    var listIndex: Int?
     var foodItem: FoodItem?
@@ -37,7 +41,13 @@ class NewItemPopupViewController: UIViewController {
             self.addBtn.setTitle("Done", for: .normal)
             self.header.text = "Edit Item"
         }
-
+        self.hideErrors()
+    }
+    
+    func hideErrors() {
+        self.itemError.isHidden = true
+        self.amountError.isHidden = true
+        self.expirationError.isHidden = true
     }
     
     func setTextBoxes(food: FoodItem) {
@@ -69,13 +79,26 @@ class NewItemPopupViewController: UIViewController {
         let amount = self.amountTextField.text
         let days = self.expirationTextField.text
         
-        if (item?.characters.count ?? 0) == 0 || (amount?.characters.count ?? 0) == 0 || (days?.characters.count ?? 0) == 0 {
-            print("Empty field")
-            return
+        self.hideErrors()
+        var errors = false
+        if (item?.characters.count ?? 0) == 0 {
+            self.itemError.isHidden = false
+            errors = true
         }
-        
-        if Int(days!) == nil {
-            print("Days not an int")
+        if (amount?.characters.count ?? 0) == 0 {
+            self.amountError.isHidden = false
+            errors = true
+        }
+        if (days?.characters.count ?? 0) == 0 {
+            self.expirationError.text = "Please enter days left."
+            self.expirationError.isHidden = false
+            errors = true
+        } else if Int(days!) == nil {
+            self.expirationError.text = "Make sure this is a number."
+            self.expirationError.isHidden = false
+            errors = true
+        }
+        if errors {
             return
         }
         
