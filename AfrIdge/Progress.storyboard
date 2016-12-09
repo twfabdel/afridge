@@ -59,9 +59,8 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Woah, we've made big progress this month! Keep it up!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEw-fT-hYf">
-                                <rect key="frame" x="16" y="525" width="343" height="122"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Woah, we've made big progress this month! Keep it up!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEw-fT-hYf">
+                                <rect key="frame" x="16" y="543" width="343" height="104"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -73,9 +72,12 @@
                             <constraint firstItem="dil-cd-AWS" firstAttribute="top" secondItem="uHR-9c-ve6" secondAttribute="bottom" id="Co8-MX-TaW"/>
                             <constraint firstItem="Qvp-QX-PQQ" firstAttribute="leading" secondItem="41o-1c-aVK" secondAttribute="leading" id="OZo-cy-kCg"/>
                             <constraint firstItem="Qvp-QX-PQQ" firstAttribute="top" secondItem="TEM-ks-e5F" secondAttribute="bottom" constant="60" id="PBx-sR-lFw"/>
+                            <constraint firstItem="WCh-lt-gpc" firstAttribute="top" secondItem="bEw-fT-hYf" secondAttribute="bottom" constant="20" id="Pdd-4p-NgN"/>
                             <constraint firstItem="TEM-ks-e5F" firstAttribute="top" secondItem="41o-1c-aVK" secondAttribute="top" id="YRV-Kk-cuk"/>
                             <constraint firstItem="WCh-lt-gpc" firstAttribute="top" secondItem="Qvp-QX-PQQ" secondAttribute="bottom" constant="150" id="YqK-lH-yxA"/>
+                            <constraint firstItem="bEw-fT-hYf" firstAttribute="trailing" secondItem="41o-1c-aVK" secondAttribute="trailingMargin" id="d4D-4U-rej"/>
                             <constraint firstAttribute="trailing" secondItem="TEM-ks-e5F" secondAttribute="trailing" id="gJa-zY-6je"/>
+                            <constraint firstItem="bEw-fT-hYf" firstAttribute="leading" secondItem="41o-1c-aVK" secondAttribute="leadingMargin" id="p73-rS-6Hj"/>
                             <constraint firstItem="TEM-ks-e5F" firstAttribute="leading" secondItem="41o-1c-aVK" secondAttribute="leading" id="qOW-aR-65W"/>
                             <constraint firstItem="dil-cd-AWS" firstAttribute="leading" secondItem="41o-1c-aVK" secondAttribute="leadingMargin" constant="5" id="wWS-WL-hYD"/>
                         </constraints>

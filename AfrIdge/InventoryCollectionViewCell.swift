@@ -28,7 +28,7 @@ class InventoryCollectionViewCell: UICollectionViewCell {
         self.food = foodItem
         self.name.text = self.food!.name
         
-        let img = UIImage(named: self.food!.name)
+        let img = UIImage(named: self.food!.name.lowercased())
         if img != nil {
             self.itemImageButton.setImage(img, for: .normal)
         } else {
