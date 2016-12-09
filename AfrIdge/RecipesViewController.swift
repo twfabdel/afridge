@@ -18,13 +18,14 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var recipeButton: UIButton!
     @IBOutlet weak var searchBar: UITextField!
-    
     @IBOutlet weak var dropDownButton: UIButton!
     @IBOutlet weak var dropDownTableView: UITableView!
     
     
-    var favorites = Data.sharedData.favoritedRecipes
-    var recipes = Data.sharedData.allRecipes
+    var favorites = [Recipe]()
+    var recipes = [Recipe]()
+    var filteredRecipes = [Recipe]()
+    var filteredFavorites = [Recipe]()
     var index = 0
     var dropDownActive = false
     
@@ -36,15 +37,41 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     let cellReuseIdentifier = "cell"
     let cellSpacingHeight: CGFloat = 7
     
+    
+    @IBAction func filterRecipes(_ sender: Any) {
+        filter()
+    }
+    
+    func filter() {
+        let str = self.searchBar.text
+        if (str?.characters.count ?? 0) == 0{
+            //Empty searchbar, show everything
+            if index == 0 {
+                self.filteredFavorites = self.favorites
+            } else {
+                self.filteredRecipes = self.recipes
+            }
+        } else {
+            if index == 0 {
+                self.filteredFavorites = self.favorites.filter({$0.name.lowercased().range(of: str!.lowercased()) != nil})
+            } else {
+                self.filteredRecipes = self.recipes.filter({$0.name.lowercased().range(of: str!.lowercased()) != nil})
+            }
+            
+        }
+        
+        recipeList.reloadData()
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == recipeSegueIdentifier) {
             let destination = segue.destination as! RecipeDetailViewController
             let tableIndex = sender as! Int
-    
             if (index == 0) {
-                destination.curRecipe = favorites[tableIndex]
+                destination.curRecipe = filteredFavorites[tableIndex]
             } else {
-                destination.curRecipe = recipes[tableIndex]
+                destination.curRecipe = filteredRecipes[tableIndex]
             }
         }
      }
@@ -57,9 +84,9 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
             performSegue(withIdentifier: recipeSegueIdentifier, sender: row)
         } else {
             let row = indexPath.row
-            var tempRecipeList = favorites
+            var tempRecipeList = filteredFavorites
             if (index == 1) {
-                tempRecipeList = recipes
+                tempRecipeList = filteredRecipes
             }
             if (row == 0) {
                 //sort list by alphabetical
@@ -83,9 +110,9 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
             dropDownActive = false
             
             if (index == 0) {
-                favorites = tempRecipeList
+                filteredFavorites = tempRecipeList
             } else {
-                recipes = tempRecipeList
+                filteredRecipes = tempRecipeList
             }
                     
             recipeList.reloadData()
@@ -104,7 +131,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         dropDownButton.setTitle("Sort recipe by...", for: .normal)
         dropDownTableView.isHidden = true
         recipeList.reloadData()
-        favorites.sort{$0.name <= $1.name}
+        filteredFavorites.sort{$0.name <= $1.name}
         dropDownTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
         dropDownActive = false
     }
@@ -121,7 +148,7 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         dropDownButton.setTitle("Sort recipe by...", for: .normal)
         dropDownTableView.isHidden = true
         recipeList.reloadData()
-        recipes.sort{$0.name <= $1.name}
+        filteredRecipes.sort{$0.name <= $1.name}
         dropDownTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
         dropDownActive = false
     }
@@ -145,10 +172,16 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         favorites = Data.sharedData.favoritedRecipes
         recipes = Data.sharedData.allRecipes
+        filteredFavorites = favorites
+        filteredRecipes = recipes
         
         recipeList.reloadData()
-        favorites.sort{$0.name <= $1.name}
-        recipes.sort{$0.name <= $1.name}
+        
+        filter()
+        
+        filteredFavorites.sort{$0.name <= $1.name}
+        filteredRecipes.sort{$0.name <= $1.name}
+        
         
         dropDownButton.setTitle("Sort recipe by...", for: .normal)
         dropDownButton.layer.cornerRadius = 7
@@ -167,9 +200,9 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     func numberOfSections(in tableView: UITableView) -> Int {
         if tableView == recipeList {
             if (index == 0) {
-                return favorites.count
+                return filteredFavorites.count
             } else {
-                return recipes.count
+                return filteredRecipes.count
             }
         } else {
             return 1
@@ -221,10 +254,10 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
         if tableView == recipeList {
             let recipeCell = Bundle.main.loadNibNamed("RecipeTableViewCell", owner: self, options: nil)?.first as! RecipeTableViewCell
         
-            var tempList = self.favorites
+            var tempList = self.filteredFavorites
         
             if (index == 1) {
-                tempList = recipes
+                tempList = filteredRecipes
             }
         
             let curRecipe = tempList[indexPath.section]
