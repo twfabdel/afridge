@@ -78,10 +78,7 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         
         let food = filteredItems[i]
         cell.isNewItemCell = false
-        cell.food = food
-        cell.name.text = food.name
-        
-        cell.itemImageButton.setImage(UIImage(named: "spaghetti-pie"), for: .normal)
+        cell.configureCell(foodItem: food, index: i)
         
         cell.itemImageButton.layer.borderWidth = cell.itemImageButton.frame.size.width / 15
         cell.itemImageButton.layer.borderColor = getBorderColor(food: food)
@@ -132,16 +129,13 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         let popUp = UIStoryboard(name: "Inventory", bundle: nil).instantiateViewController(withIdentifier: "inventoryDetailPopup") as! InventoryDetailPopupViewController
         
         popUp.foodItem = cell.food
+        popUp.listIndex = cell.listIndex
         self.addChildViewController(popUp)
         popUp.view.frame = self.view.frame
         self.view.addSubview(popUp.view)
         popUp.didMove(toParentViewController: self)
         
         popUp.parentView = self
-//        let food = cell.food
-//        popUp.itemName.text = food?.name
-//        popUp.amountLeft.text = (food?.amount)! + " remaining"
-//        popUp.daysLeft.text = "Expiring in \((food?.days)!) days"
     }
     
     func addItemToGrocery(name: String, amount: String) {
@@ -161,6 +155,12 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     
     func addItem(item: FoodItem) {
         Data.sharedData.inventoryItems.append(item)
+        self.fetchItems()
+        self.collectionView.reloadData()
+    }
+    
+    func editItem(item: FoodItem, index: Int) {
+        Data.sharedData.inventoryItems[index] = item
         self.fetchItems()
         self.collectionView.reloadData()
     }

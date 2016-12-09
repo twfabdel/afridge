@@ -17,7 +17,10 @@ class NewItemPopupViewController: UIViewController {
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var expirationTextField: UITextField!
     
+    @IBOutlet weak var header: UILabel!
+    
     var editItem = false
+    var listIndex: Int?
     var parentView: InventoryViewController?
     
     override func viewDidLoad() {
@@ -31,8 +34,15 @@ class NewItemPopupViewController: UIViewController {
         if editItem {
             self.addBtn.layer.backgroundColor = #colorLiteral(red: 0.2867610455, green: 0.544103384, blue: 0.758836031, alpha: 1).cgColor
             self.addBtn.setTitle("Done", for: .normal)
+            self.header.text = "Edit Item"
         }
 
+    }
+    
+    func setTextBoxes(food: FoodItem) {
+        self.itemTextField.text = food.name
+        self.amountTextField.text = food.amount
+        self.expirationTextField.text = String(food.days)
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,7 +68,12 @@ class NewItemPopupViewController: UIViewController {
         }
         
         let newItem = FoodItem(name: item!, amount: amount!, days: Int(days!)!)
-        self.parentView?.addItem(item: newItem!)
+        
+        if editItem {
+            self.parentView?.editItem(item: newItem!, index: self.listIndex!)
+        } else {
+            self.parentView?.addItem(item: newItem!)
+        }
         self.view.removeFromSuperview()
     }
 

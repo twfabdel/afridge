@@ -520,6 +520,7 @@ Expiration:</string>
                         <outlet property="addBtn" destination="yKk-AG-r8L" id="NQP-7v-i0O"/>
                         <outlet property="amountTextField" destination="ApJ-QC-ozD" id="3oj-8k-VQT"/>
                         <outlet property="expirationTextField" destination="Rz8-rE-BnS" id="Ig3-d2-XTd"/>
+                        <outlet property="header" destination="w7i-oq-AHP" id="P09-hf-Dnu"/>
                         <outlet property="itemTextField" destination="DPm-qt-Vmz" id="zfW-Ac-xAf"/>
                         <outlet property="popUp" destination="Llu-KB-XKt" id="Ka2-vE-sSc"/>
                     </connections>

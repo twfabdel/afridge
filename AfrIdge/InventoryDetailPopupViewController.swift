@@ -20,6 +20,7 @@ class InventoryDetailPopupViewController: UIViewController {
     @IBOutlet weak var deleteBtn: UIButton!
     
     var foodItem: FoodItem?
+    var listIndex: Int?
     var parentView: InventoryViewController?
 
     override func viewDidLoad() {
@@ -44,9 +45,7 @@ class InventoryDetailPopupViewController: UIViewController {
         
         self.editBtn.layer.masksToBounds = true
         self.deleteBtn.layer.masksToBounds = true
-        
-
-        // Do any additional setup after loading the view.
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,7 +68,6 @@ class InventoryDetailPopupViewController: UIViewController {
    
     @IBAction func addToGrocery(_ sender: UIButton) {
         self.parentView?.addItemToGrocery(name: self.itemName.text!, amount: self.amountLeft.text!)
-        //self.addToGroceryBtn = CGAffineTransformMakeScale(-1, 1)
         
         UIView.animate(withDuration: 0.5, animations: {
             self.addToGroceryBtn.transform = CGAffineTransform.identity.scaledBy(x: 0.5, y: 0.5)
@@ -84,14 +82,16 @@ class InventoryDetailPopupViewController: UIViewController {
         
         let popUp = UIStoryboard(name: "Inventory", bundle: nil).instantiateViewController(withIdentifier: "addItemPopup") as! NewItemPopupViewController
         
+        popUp.editItem = true
+        popUp.listIndex = self.listIndex
+        popUp.parentView = self.parentView
+        
         self.addChildViewController(popUp)
         popUp.view.frame = self.view.frame
         self.view.addSubview(popUp.view)
         popUp.didMove(toParentViewController: self)
         
-        popUp.editItem = true
-
-        popUp.parentView = self.parentView
+        popUp.setTextBoxes(food: self.foodItem!)
     }
     
 

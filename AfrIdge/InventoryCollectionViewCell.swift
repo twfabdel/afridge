@@ -12,15 +12,29 @@ class InventoryCollectionViewCell: UICollectionViewCell {
 
     
     @IBOutlet weak var name: UILabel!
-    //@IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemImageButton: UIButton!
     var delegate: InventoryViewController?
     var food: FoodItem?
     var isNewItemCell: Bool = false
+    var listIndex: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func configureCell(foodItem: FoodItem, index: Int) {
+        self.listIndex = index
+        self.food = foodItem
+        self.name.text = self.food!.name
+        
+        let img = UIImage(named: self.food!.name)
+        if img != nil {
+            self.itemImageButton.setImage(img, for: .normal)
+        } else {
+            self.itemImageButton.setImage(#imageLiteral(resourceName: "question_mark"), for: .normal)
+        }
+        
     }
     
     override func draw(_ rect: CGRect) {
