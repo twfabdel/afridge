@@ -21,7 +21,7 @@ class InventoryDetailPopupViewController: UIViewController {
     
 //    var foodItem: FoodItem?
 //    var listIndex: Int?
-    var cell: InventoryCollectionViewCell?
+    var foodItem: FoodItem?
     var parentView: InventoryViewController?
 
     override func viewDidLoad() {
@@ -50,7 +50,7 @@ class InventoryDetailPopupViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let foodItem = self.cell!.food!
+        let foodItem = self.foodItem!
         self.itemName.text = foodItem.name
         self.amountLeft.text = foodItem.amount + " remaining"
         self.daysLeft.text = "Expiring in \(foodItem.days) days"
@@ -83,7 +83,8 @@ class InventoryDetailPopupViewController: UIViewController {
     
     @IBAction func showEditItemPopup(_ sender: UIButton) {
         self.view.removeFromSuperview()
-        self.parentView?.showEditItemPopup(cell: self.cell!)
+        print(self.foodItem!.name + " in detail edit")
+        self.parentView?.showEditItemPopup(foodItem: self.foodItem!)
     }
     
     @IBAction func showDeletePopup(_ sender: UIButton) {
@@ -98,7 +99,7 @@ class InventoryDetailPopupViewController: UIViewController {
     }
     
     func deleteItem() {
-        self.parentView?.deleteItem(cell: self.cell!)
+        self.parentView?.deleteItem(foodItem: self.foodItem!)
         self.view.removeFromSuperview()
     }
     

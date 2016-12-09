@@ -124,13 +124,11 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         collectionView.reloadData()
     }
     
-    func showDetailPopup(cell: InventoryCollectionViewCell) {
+    func showDetailPopup(foodItem: FoodItem) {
         
         let popUp = UIStoryboard(name: "Inventory", bundle: nil).instantiateViewController(withIdentifier: "inventoryDetailPopup") as! InventoryDetailPopupViewController
         
-//        popUp.foodItem = cell.food
-//        popUp.listIndex = cell.listIndex
-        popUp.cell = cell
+        popUp.foodItem = foodItem
         self.addChildViewController(popUp)
         popUp.view.frame = self.view.frame
         self.view.addSubview(popUp.view)
@@ -160,28 +158,28 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         self.collectionView.reloadData()
     }
     
-    func showEditItemPopup(cell: InventoryCollectionViewCell) {
+    func showEditItemPopup(foodItem: FoodItem) {
         let popUp = UIStoryboard(name: "Inventory", bundle: nil).instantiateViewController(withIdentifier: "addItemPopup") as! NewItemPopupViewController
         
         popUp.editItem = true
-        popUp.cell = cell
+        popUp.foodItem = foodItem
         popUp.parentView = self
         self.addChildViewController(popUp)
         popUp.view.frame = self.view.frame
         self.view.addSubview(popUp.view)
         popUp.didMove(toParentViewController: self)
         
-        popUp.setTextBoxes(food: (cell.food)!)
+        popUp.setTextBoxes(food: foodItem)
     }
     
-    func editItem(item: FoodItem, index: Int) {
-        Data.sharedData.inventoryItems[index] = item
+    func editItem(newItem: FoodItem, oldItem: FoodItem) {
+        Data.sharedData.editInventoryItem(newItem: newItem, oldItem: oldItem)
         self.fetchItems()
         self.collectionView.reloadData()
     }
     
-    func deleteItem(cell: InventoryCollectionViewCell) {
-        Data.sharedData.deleteInventoryItem(item: cell.food!)
+    func deleteItem(foodItem: FoodItem) {
+        Data.sharedData.deleteInventoryItem(item: foodItem)
         self.fetchItems()
         self.collectionView.reloadData()
     }

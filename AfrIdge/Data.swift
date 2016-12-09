@@ -26,7 +26,17 @@ class Data {
     func deleteInventoryItem(item: FoodItem) {
         for i in 0...self.inventoryItems.count - 1 {
             if self.inventoryItems[i] == item {
+                print(self.inventoryItems[i].name + " and " + item.name + " to be removed")
                 self.inventoryItems.remove(at: i)
+                return
+            }
+        }
+    }
+    
+    func editInventoryItem(newItem: FoodItem, oldItem: FoodItem) {
+        for i in 0...self.inventoryItems.count - 1 {
+            if self.inventoryItems[i] == oldItem {
+                self.inventoryItems[i] = newItem
                 return
             }
         }

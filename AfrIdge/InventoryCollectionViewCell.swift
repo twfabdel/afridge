@@ -45,7 +45,7 @@ class InventoryCollectionViewCell: UICollectionViewCell {
         if self.isNewItemCell {
             self.delegate?.showAddItemPopup()
         } else {
-            self.delegate?.showDetailPopup(cell: self)
+            self.delegate?.showDetailPopup(foodItem: self.food!)
         }
     }
 }
