@@ -77,6 +77,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         recipeScroll.setContentOffset(CGPoint.zero, animated: false)
+        self.ingredientListView.delaysContentTouches = false
     }
     
     override func viewDidLoad() {

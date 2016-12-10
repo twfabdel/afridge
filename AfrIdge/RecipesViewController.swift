@@ -188,6 +188,8 @@ class RecipesViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboard()
+        self.dropDownTableView.delaysContentTouches = false
+        self.recipeList.delaysContentTouches = false
         // Do any additional setup after loading the view.
     }
 
