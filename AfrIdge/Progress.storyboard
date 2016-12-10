@@ -34,8 +34,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qvp-QX-PQQ">
-                                <rect key="frame" x="0.0" y="124" width="375" height="393"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Qvp-QX-PQQ">
+                                <rect key="frame" x="0.0" y="94" width="375" height="423"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="gti-oY-ilX">
                                         <rect key="frame" x="28" y="0.0" width="319" height="23.5"/>
@@ -55,12 +55,12 @@
                                         </subviews>
                                     </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="progress-img" translatesAutoresizingMaskIntoConstraints="NO" id="hQi-AL-pyq">
-                                        <rect key="frame" x="0.0" y="33.5" width="375" height="359.5"/>
+                                        <rect key="frame" x="0.0" y="43.5" width="375" height="379.5"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Woah, we've made big progress this month! Keep it up!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEw-fT-hYf">
-                                <rect key="frame" x="16" y="543" width="343" height="104"/>
+                                <rect key="frame" x="16" y="533" width="343" height="104"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -71,8 +71,8 @@
                             <constraint firstAttribute="trailing" secondItem="Qvp-QX-PQQ" secondAttribute="trailing" id="3ET-F4-cWX"/>
                             <constraint firstItem="dil-cd-AWS" firstAttribute="top" secondItem="uHR-9c-ve6" secondAttribute="bottom" id="Co8-MX-TaW"/>
                             <constraint firstItem="Qvp-QX-PQQ" firstAttribute="leading" secondItem="41o-1c-aVK" secondAttribute="leading" id="OZo-cy-kCg"/>
-                            <constraint firstItem="Qvp-QX-PQQ" firstAttribute="top" secondItem="TEM-ks-e5F" secondAttribute="bottom" constant="60" id="PBx-sR-lFw"/>
-                            <constraint firstItem="WCh-lt-gpc" firstAttribute="top" secondItem="bEw-fT-hYf" secondAttribute="bottom" constant="20" id="Pdd-4p-NgN"/>
+                            <constraint firstItem="Qvp-QX-PQQ" firstAttribute="top" secondItem="TEM-ks-e5F" secondAttribute="bottom" constant="30" id="PBx-sR-lFw"/>
+                            <constraint firstItem="WCh-lt-gpc" firstAttribute="top" secondItem="bEw-fT-hYf" secondAttribute="bottom" constant="30" id="Pdd-4p-NgN"/>
                             <constraint firstItem="TEM-ks-e5F" firstAttribute="top" secondItem="41o-1c-aVK" secondAttribute="top" id="YRV-Kk-cuk"/>
                             <constraint firstItem="WCh-lt-gpc" firstAttribute="top" secondItem="Qvp-QX-PQQ" secondAttribute="bottom" constant="150" id="YqK-lH-yxA"/>
                             <constraint firstItem="bEw-fT-hYf" firstAttribute="trailing" secondItem="41o-1c-aVK" secondAttribute="trailingMargin" id="d4D-4U-rej"/>
