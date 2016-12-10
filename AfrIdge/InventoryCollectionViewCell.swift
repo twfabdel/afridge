@@ -35,7 +35,7 @@ class InventoryCollectionViewCell: UICollectionViewCell {
             self.itemImageButton.setImage(nil, for: .normal)
             let str = self.food!.name
             let i = str.index(str.startIndex, offsetBy: 1)
-            self.itemImageButton.setTitle(str.substring(to: i), for:.normal)
+            self.itemImageButton.setTitle(str.substring(to: i).uppercased(), for:.normal)
         }
         
     }
